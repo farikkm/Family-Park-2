@@ -1,0 +1,834 @@
+{
+  "objects": {
+    "floor_1_1": {
+      "name": "1.01",
+      "title": "ALIBI",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_1_2": {
+      "name": "Mark\nFormelle",
+      "title": "Mark Formelle",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_1_3": {
+      "name": "1.03",
+      "title": "Art Fashion Hamida inoyatova",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "3"
+    },
+    "floor_1_4": {
+      "name": "1.04",
+      "title": "Aureya",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "4"
+    },
+    "floor_1_5": {
+      "name": "Super Market",
+      "title": "Super Market",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "5"
+    },
+    "floor_1_6": {
+      "name": "1.06",
+      "title": "Uno sport",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "6"
+    },
+    "floor_1_7": {
+      "name": "Urban\ntoys",
+      "title": "Urban toys",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_8": {
+      "name": "1.08",
+      "title": "Swiss Arabian",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_9": {
+      "name": "1.09",
+      "title": "Master Premium",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_10": {
+      "name": "1.10",
+      "title": "For home Le Milo",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_11": {
+      "name": "BV Parume",
+      "title": "BV Parfume",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_12": {
+      "name": "Media\npark",
+      "title": "Media park",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_13": {
+      "name": "Goodzone",
+      "title": "Goodzone",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_14": {
+      "name": "Samsung",
+      "title": "Samsung",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_15": {
+      "name": "Remont uz",
+      "title": "Remont uz",
+      "color": "ff00ff",
+      "category": "Услуги",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_16": {
+      "name": "Avax mobile",
+      "title": "Avax mobile",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_17": {
+      "name": "Brono house",
+      "title": "Brono house",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_18": {
+      "name": "1.18",
+      "title": "Kitob Olami",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_19": {
+      "name": "1.19",
+      "title": "Craft Ego",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_21": {
+      "name": "The buzz",
+      "title": "The buzz",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_22": {
+      "name": "Ice Arena",
+      "title": "Ice Arena",
+      "color": "ff00ff",
+      "category": "Развлевательный центр",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_23": {
+      "name": "Karting",
+      "title": "Karting",
+      "color": "ff00ff",
+      "category": "Развлевательный центр",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_24": {
+      "name": "Family Cinema",
+      "title": "Family Cinema",
+      "color": "ff00ff",
+      "category": "Развлевательный центр",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_26": {
+      "name": "1.26",
+      "title": "Eleven",
+      "color": "ff00ff",
+      "category": "Услуги",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_27": {
+      "name": "Magic travel",
+      "title": "Magic travel",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": "https://www.google.ru/",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_28": {
+      "name": "Trast bank",
+      "title": "Trast bank",
+      "color": "ff00ff",
+      "category": "Услуги",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_29": {
+      "name": "1.29",
+      "title": "TBC Bank",
+      "color": "ff00ff",
+      "category": "Услуги",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_30": {
+      "name": "ITicket",
+      "title": "ITicket",
+      "color": "ff00ff",
+      "category": "Услуги",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_1_31": {
+      "name": "Ucell",
+      "title": "Ucell",
+      "color": "ff00ff",
+      "category": "Услуги",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "7"
+    },
+    "floor_2_1": {
+      "name": "Indenim",
+      "title": "Indenim",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_2": {
+      "name": "LC Waikiki",
+      "title": "LC Waikiki",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_3": {
+      "name": "Vicenza",
+      "title": "Vicenza",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_4": {
+      "name": "La Yansaa",
+      "title": "La Yansaa",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_5": {
+      "name": "Selfie",
+      "title": "Selfie",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_6": {
+      "name": "Anaki",
+      "title": "Anaki",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_7": {
+      "name": "Ideal",
+      "title": "Ideal",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_8": {
+      "name": "Just",
+      "title": "Just",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_9": {
+      "name": "Altinyildiz",
+      "title": "Altinyildiz",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_10": {
+      "name": "Terra Pro",
+      "title": "Terra Pro",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_11": {
+      "name": "Kigili",
+      "title": "Kigili",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_12": {
+      "name": "Hajime\nTeen",
+      "title": "Hajime Teen",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_13": {
+      "name": "Pandora",
+      "title": "Pandora",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_14": {
+      "name": "Vinceri",
+      "title": "Vinceri",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_15": {
+      "name": "Gold Lion",
+      "title": "Gold Lion",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_16": {
+      "name": "N1Cases",
+      "title": "N1Cases",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_17": {
+      "name": "1.17",
+      "title": "Avax Mobile",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_18": {
+      "name": "Hajime\nShoes",
+      "title": "Hajime Shoes",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_19": {
+      "name": "1.19",
+      "title": "Khan Store",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_21": {
+      "name": "Barakat",
+      "title": "Barakat",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_22": {
+      "name": "Elysee\nParfume",
+      "title": "Elysee Parfume",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_24": {
+      "name": "Hills",
+      "title": "Hills",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_25": {
+      "name": "Victoria`s Secret",
+      "title": "Victoria`s Secret",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_26": {
+      "name": "Eclipse",
+      "title": "Eclipse",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_27": {
+      "name": "Buduar",
+      "title": "Buduar",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_28": {
+      "name": "Ice Arena",
+      "title": "Ice Arena",
+      "color": "ff00ff",
+      "category": "Развлевательный центр",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_30": {
+      "name": "Glo",
+      "title": "Glo",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_31": {
+      "name": "Iqos",
+      "title": "IQOS",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_2_33": {
+      "name": "Surprise",
+      "title": "Surprise",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_1": {
+      "name": "Play arena",
+      "title": "Play arena",
+      "color": "ff00ff",
+      "category": "Развлевательный центр",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_2": {
+      "name": "Family bowling",
+      "title": "Family Bowling",
+      "color": "ff00ff",
+      "category": "Развлевательный центр",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_3": {
+      "name": "Chicco",
+      "title": "Chicco",
+      "color": "ff00ff",
+      "category": "Магазин",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_4": {
+      "name": "Mini Gift",
+      "title": "Mini Gift",
+      "color": "ff00ff",
+      "category": "Развлевательный центр",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_5": {
+      "name": "Yapona Mama",
+      "title": "Yapona Mama",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_6": {
+      "name": "KFC",
+      "title": "KFC",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_7": {
+      "name": "T-Bone Pizza",
+      "title": "T-Bone Pizza",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_8": {
+      "name": "`    Bellissimo",
+      "title": "Bellissimo",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_9": {
+      "name": "Neapolli pizza",
+      "title": "Neapolli pizza",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_10": {
+      "name": "BBQ Burger",
+      "title": "BBQ Burger",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_11": {
+      "name": "Jasmin",
+      "title": "Jasmin",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_12": {
+      "name": "1.12",
+      "title": "Gosht",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_13": {
+      "name": "1.13",
+      "title": "Istanbul Turkish",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_14": {
+      "name": "Hajime Food",
+      "title": "Hajime Food",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_15": {
+      "name": "Burger & Co",
+      "title": "Burger & Co",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_16": {
+      "name": "Fratelli",
+      "title": "Fratelli",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "null",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_17": {
+      "name": "Loft Burger",
+      "title": "Loft Burger",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_18": {
+      "name": "Panorama",
+      "title": "Panorama",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_19": {
+      "name": "Giotto",
+      "title": "Giotto",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_20": {
+      "name": "Istambul\nBaklava",
+      "title": "Istambul Baklava",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "null",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_21": {
+      "name": "Chocolate",
+      "title": "Chocolate",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_22": {
+      "name": "Gustimo",
+      "title": "Gustimo",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_23": {
+      "name": "1.23",
+      "title": "Milk Shake",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_24": {
+      "name": "Fruktoza",
+      "title": "Fruktoza",
+      "color": "ff00ff",
+      "category": "Еда",
+      "link": "/market",
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    },
+    "floor_3_25": {
+      "name": "Reyastan",
+      "title": "Reyastan",
+      "color": "ff00ff",
+      "category": "Test",
+      "link": null,
+      "work-item": "10:00 - 23:00",
+      "logo": null,
+      "id": "1"
+    }
+  }
+}
