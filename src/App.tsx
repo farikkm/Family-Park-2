@@ -8,6 +8,7 @@ import HR from "./views/HR"
 import Tenant from "./views/Tenant"
 import LostItem from "./views/LostItem"
 import Map from "./views/Map"
+import FAQ from "./views/FAQ"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/hr" element={<HR />}></Route>
           <Route path="/tenant" element={<Tenant />}></Route>
           <Route path="/lost-item" element={<LostItem />}></Route>
+          <Route path="/faq" element={<FAQ />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

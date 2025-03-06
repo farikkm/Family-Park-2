@@ -9,11 +9,11 @@ interface Props {
 }
 
 const Accordion = ({ title, children, className, initialState }: Props) => {
-  const [isOpen, setIsOpen] = useState(initialState == 'open');
+  const [isOpen, setIsOpen] = useState(initialState == "open");
 
   return (
     <div
-      className={`accordion mt-5 py-7 bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl shadow-md shadow-black rounded-4xl md:px-5 ${className}`}
+      className={`accordion mt-5 py-7 bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl shadow-[0_3px_10px_rgba(0,0,0,0.5)] rounded-4xl md:px-5 ${className}`}
     >
       <div className="flex items-center justify-between px-3">
         <h2 className="text-3xl font-black uppercase drop-shadow-2xl bg-gradient-to-br from-[#6A6DBD] to-[#25254C] text-transparent bg-clip-text">
@@ -25,7 +25,9 @@ const Accordion = ({ title, children, className, initialState }: Props) => {
           onClick={() => setIsOpen(!isOpen)}
         >
           <img
-            className={`w-full h-full transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
+            className={`w-full h-full transition-transform duration-300 ${
+              isOpen ? "rotate-180" : "rotate-0"
+            }`}
             src="/icons/cinemaArrowDown.png"
             alt="cinema-arrow-down"
           />

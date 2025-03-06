@@ -106,14 +106,14 @@ const HR = () => {
         </span>
 
         {/* ===================== Почему наша компания? ===================== */}
-        <div className="mt-7 md:mt-12 py-7 md:max-w-[800px] md:mx-auto bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl shadow-md shadow-black rounded-4xl">
+        <div className="mt-7 md:mt-12 py-7 md:max-w-[800px] md:mx-auto bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl shadow-[0_3px_10px_rgba(0,0,0,0.5)] rounded-4xl">
           <h5 className="font-black text-center md:text-xl">
             Почему наша компания?
           </h5>
           <div className="flex flex-col gap-10 justify-center items-center mt-5 px-5">
             {whyOurCompanyItems.map((item) => (
               <div key={item.id} className="flex items-center gap-4">
-                <button className="block shadow-xs shadow-black py-2 px-4 min-w-[20px] rounded-[25px] text-3xl font-black text-white bg-gradient-to-br from-[#25254C] to-[#6A6DBD]">
+                <button className="block shadow-xs shadow-black py-2 px-4  min-w-[52px] rounded-[25px] text-3xl font-black text-white bg-gradient-to-br from-[#25254C] to-[#6A6DBD]">
                   {item.id}
                 </button>
                 <span>{item.text}</span>

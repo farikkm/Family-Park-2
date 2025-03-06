@@ -111,49 +111,49 @@ function Hero() {
 function Statistics() {
   return (
     <section id="statistics" className="z-20">
-      <div className="red-gradient statistics-top py-7 px-5 text-white md:pt-30">
-        <h2 className="text-4xl max-w-sm  mx-auto text-center md:max-w-full">
+      <div className="red-gradient statistics-top py-7 px-5 text-white md:pt-30 3xl:pt-35 3xl:pb-15 ">
+        <h2 className="text-4xl 3xl:text-5xl max-w-sm  mx-auto text-center md:max-w-full">
           ОТКРОЙТЕ <span className="font-black">МИР РАЗВЛЕЧЕНИЙ</span> ТОЛЬКО{" "}
           <span className="font-black">У НАС</span>
         </h2>
         <div className="grid grid-cols-2 gap-4 mt-4 md:mt-8 md:max-w-4xl md:mx-auto md:grid-cols-4">
           <div>
-            <h3 className="text-4xl font-bold md:font-black md:mb-2 md:text-5xl">
+            <h3 className="text-4xl 3xl:text-6xl font-bold md:font-black md:mb-2 md:text-5xl">
               80+{" "}
             </h3>
-            <span className="text-sm font-normal md:text-md">
+            <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
               Магазинов, ресторанов и развлечений
             </span>
           </div>
           <div>
-            <h3 className="text-4xl font-bold md:font-black md:mb-2 md:text-5xl">
+            <h3 className="text-4xl 3xl:text-6xl font-bold md:font-black md:mb-2 md:text-5xl">
               10+{" "}
             </h3>
-            <span className="text-sm font-normal md:text-md">
+            <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
               Развлекательных точек
             </span>
           </div>
           <div className="hidden md:block">
-            <h3 className="text-4xl font-bold md:font-black md:mb-2 md:text-5xl">
+            <h3 className="text-4xl 3xl:text-6xl font-bold md:font-black md:mb-2 md:text-5xl">
               20+{" "}
             </h3>
-            <span className="text-sm font-normal md:text-md">
+            <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
               Мировых брендов{" "}
             </span>
           </div>
           <div className="hidden md:block md:max-w-[300px]">
-            <span className="text-sm font-normal md:text-md">
+            <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
               Хотите быть всегда на стиле? Крупные мировые бренды отлично
               подберут вам лук на сезон!
             </span>
           </div>
         </div>
       </div>
-      <div className="statistics-bottom my-4 md:my-9 grid grid-cols-2 max-w-[400px] md:max-w-[800px] md:h-80 md:mt-15 mx-auto rounded-4xl overflow-hidden *:text-white">
+      <div className="statistics-bottom my-4 md:my-9 grid grid-cols-2 max-w-[400px] md:max-w-[800px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-80 md:mt-15 mx-auto rounded-4xl overflow-hidden *:text-white">
         <div className="relative p-3 pr-10 bg-[#FD7824] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1">Развлечения</h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px]">
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения</h2>
+            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
             </p>
@@ -166,8 +166,8 @@ function Statistics() {
         </div>
         <div className="relative p-3 pr-10 bg-[#CF3559] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1">Развлечения</h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px]">
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения</h2>
+            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
             </p>
@@ -180,8 +180,8 @@ function Statistics() {
         </div>
         <div className="relative p-3 pr-10 bg-[#8A6ABD] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1">Развлечения</h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px]">
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения</h2>
+            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
             </p>
@@ -194,8 +194,8 @@ function Statistics() {
         </div>
         <div className="relative p-3 pr-10 bg-[#186E85] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1">Развлечения </h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px]">
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения </h2>
+            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
             </p>

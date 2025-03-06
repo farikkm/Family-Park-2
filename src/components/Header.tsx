@@ -3,6 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Transitionable from "@/components/ui/Transitionable";
 import SearchInput from "@/components/header/SearchInput";
+import i18n from "@/i18n";
+
+const locales = {
+  en: { title: "EN" },
+  ru: { title: "RU" },
+  uz: { title: "UZ" },
+};
 
 const showInput = (elem: HTMLInputElement | null) => {
   if (!elem) return; // Проверка на null
@@ -97,9 +104,17 @@ const Header = ({
                 iconState || icons === "white" ? "text-white" : "text-black"
               }`}
             >
-              <span className="font-bold text-lg text-[#7878FF]">RU</span>
-              <span className="font-bold text-lg">EN</span>
-              <span className="font-bold text-lg">UZ</span>
+              {Object.keys(locales).map((locale) => (
+                <span
+                  key={locale}
+                  className={`font-bold text-lg ${
+                    i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
+                  }`}
+                  onClick={() => i18n.changeLanguage(locale)}
+                >
+                  {locales[locale as keyof typeof locales].title}
+                </span>
+              ))}
             </div>
             <div>
               <form id="header-search" className="flex items-center relative">
@@ -136,10 +151,7 @@ const Header = ({
           </div>
           <Link to="/">
             <AnimatePresence mode="wait">
-              <Transitionable
-                key={iconState.toString()}
-                rotatable
-              >
+              <Transitionable key={iconState.toString()} rotatable>
                 {iconState || icons === "white" ? (
                   <img
                     className="w-25"
@@ -335,13 +347,20 @@ const Modal = ({
             </div>
             {/* ========================= BOTTOM-LINKS ============================ */}
             <div className="mt-10 flex flex-col gap-3 *:text-3xl text-[#C83053] font-bold *:cursor-pointer">
-              <Link to='/hr' onClick={closeMenu}>Работа в Family Park</Link>
-              <Link to='/lost-item' onClick={closeMenu}>Потерянные вещи</Link>
+              <Link to="/hr" onClick={closeMenu}>
+                Работа в Family Park
+              </Link>
+              <Link to="/lost-item" onClick={closeMenu}>
+                Потерянные вещи
+              </Link>
             </div>
             <div className="mt-5 flex flex-col gap-3 *:cursor-pointer">
               <span>Правила посетителя</span>
               <span>Правила парковки</span>
               <span>Правила размещения рекламы</span>
+              <Link to="/faq" onClick={closeMenu}>
+                Часто задаваемые вопросы
+              </Link>
             </div>
           </div>
           {/* ========================= ADDITIONAL INFO  ============================ */}

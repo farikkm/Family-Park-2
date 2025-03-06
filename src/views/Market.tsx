@@ -15,6 +15,8 @@ const Market = () => {
 
   let isMobile = isMobileUtil()
 
+  // const {request} = useHttp()
+
   return (
     <>
       <Header icons="white" />
