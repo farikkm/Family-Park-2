@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import isMobileUtil from "@/utils";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Title from "@/components/ui/Title";
 
 const LostItem = () => {
   let isMobile = isMobileUtil();
@@ -12,60 +13,49 @@ const LostItem = () => {
   return (
     <>
       <Header icons="white" />
-      <div
-        id="lost-item"
-        className="pb-20 px-5 relative pt-30 md:px-35"
-      >
+      <div id="lost-item" className="pb-20 px-5 relative pt-30 md:px-35">
         <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
         <div className="*:text-white">
-          <h2 className="text-4xl font-black md:text-6xl md:max-w-4xl">
-            ПОТЕРЯЛИ ЧТО-ТО ВАЖНОЕ
-          </h2>
+          <Title className="max-w-[800px]" text="ПОТЕРЯЛИ ЧТО-ТО ВАЖНОЕ" />
           <p className="text-2xl mt-3 font-light md:text-3xl md:mt-5">
             Заполните небольшую форму и мы свяжемся с вами
           </p>
         </div>
-        <div className="mt-15 md:mt-10 md:max-w-5xl md:mx-auto">
+        <div className="mt-5 md:mt-0 flex justify-center">
           <form
-            className="p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl shadow-md shadow-black rounded-4xl"
+            className="w-full max-w-[800px] p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
             action="#"
           >
-            <div className="md:grid md:grid-cols-2 md:gap-5">
+            <div>
               <div>
-                <h3 className="uppercase font-bold mb-2">Ваш бизнес:</h3>
-                <label className="flex flex-col mb-3" htmlFor="first-label">
+                <h3 className="uppercase font-bold mb-2">
+                  Ваши контактные данные:
+                </h3>
+                <label className="flex flex-col mb-3" htmlFor="second-label">
                   <span className="text-[#858585] font-bold">
-                    Торговый профиль
-                  </span>
-                  <select
-                    className="*:font-thin py-2 border-b"
-                    id="first-label"
-                  >
-                    <option value="Магазин">Магазин</option>
-                    <option value="Магазин">Акция</option>
-                    <option value="Магазин">Продукты</option>
-                    <option value="Магазин">Арендаторы</option>
-                  </select>
-                </label>
-                <label
-                  className="hidden flex-col mb-3 md:flex"
-                  htmlFor="second-label"
-                >
-                  <span className="text-[#858585] font-bold">
-                    Желаемая площадь
+                    Имя контактного лица
                   </span>
                   <input
+                    placeholder="Цыркач Виталий Владиленович"
                     className="*:font-thin py-1 border-b"
                     type="text"
                     id="second-label"
                   />
                 </label>
-                <label
-                  className="hidden flex-col mb-3 md:flex"
-                  htmlFor="third-label"
-                >
+                <label className="flex flex-col mb-3" htmlFor="second-label">
                   <span className="text-[#858585] font-bold">
-                    Название бренда/компании
+                    Телефон
+                  </span>
+                  <input
+                    placeholder="+998 -- --- -- -- "
+                    className="*:font-thin py-1 border-b"
+                    type="text"
+                    id="second-label"
+                  />
+                </label>
+                <label className="flex flex-col mb-3" htmlFor="third-label">
+                  <span className="text-[#858585] font-bold">
+                    Что потеряли:
                   </span>
                   <input
                     className="*:font-thin py-1 border-b"
@@ -74,13 +64,13 @@ const LostItem = () => {
                   />
                 </label>
               </div>
-              <div className="md:block hidden">
+              <div>
                 <h3 className="uppercase font-bold mb-2">
-                  Ваши контактные данные:
+                  Дополнительная информация:
                 </h3>
                 <label className="flex flex-col mb-3" htmlFor="fourth-label">
                   <span className="text-[#858585] font-bold">
-                    Имя контактного лица
+                    Где вы находились?
                   </span>
                   <input
                     className="*:font-thin py-1 border-b"
@@ -89,7 +79,7 @@ const LostItem = () => {
                   />
                 </label>
                 <label className="flex flex-col mb-3" htmlFor="fifth-label">
-                  <span className="text-[#858585] font-bold">Почта</span>
+                  <span className="text-[#858585] font-bold">Время потери</span>
                   <input
                     className="*:font-thin py-1 border-b"
                     type="text"
@@ -97,7 +87,7 @@ const LostItem = () => {
                   />
                 </label>
                 <label className="flex flex-col mb-3" htmlFor="sixth-label">
-                  <span className="text-[#858585] font-bold">Телефон</span>
+                  <span className="text-[#858585] font-bold">Комментарий:</span>
                   <input
                     className="*:font-thin py-1 border-b"
                     type="text"
@@ -106,23 +96,11 @@ const LostItem = () => {
                   />
                 </label>
               </div>
-            </div>
-            <div className="flex justify-center mt-10">
-              {isMobile ? (
-                <Link
-                  to="/lost-item"
-                  className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold"
-                >
+              <div className="flex justify-center mt-10">
+                <button className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold">
                   ОТПРАВИТЬ
-                </Link>
-              ) : (
-                <Link
-                  to="/"
-                  className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold"
-                >
-                  ОТПРАВИТЬ
-                </Link>
-              )}
+                </button>
+              </div>
             </div>
           </form>
         </div>

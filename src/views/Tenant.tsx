@@ -18,7 +18,7 @@ const Tenant = () => {
         </div>
         <div className="mt-5 md:mt-0 flex justify-center">
           <form
-            className="w-full max-w-[800px] p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl shadow-md shadow-black rounded-4xl"
+            className="w-full max-w-[800px] p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
             action="#"
           >
             <div>
