@@ -14,7 +14,7 @@ interface QuestionType {
 
 const FAQ = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
   const [questions, setQuestions] = useState<QuestionType[]>([])
 
   const {request} = useHttp()
