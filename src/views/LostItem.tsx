@@ -14,7 +14,7 @@ const LostItem = () => {
       <Header icons="white" />
       <div
         id="lost-item"
-        className="pb-20 pt-5 px-5 relative md:pt-30 md:px-35"
+        className="pb-20 px-5 relative pt-30 md:px-35"
       >
         <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
         <div className="*:text-white">

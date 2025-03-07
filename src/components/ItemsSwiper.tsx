@@ -11,7 +11,7 @@ import CatalogItem from "./CatalogItem";
 
 const ItemsSwiper = () => {
   return (
-    <div className="hidden md:block relative md:mt-20 w-full max-w-6xl mx-auto">
+    <div className="hidden md:block relative md:mt-20 w-full max-w-6xl 3xl:max-w-[1500px] mx-auto">
       <Swiper
         modules={[Navigation, Pagination, EffectCoverflow]}
         navigation={{
@@ -23,11 +23,6 @@ const ItemsSwiper = () => {
         centeredSlides={true}
         slidesPerView={3}
         spaceBetween={100}
-        breakpoints={{
-          1024: {
-            slidesPerView: 3,
-          },
-        }}
         coverflowEffect={{
           rotate: 0,
           stretch: 30,

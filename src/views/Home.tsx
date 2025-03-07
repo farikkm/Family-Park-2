@@ -21,6 +21,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ItemsSwiper from "@/components/ItemsSwiper";
 import isMobileUtil from "@/utils";
+import Title from "@/components/ui/Title";
+import Subtitle from "@/components/ui/Subtitle";
 
 
 // =================================== HOME PAGE =================================== //
@@ -219,12 +221,10 @@ function Shops() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <h2 className="text-5xl font-black uppercase md:text-7xl">
-            Магазины
-          </h2>
+          <Title text="Магазины"/>
           <Link
             to={"/catalog"}
-            className="inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl"
+            className="see-all"
           >
             Посмотреть все
           </Link>
@@ -251,10 +251,10 @@ function Foods() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <h2 className="text-5xl font-black uppercase md:text-7xl">Eда</h2>
+          <Title text="Еда" />
           <Link
             to={"/catalog"}
-            className="inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl"
+            className="see-all"
           >
             Посмотреть все
           </Link>
@@ -281,12 +281,10 @@ function Entartainments() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <h2 className="text-5xl font-black uppercase md:text-7xl">
-            Развлечения
-          </h2>
+          <Title text="Развлечения" />
           <Link
             to={"/catalog"}
-            className="inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl"
+            className="see-all"
           >
             Посмотреть все
           </Link>
@@ -313,10 +311,10 @@ function EventsSection() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <h2 className="text-5xl font-black uppercase md:text-7xl">События</h2>
+          <Title text="События" />
           <Link
             to={"/catalog"}
-            className="inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl"
+            className="see-all"
           >
             Посмотреть все
           </Link>
@@ -343,12 +341,10 @@ function Sales() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <h2 className="text-5xl font-black uppercase md:text-7xl">
-            Акции и скидки
-          </h2>
+          <Title text="Акции и скидки"/>
           <Link
             to={"/catalog"}
-            className="inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl"
+            className="see-all"
           >
             Посмотреть все
           </Link>
@@ -374,26 +370,22 @@ function Tenant() {
     <div id="tenant" className="pb-20 pt-5 px-5 relative md:pt-30 md:px-35">
       <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
       <div className="*:text-white">
-        <h2 className="text-4xl font-black md:text-6xl md:max-w-4xl">
-          ХОТИТЕ СТАТЬ НАШИМ АРЕНДАТОРОМ?
-        </h2>
-        <p className="text-2xl mt-3 font-light md:text-3xl md:mt-5">
-          Будьте в курсе мировых премьер в нашем кинопрокате!
-        </p>
+        <Title className="uppercase!" text="ХОТИТЕ СТАТЬ НАШИМ АРЕНДАТОРОМ?" />
+        <Subtitle text="Будьте в курсе мировых премьер в нашем кинопрокате!"/>
       </div>
-      <div className="mt-15 md:mt-10 md:max-w-5xl md:mx-auto">
+      <div className="mt-15 md:mt-10 md:max-w-4xl 3xl:max-w-5xl md:mx-auto">
         <form
-          className="p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl shadow-md shadow-black rounded-4xl"
+          className="p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
           action="#"
         >
           <div className="md:grid md:grid-cols-2 md:gap-5">
             <div>
-              <h3 className="uppercase font-bold mb-2">Ваш бизнес:</h3>
+              <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-xl">Ваш бизнес:</h3>
               <label className="flex flex-col mb-3" htmlFor="first-label">
-                <span className="text-[#858585] font-bold">
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
                   Торговый профиль
                 </span>
-                <select className="*:font-thin py-2 border-b" id="first-label">
+                <select className="*:font-thin py-2 border-b 3xl:text-lg" id="first-label">
                   <option value="Магазин">Магазин</option>
                   <option value="Магазин">Акция</option>
                   <option value="Магазин">Продукты</option>
@@ -404,7 +396,7 @@ function Tenant() {
                 className="hidden flex-col mb-3 md:flex"
                 htmlFor="second-label"
               >
-                <span className="text-[#858585] font-bold">
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
                   Желаемая площадь
                 </span>
                 <input
@@ -417,7 +409,7 @@ function Tenant() {
                 className="hidden flex-col mb-3 md:flex"
                 htmlFor="third-label"
               >
-                <span className="text-[#858585] font-bold">
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
                   Название бренда/компании
                 </span>
                 <input
@@ -428,11 +420,11 @@ function Tenant() {
               </label>
             </div>
             <div className="md:block hidden">
-              <h3 className="uppercase font-bold mb-2">
+              <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-lg">
                 Ваши контактные данные:
               </h3>
               <label className="flex flex-col mb-3" htmlFor="fourth-label">
-                <span className="text-[#858585] font-bold">
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
                   Имя контактного лица
                 </span>
                 <input
@@ -442,7 +434,7 @@ function Tenant() {
                 />
               </label>
               <label className="flex flex-col mb-3" htmlFor="fifth-label">
-                <span className="text-[#858585] font-bold">Почта</span>
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">Почта</span>
                 <input
                   className="*:font-thin py-1 border-b"
                   type="text"
@@ -450,7 +442,7 @@ function Tenant() {
                 />
               </label>
               <label className="flex flex-col mb-3" htmlFor="sixth-label">
-                <span className="text-[#858585] font-bold">Телефон</span>
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">Телефон</span>
                 <input
                   className="*:font-thin py-1 border-b"
                   type="text"
@@ -471,7 +463,7 @@ function Tenant() {
             ) : (
               <Link
                 to="/"
-                className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold"
+                className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold text-sm 3xl:text-xl"
               >
                 ОТПРАВИТЬ
               </Link>

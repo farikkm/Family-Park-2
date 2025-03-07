@@ -106,7 +106,7 @@ const HR = () => {
         </span>
 
         {/* ===================== Почему наша компания? ===================== */}
-        <div className="mt-7 md:mt-12 py-7 md:max-w-[800px] md:mx-auto bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl shadow-[0_3px_10px_rgba(0,0,0,0.5)] rounded-4xl">
+        <div className="mt-12 py-7 md:max-w-[800px] md:mx-auto bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl">
           <h5 className="font-black text-center md:text-xl">
             Почему наша компания?
           </h5>

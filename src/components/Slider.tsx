@@ -98,7 +98,7 @@ const Slider = ({ sections }: Props) => {
         </div>
       )}
 
-      <Button onClick={scrollToTop} className="hidden md:block fixed bottom-7 right-8 px-4! w-14 h-14 z-6 active:scale-110" bg="blue">
+      <Button onClick={scrollToTop} className="hidden md:block fixed bottom-7 right-8 px-4! w-14 h-14 z-6 3xl:w-18 3xl:px-6! 3xl:h-18 3xl:rounded-[50px] active:scale-110" bg="blue">
         <img src="/icons/btnArrowUp.png" alt="btn-arrow-up" />
       </Button>
     </>

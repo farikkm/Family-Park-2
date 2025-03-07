@@ -8,6 +8,14 @@
   @apply bg-gradient-to-br from-[#FA557B] to-[#BB2649];
 }
 
+.see-all {
+  @apply inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl 3xl:py-4 3xl:px-5 3xl:text-lg
+}
+
+.light-shadow {
+  @apply shadow-[0_3px_10px_rgba(0,0,0,0.5)]
+}
+
 @theme {
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;
