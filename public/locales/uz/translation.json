@@ -1,0 +1,27 @@
+{
+  "home": {
+    "button1": "yo'qolgan narsalar",
+    "button2": "Family Parkda ishlash",
+    "header": {
+      "searchInput": "Izlash",
+      "links": {
+        "concerts": "Konsertlar va tadbirlar",
+        "map": "Savdo markazi xaritasi",
+        "shops": "Do'konlar",
+        "food": "Oziq-ovqat",
+        "entertainment": "O'yin-kulgi va xizmatlar",
+        "sales": "Aktsiyalar va chegirmalar",
+        "tenant": "Ijarachilar uchun"
+      }
+    },
+    "hero": {
+      "title1": "Bu joy,",
+      "title2": "Siz sevilasiz",
+      "subtitle": "Samarqanddagi eng yirik savdo majmuasi. Siz va yaqinlaringiz hissiyotlar bo'roni va unutilmas kunlarga ega bo'ladigan joy, faqat biz bilan OILAVIY PARKda!"
+    }
+  },
+  "faq": {
+    "title": "Tez-tez beriladigan savollar",
+    "subtitle": "Tez-tez beriladigan savollarga javob toping"
+  }
+}

@@ -1,11 +1,8 @@
 import Header from "@/components/Header";
-import isMobileUtil from "@/utils";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Title from "@/components/ui/Title";
 
 const LostItem = () => {
-  let isMobile = isMobileUtil();
   useEffect(() => {
     document.body.removeAttribute("style");
   }, []);

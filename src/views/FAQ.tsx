@@ -3,6 +3,7 @@ import Accordion from "@/components/ui/Accordion";
 import Subtitle from "@/components/ui/Subtitle";
 import Title from "@/components/ui/Title";
 import { useHttp } from "@/hooks/useHttp";
+import { getCurrentLng } from "@/utils/language";
 import { useEffect, useState, Suspense } from "react";
 
 import { useTranslation } from "react-i18next";
@@ -14,15 +15,15 @@ interface QuestionType {
 
 const FAQ = () => {
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [questions, setQuestions] = useState<QuestionType[]>([])
 
   const {request} = useHttp()
 
   useEffect(() => {
     document.body.removeAttribute("style");
-    request(`${apiBaseUrl}/additional/faq/`, "GET", null, { "Accept-Language": 'ru' }).then(res => setQuestions(res))
-  }, []);
+    request(`${apiBaseUrl}/additional/faq/`, "GET", null, { "Accept-Language": `${i18n.resolvedLanguage}` }).then(res => setQuestions(res))
+  }, [getCurrentLng]);
   return (
     <>
       <Header icons="white" />
@@ -30,8 +31,8 @@ const FAQ = () => {
       <div id="cinema" className="relative pt-30 px-5 md:px-30 mb-10">
         <div className="blue-gradient absolute left-0 top-0 w-full h-105 -z-1" />
 
-        <Title text="Часто задаваемые вопросы" />
-        <Subtitle text="Узнайте ответы на часто задаваемые вопросы" />
+        <Title text={t("faq.title")} />
+        <Subtitle text={t("faq.subtitle")} />
 
         {/* ========================================== Сеансы ========================================== */}
         <div className="w-full flex justify-center">
@@ -40,11 +41,11 @@ const FAQ = () => {
               <div className="mt-5 flex flex-col gap-5 px-3">
                 {questions.map((question, index) => (
                   <p key={index}>
-                    <span>{ question.author_faq }: {" "}</span>
+                    <strong>{ question.author_faq }: {" "}</strong>
                     <span>{ question.question_faq }</span>
-                    <span>{ t("home.button1") }</span>
                   </p>
                 ))}
+                <span>{ t("home.button1") }</span>
               </div>
             </Accordion>
 

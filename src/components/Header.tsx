@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Transitionable from "@/components/ui/Transitionable";
 import SearchInput from "@/components/header/SearchInput";
-import i18n from "@/i18n";
+import { useTranslation } from "react-i18next";
 
 const locales = {
-  en: { title: "EN" },
   ru: { title: "RU" },
+  en: { title: "EN" },
   uz: { title: "UZ" },
 };
 
@@ -35,6 +35,8 @@ const Header = ({
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
   const [iconState, setIconState] = useState(false);
+  const { i18n } = useTranslation();
+  const location = useLocation();
 
   const openMenu = () => {
     document.body.classList.add("lock");
@@ -52,7 +54,7 @@ const Header = ({
   useEffect(() => {
     const handleStorageChange = () => {
       const swiperIndex = Number(localStorage.getItem("swiperIndex")) || 0;
-      const isHomePage = window.location.pathname === "/";
+      const isHomePage = location.pathname === `/${i18n.language}/`;
       if (
         !(window.innerHeight < 700 || window.innerWidth < 768) &&
         isHomePage
@@ -65,7 +67,7 @@ const Header = ({
 
     const interval = setInterval(handleStorageChange, 500);
     return () => clearInterval(interval);
-  }, []);
+  }, [location.pathname, i18n.language]);
 
   // ===== Плавное открытие/закрытие поля input для поиска ===== //
   useEffect(() => {
@@ -110,7 +112,9 @@ const Header = ({
                   className={`font-bold text-lg ${
                     i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
                   }`}
-                  onClick={() => i18n.changeLanguage(locale)}
+                  onClick={() => {
+                    i18n.changeLanguage(locale);
+                  }}
                 >
                   {locales[locale as keyof typeof locales].title}
                 </span>
@@ -229,6 +233,8 @@ const Modal = ({
 }) => {
   const modal = useRef<HTMLDivElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const { t, i18n } = useTranslation();
+  const { lng } = useParams();
 
   const closeMenu = () => {
     document.body.classList.remove("lock");
@@ -285,9 +291,19 @@ const Modal = ({
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-10">
               <div className="hidden md:flex gap-2 items-center *:cursor-pointer">
-                <span className="font-bold text-lg text-[#7878FF]">RU</span>
-                <span className="font-bold text-lg">EN</span>
-                <span className="font-bold text-lg">UZ</span>
+                {Object.keys(locales).map((locale) => (
+                  <span
+                    key={locale}
+                    className={`font-bold text-lg ${
+                      i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
+                    }`}
+                    onClick={() => {
+                      i18n.changeLanguage(locale);
+                    }}
+                  >
+                    {locales[locale as keyof typeof locales].title}
+                  </span>
+                ))}
               </div>
               <form id="modal-search" className="flex items-center relative">
                 <img
@@ -317,32 +333,42 @@ const Modal = ({
           <div className="md:w-full">
             {/* ========================= LANGUAGES ============================ */}
             <div className="*:mr-2 md:hidden">
-              <span className="font-bold text-lg text-[#7878FF]">RU</span>
-              <span className="font-bold text-lg">EN</span>
-              <span className="font-bold text-lg">UZ</span>
+              {Object.keys(locales).map((locale) => (
+                <span
+                  key={locale}
+                  className={`font-bold text-lg ${
+                    i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
+                  }`}
+                  onClick={() => {
+                    i18n.changeLanguage(locale);
+                  }}
+                >
+                  {locales[locale as keyof typeof locales].title}
+                </span>
+              ))}
             </div>
             {/* ========================= LINKS ============================ */}
             <div className="header-menu-links inline-flex flex-col gap-5 text-[#25254C] *:text-3xl *:cursor-pointer mt-5 italic font-bold md:not-italic md:*:text-4xl">
-              <Link to="/catalog" onClick={closeMenu}>
-                Концерты и события
+              <Link to={`/${i18n.resolvedLanguage}/catalog`} onClick={closeMenu}>
+                {t("home.header.links.concerts")}
               </Link>
               <Link to="/map" onClick={closeMenu}>
-                Карта ТРЦ
+                {t("home.header.links.map")}
               </Link>
               <Link to="/catalog" onClick={closeMenu}>
-                Магазины
+                {t("home.header.links.shops")}
               </Link>
               <Link to="/catalog" onClick={closeMenu}>
-                Еда
+                {t("home.header.links.food")}
               </Link>
               <Link to="/catalog" onClick={closeMenu}>
-                Развлечения и услуги
+                {t("home.header.links.entertainment")}
               </Link>
               <Link to="/catalog" onClick={closeMenu}>
-                Акции и скидки
+                {t("home.header.links.sales")}
               </Link>
               <Link to="/tenant" onClick={closeMenu}>
-                Арендаторам
+                {t("home.header.links.tenant")}
               </Link>
             </div>
             {/* ========================= BOTTOM-LINKS ============================ */}
@@ -358,7 +384,7 @@ const Modal = ({
               <span>Правила посетителя</span>
               <span>Правила парковки</span>
               <span>Правила размещения рекламы</span>
-              <Link to="/faq" onClick={closeMenu}>
+              <Link to={`/${lng}/faq`} onClick={closeMenu}>
                 Часто задаваемые вопросы
               </Link>
             </div>

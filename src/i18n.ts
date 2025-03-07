@@ -8,14 +8,14 @@ i18n
   .use(LanguageDetector)
   .use(Backend)
   .init({
-    fallbackLng: "ru", // Убедись, что это соответствует папке в `public/locales`
-    lng: "ru", // Можно динамически менять
-    debug: true, // Включи для отладки
+    fallbackLng: "ru",
+    lng: "ru",
+    debug: true,
     interpolation: {
       escapeValue: false,
     },
     backend: {
-      loadPath: "/locales/{{lng}}/translation.json", // Убедись, что путь верный
+      loadPath: "/locales/{{lng}}/translation.json",
     },
   });
 

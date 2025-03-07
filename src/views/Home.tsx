@@ -23,14 +23,16 @@ import ItemsSwiper from "@/components/ItemsSwiper";
 import isMobileUtil from "@/utils";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
-
+import { useTranslation } from "react-i18next";
+import { Suspense } from "react";
 
 // =================================== HOME PAGE =================================== //
 
 const Home = () => {
   let sections;
+  const {t} = useTranslation()
   let isMobile = isMobileUtil();
-  
+
   if (isMobile) {
     sections = [Hero, Statistics, Shops, Tenant, Footer];
   } else {
@@ -46,7 +48,7 @@ const Home = () => {
       FooterDesktop,
     ];
   }
-  
+
   return (
     <>
       <Header className="bg-transparent!" />
@@ -54,11 +56,13 @@ const Home = () => {
         {sections && <Slider sections={sections} />}
       </main>
       <div className="buttons hidden md:flex fixed bottom-7 right-27 z-6  gap-3 *:w-[150px] 3xl:*:w-[200px] *:text-left *:active:scale-110">
-        <Link to='/lost-item'>
-          <Button className="3xl:text-[15px]">Потерянные вещи</Button>
+        <Link to="/lost-item">
+          <Button className="3xl:text-[15px]">{ t("home.button1") }</Button>
         </Link>
         <Link to="/hr">
-          <Button bg="blue" className="3xl:text-[15px]">Работа в Family Park</Button>
+          <Button bg="blue" className="3xl:text-[15px] px-2!">
+            { t("home.button2") }
+          </Button>
         </Link>
       </div>
     </>
@@ -68,6 +72,8 @@ const Home = () => {
 // =================================== SECTIONS =================================== //
 
 function Hero() {
+  const {t} = useTranslation()
+
   return (
     <>
       <section
@@ -94,15 +100,14 @@ function Hero() {
               className="hidden md:inline-block mb-7 pointer-events-none"
             />
             <span className="block 3xl:text-8xl 2xl:text-7xl text-6xl drop-shadow-2xl bg-gradient-to-br from-[#6A6DBD] to-[#25254C] text-transparent bg-clip-text">
-              Место где,
+              {t("home.hero.title1")}
             </span>
             <span className="bg-gradient-to-b 3xl:text-8xl 2xl:text-7xl text-6xl drop-shadow-2xl from-[#fa557b] to-[#bb2649] bg-clip-text text-transparent ml-[60px]">
-              Вас любят
+              {t("home.hero.title2")}
             </span>
           </h2>
           <p className="mt-5 md:mt-10 mb-8 text-sm md:text-xl 3xl:text-2xl md:max-w-[460px] 3xl:max-w-[600px] ">
-            Самый крупный ТРЦ в Самарканде. Место где вы и ваши близкие получите
-            бурю эмоций и незабываемые дни, только у нас в FAMILY PARK!
+            {t("home.hero.subtitle")}
           </p>
         </div>
       </section>
@@ -154,7 +159,9 @@ function Statistics() {
       <div className="statistics-bottom my-4 md:my-9 grid grid-cols-2 max-w-[400px] md:max-w-[800px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-80 md:mt-15 mx-auto rounded-4xl overflow-hidden *:text-white">
         <div className="relative p-3 pr-10 bg-[#FD7824] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения</h2>
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
+              Развлечения
+            </h2>
             <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
@@ -168,7 +175,9 @@ function Statistics() {
         </div>
         <div className="relative p-3 pr-10 bg-[#CF3559] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения</h2>
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
+              Развлечения
+            </h2>
             <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
@@ -182,7 +191,9 @@ function Statistics() {
         </div>
         <div className="relative p-3 pr-10 bg-[#8A6ABD] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения</h2>
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
+              Развлечения
+            </h2>
             <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
@@ -196,7 +207,9 @@ function Statistics() {
         </div>
         <div className="relative p-3 pr-10 bg-[#186E85] h-auto">
           <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">Развлечения </h2>
+            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
+              Развлечения{" "}
+            </h2>
             <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
               Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
               провести время с друзьями и семьей
@@ -221,11 +234,8 @@ function Shops() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <Title text="Магазины"/>
-          <Link
-            to={"/catalog"}
-            className="see-all"
-          >
+          <Title text="Магазины" />
+          <Link to={"/catalog"} className="see-all">
             Посмотреть все
           </Link>
         </div>
@@ -252,10 +262,7 @@ function Foods() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="Еда" />
-          <Link
-            to={"/catalog"}
-            className="see-all"
-          >
+          <Link to={"/catalog"} className="see-all">
             Посмотреть все
           </Link>
         </div>
@@ -282,10 +289,7 @@ function Entartainments() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="Развлечения" />
-          <Link
-            to={"/catalog"}
-            className="see-all"
-          >
+          <Link to={"/catalog"} className="see-all">
             Посмотреть все
           </Link>
         </div>
@@ -312,10 +316,7 @@ function EventsSection() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="События" />
-          <Link
-            to={"/catalog"}
-            className="see-all"
-          >
+          <Link to={"/catalog"} className="see-all">
             Посмотреть все
           </Link>
         </div>
@@ -341,11 +342,8 @@ function Sales() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <Title text="Акции и скидки"/>
-          <Link
-            to={"/catalog"}
-            className="see-all"
-          >
+          <Title text="Акции и скидки" />
+          <Link to={"/catalog"} className="see-all">
             Посмотреть все
           </Link>
         </div>
@@ -371,7 +369,7 @@ function Tenant() {
       <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
       <div className="*:text-white">
         <Title className="uppercase!" text="ХОТИТЕ СТАТЬ НАШИМ АРЕНДАТОРОМ?" />
-        <Subtitle text="Будьте в курсе мировых премьер в нашем кинопрокате!"/>
+        <Subtitle text="Будьте в курсе мировых премьер в нашем кинопрокате!" />
       </div>
       <div className="mt-15 md:mt-10 md:max-w-4xl 3xl:max-w-5xl md:mx-auto">
         <form
@@ -380,12 +378,17 @@ function Tenant() {
         >
           <div className="md:grid md:grid-cols-2 md:gap-5">
             <div>
-              <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-xl">Ваш бизнес:</h3>
+              <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-xl">
+                Ваш бизнес:
+              </h3>
               <label className="flex flex-col mb-3" htmlFor="first-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
                   Торговый профиль
                 </span>
-                <select className="*:font-thin py-2 border-b 3xl:text-lg" id="first-label">
+                <select
+                  className="*:font-thin py-2 border-b 3xl:text-lg"
+                  id="first-label"
+                >
                   <option value="Магазин">Магазин</option>
                   <option value="Магазин">Акция</option>
                   <option value="Магазин">Продукты</option>
@@ -434,7 +437,9 @@ function Tenant() {
                 />
               </label>
               <label className="flex flex-col mb-3" htmlFor="fifth-label">
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">Почта</span>
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
+                  Почта
+                </span>
                 <input
                   className="*:font-thin py-1 border-b"
                   type="text"
@@ -442,7 +447,9 @@ function Tenant() {
                 />
               </label>
               <label className="flex flex-col mb-3" htmlFor="sixth-label">
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">Телефон</span>
+                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
+                  Телефон
+                </span>
                 <input
                   className="*:font-thin py-1 border-b"
                   type="text"
@@ -633,4 +640,10 @@ function FooterDesktop() {
   );
 }
 
-export default Home;
+export default function HomeWrapper() {
+  return (
+    <Suspense fallback="loading...">
+      <Home />
+    </Suspense>
+  )
+};

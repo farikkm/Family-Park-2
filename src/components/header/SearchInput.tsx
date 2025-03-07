@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { useTranslation } from "react-i18next";
 
 interface SearchInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   color?: string;
@@ -6,6 +7,9 @@ interface SearchInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
   ({ className, color, ...props }, ref) => {
+    const {t} = useTranslation()
+
+
     return (
       <input
         ref={ref}
@@ -17,7 +21,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         } outline-0 transition-all duration-300 ease-in-out focus:w-32 md:focus:w-48 focus:opacity-100 ${
           className || ""
         }`}
-        placeholder="Search..."
+        placeholder={`${t("home.header.searchInput")}...`}
         {...props}
       />
     );
