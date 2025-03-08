@@ -80,7 +80,7 @@ const Header = ({
   const [iconState, setIconState] = useState(false);
   const { i18n } = useTranslation();
   const location = useLocation();
-  const BLACK_OR_WHITE = iconState || icons === "white"
+  const BLACK_OR_WHITE = iconState || icons === "white";
 
   const openMenu = () => {
     document.body.classList.add("lock");
@@ -98,14 +98,12 @@ const Header = ({
   useEffect(() => {
     const handleStorageChange = () => {
       const swiperIndex = Number(localStorage.getItem("swiperIndex")) || 0;
-      if (
-        !(window.innerHeight < 700 || window.innerWidth < 768)) {
+      if (!(window.innerHeight < 700 || window.innerWidth < 768)) {
         setIconState([1, 2, 3, 4, 5, 6, 7].includes(swiperIndex));
       }
     };
 
     handleStorageChange();
-    
 
     const interval = setInterval(handleStorageChange, 500);
     return () => clearInterval(interval);
@@ -241,7 +239,7 @@ const Header = ({
                 )}
               </Transitionable>
             </AnimatePresence>
-            {/* ========================= MENU-ICON ============================ */}            
+            {/* ========================= MENU-ICON ============================ */}
             <Transitionable
               key={iconState.toString()}
               onClick={openMenu}
@@ -445,7 +443,6 @@ const Modal = ({
   );
 };
 
-
 function showInput(elem: HTMLInputElement | null) {
   if (!elem) return; // Проверка на null
 
@@ -458,7 +455,6 @@ function showInput(elem: HTMLInputElement | null) {
     elem.classList.add("w-0", "opacity-0");
     elem.blur();
   }
-};
-
+}
 
 export default Header;
