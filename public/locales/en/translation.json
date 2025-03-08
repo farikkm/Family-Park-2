@@ -76,9 +76,22 @@
       "subtitle": "Stay updated on world premieres in our cinema!"
     }
   },
+  "hr": {
+    "title": "WANT TO WORK WITH US?",
+    "subtitle": "Join the FAMILY PARK team!"
+  },
   "faq": {
     "title": "Frequently asked questions",
     "subtitle": "Find answers to frequently asked questions"
+  },
+  "lost-item": {
+    "title": "LOST SOMETHING IMPORTANT?",
+    "subtitle": "Fill out a short form, and we will contact you."
+  },
+
+  "tenant": {
+    "title": "Want to become our tenant?",
+    "subtitle": "Stay updated on world premieres in our cinema!"
   },
 
   "buttons": {
@@ -97,6 +110,20 @@
       "contact": "Contact Person Name",
       "mail": "Email",
       "phone": "Phone"
+    }
+  },
+  "lostItem-input": {
+    "title1": "Your Contact Information:",
+    "title2": "Additional Information:",
+    "column1": {
+      "contact-name": "Contact Person Name",
+      "phone": "Phone",
+      "what-lost": "What was lost:"
+    },
+    "column2": {
+      "where": "Where were you?",
+      "time": "Time of loss",
+      "comment": "Comment:"
     }
   }
 }

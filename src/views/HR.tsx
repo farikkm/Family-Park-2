@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Accordion from "@/components/ui/Accordion";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const whyOurCompanyItems = [
   { id: 1, text: "Официальное трудоустройство" },
@@ -67,6 +68,7 @@ const FileUploader = () => {
 };
 
 const HR = () => {
+  const {t} = useTranslation()
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
 
@@ -98,10 +100,10 @@ const HR = () => {
       <div id="hr" className="relative pt-30 pb-10 px-5 md:px-30">
         <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
         <h1 className="text-white text-5xl md:text-7xl md:mt-5 md:mb-3 font-black mb-1">
-          ХОТИТЕ РАБОТАТЬ С НАМИ?
+          { t("hr.title") }
         </h1>
         <span className="text-white text-2xl font-normal">
-          Станьте частью команды FAMILY PARK!
+          { t("hr.subtitle") }
         </span>
 
         {/* ===================== Почему наша компания? ===================== */}

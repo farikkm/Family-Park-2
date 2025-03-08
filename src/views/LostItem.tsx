@@ -1,8 +1,12 @@
 import Header from "@/components/Header";
 import { useEffect } from "react";
 import Title from "@/components/ui/Title";
+import { useTranslation } from "react-i18next";
+import Subtitle from "@/components/ui/Subtitle";
+import SendButton from "@/components/ui/SendButton";
 
 const LostItem = () => {
+  const {t} = useTranslation();
   useEffect(() => {
     document.body.removeAttribute("style");
   }, []);
@@ -13,10 +17,8 @@ const LostItem = () => {
       <div id="lost-item" className="pb-20 px-5 relative pt-30 md:px-35">
         <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
         <div className="*:text-white">
-          <Title className="max-w-[800px]" text="ПОТЕРЯЛИ ЧТО-ТО ВАЖНОЕ" />
-          <p className="text-2xl mt-3 font-light md:text-3xl md:mt-5">
-            Заполните небольшую форму и мы свяжемся с вами
-          </p>
+          <Title className="max-w-[800px]" text={ t("lost-item.title") } />
+          <Subtitle text={t("lost-item.subtitle")} />
         </div>
         <div className="mt-5 md:mt-0 flex justify-center">
           <form
@@ -26,11 +28,11 @@ const LostItem = () => {
             <div>
               <div>
                 <h3 className="uppercase font-bold mb-2">
-                  Ваши контактные данные:
+                  { t("lostItem-input.title1") }
                 </h3>
                 <label className="flex flex-col mb-3" htmlFor="second-label">
                   <span className="text-[#858585] font-bold">
-                    Имя контактного лица
+                    { t("lostItem-input.column1.contact-name") }
                   </span>
                   <input
                     placeholder="Цыркач Виталий Владиленович"
@@ -41,7 +43,7 @@ const LostItem = () => {
                 </label>
                 <label className="flex flex-col mb-3" htmlFor="second-label">
                   <span className="text-[#858585] font-bold">
-                    Телефон
+                  { t("lostItem-input.column1.phone") }
                   </span>
                   <input
                     placeholder="+998 -- --- -- -- "
@@ -52,7 +54,7 @@ const LostItem = () => {
                 </label>
                 <label className="flex flex-col mb-3" htmlFor="third-label">
                   <span className="text-[#858585] font-bold">
-                    Что потеряли:
+                  { t("lostItem-input.column1.what-lost") }
                   </span>
                   <input
                     className="*:font-thin py-1 border-b"
@@ -63,11 +65,11 @@ const LostItem = () => {
               </div>
               <div>
                 <h3 className="uppercase font-bold mb-2">
-                  Дополнительная информация:
+                { t("lostItem-input.title2") }
                 </h3>
                 <label className="flex flex-col mb-3" htmlFor="fourth-label">
                   <span className="text-[#858585] font-bold">
-                    Где вы находились?
+                  { t("lostItem-input.column2.where") }
                   </span>
                   <input
                     className="*:font-thin py-1 border-b"
@@ -76,7 +78,7 @@ const LostItem = () => {
                   />
                 </label>
                 <label className="flex flex-col mb-3" htmlFor="fifth-label">
-                  <span className="text-[#858585] font-bold">Время потери</span>
+                  <span className="text-[#858585] font-bold">{ t("lostItem-input.column2.time") }</span>
                   <input
                     className="*:font-thin py-1 border-b"
                     type="text"
@@ -84,7 +86,7 @@ const LostItem = () => {
                   />
                 </label>
                 <label className="flex flex-col mb-3" htmlFor="sixth-label">
-                  <span className="text-[#858585] font-bold">Комментарий:</span>
+                  <span className="text-[#858585] font-bold">{ t("lostItem-input.column2.comment") }</span>
                   <input
                     className="*:font-thin py-1 border-b"
                     type="text"
@@ -94,9 +96,7 @@ const LostItem = () => {
                 </label>
               </div>
               <div className="flex justify-center mt-10">
-                <button className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold">
-                  ОТПРАВИТЬ
-                </button>
+                <SendButton />
               </div>
             </div>
           </form>

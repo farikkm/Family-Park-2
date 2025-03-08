@@ -23,6 +23,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ItemsSwiper from "@/components/ItemsSwiper";
+import SendButton from "@/components/ui/SendButton";
 
 // =================================== HOME PAGE =================================== //
 
@@ -164,7 +165,10 @@ function Statistics() {
         overflow-hidden *:text-white"
       >
         {items.map((item, index) => (
-          <div key={index} className="relative p-3 pr-10 h-auto nth-[1]:bg-[#FD7824] nth-[2]:bg-[#CF3559] nth-[3]:bg-[#8A6ABD] nth-[4]:bg-[#186E85]">
+          <div
+            key={index}
+            className="relative p-3 pr-10 h-auto nth-[1]:bg-[#FD7824] nth-[2]:bg-[#CF3559] nth-[3]:bg-[#8A6ABD] nth-[4]:bg-[#186E85]"
+          >
             <div className="flex flex-col gap-5">
               <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
                 {item.title}
@@ -352,11 +356,11 @@ function Tenant() {
           <div className="md:grid md:grid-cols-2 md:gap-5">
             <div>
               <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-xl">
-                { t("tenant-input.title1") }
+                {t("tenant-input.title1")}
               </h3>
               <label className="flex flex-col mb-3" htmlFor="first-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  { t("tenant-input.column1.trade-profile") }
+                  {t("tenant-input.column1.trade-profile")}
                 </span>
                 <select
                   className="*:font-thin py-2 border-b 3xl:text-lg"
@@ -373,7 +377,7 @@ function Tenant() {
                 htmlFor="second-label"
               >
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                { t("tenant-input.column1.desired-area") }
+                  {t("tenant-input.column1.desired-area")}
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -386,7 +390,7 @@ function Tenant() {
                 htmlFor="third-label"
               >
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  { t("tenant-input.column1.company-name") }
+                  {t("tenant-input.column1.company-name")}
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -397,11 +401,11 @@ function Tenant() {
             </div>
             <div className="md:block hidden">
               <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-lg">
-                { t("tenant-input.title2") }
+                {t("tenant-input.title2")}
               </h3>
               <label className="flex flex-col mb-3" htmlFor="fourth-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  { t("tenant-input.column2.contact") }
+                  {t("tenant-input.column2.contact")}
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -411,7 +415,7 @@ function Tenant() {
               </label>
               <label className="flex flex-col mb-3" htmlFor="fifth-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                { t("tenant-input.column2.mail") }
+                  {t("tenant-input.column2.mail")}
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -421,7 +425,7 @@ function Tenant() {
               </label>
               <label className="flex flex-col mb-3" htmlFor="sixth-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                { t("tenant-input.column2.phone") }
+                  {t("tenant-input.column2.phone")}
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -434,18 +438,12 @@ function Tenant() {
           </div>
           <div className="flex justify-center mt-10">
             {isMobile ? (
-              <Link
-                to={getHref("/tenant")}
-                className="uppercase bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold"
-              >
-                {t("buttons.send")}
+              <Link to={getHref("/tenant")}>
+                <SendButton />
               </Link>
             ) : (
-              <Link
-                to="/"
-                className="uppercase bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold text-sm 3xl:text-xl"
-              >
-                {t("buttons.send")}
+              <Link to="/">
+                <SendButton />
               </Link>
             )}
           </div>

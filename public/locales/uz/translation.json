@@ -80,6 +80,21 @@
     "subtitle": "Tez-tez beriladigan savollarga javob toping"
   },
 
+  "hr": {
+    "title": "BIZ BILAN ISHLASHNI XOHLAYSIZMI?",
+    "subtitle": "FAMILY PARK jamoasining bir qismi bo‘ling!"
+  },
+
+  "lost-item": {
+    "title": "MUHIM NARSANI YO‘QOTDINGIZMI?",
+    "subtitle": "Qisqa shaklni to‘ldiring, biz siz bilan bog‘lanamiz."
+  },
+
+  "tenant": {
+    "title": "Bizning ijarachimiz bo‘lishni xohlaysizmi?",
+    "subtitle": "Kinoteatrimizdagi jahon premyeralari haqida xabardor bo‘ling!"
+  },
+
   "buttons": {
     "see-all": "Hammasini ko'rish",
     "send": "Yuborish"
@@ -96,6 +111,20 @@
       "contact": "Bog‘lanish uchun shaxs",
       "mail": "Elektron pochta",
       "phone": "Telefon"
+    }
+  },
+  "lostItem-input": {
+    "title1": "Aloqa ma’lumotlaringiz:",
+    "title2": "Qo‘shimcha ma’lumot:",
+    "column1": {
+      "contact-name": "Bog‘lanish uchun shaxs",
+      "phone": "Telefon",
+      "what-lost": "Nima yo‘qoldi:"
+    },
+    "column2": {
+      "where": "Qayerda edingiz?",
+      "time": "Yo‘qolgan vaqt",
+      "comment": "Izoh:"
     }
   }
 }
