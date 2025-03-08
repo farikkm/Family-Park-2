@@ -102,7 +102,6 @@ const Header = ({
         !(window.innerHeight < 700 || window.innerWidth < 768)) {
         setIconState([1, 2, 3, 4, 5, 6, 7].includes(swiperIndex));
       }
-      console.log("hello");
     };
 
     handleStorageChange();
