@@ -1,7 +1,6 @@
 import isMobileUtil from "@/utils";
-import getHref from "@/utils/getHref";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import AdditionalLinks from "./AdditionalLinks";
 
 function FooterMobile() {
   return (
@@ -61,9 +60,7 @@ function FooterMobile() {
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-bold text-lg">Правила</h3>
-            <span>Правила посетителя</span>
-            <span>Правила парковки</span>
-            <span>Правила размещения рекламы</span>
+            <AdditionalLinks />
           </div>
         </div>
       </div>
@@ -76,24 +73,6 @@ function FooterMobile() {
 
 function FooterDesktop() {
   const { t } = useTranslation();
-  const additionalLinks = [
-    {
-      id: 1,
-      text: t("header.links.visitors-rules"),
-      href: getHref("/faq"),
-    },
-    {
-      id: 2,
-      text: t("header.links.parking-rules"),
-      href: getHref("/faq"),
-    },
-    {
-      id: 3,
-      text: t("header.links.advertising-rules"),
-      href: getHref("/faq"),
-    },
-    { id: 4, text: t("header.links.faq"), href: getHref("/faq") },
-  ];
 
   return (
     <footer
@@ -162,11 +141,7 @@ function FooterDesktop() {
         </div>
         <div className="flex flex-col gap-3">
           <h3 className="font-bold text-lg">Правила</h3>
-          {additionalLinks.map((link) => (
-            <Link key={link.id} to={link.href}>
-              {link.text}
-            </Link>
-          ))}
+          <AdditionalLinks />
         </div>
       </div>
       <img

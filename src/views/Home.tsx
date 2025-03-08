@@ -435,7 +435,7 @@ function Tenant() {
           <div className="flex justify-center mt-10">
             {isMobile ? (
               <Link
-                to="/tenant"
+                to={getHref("/tenant")}
                 className="uppercase bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold"
               >
                 {t("buttons.send")}

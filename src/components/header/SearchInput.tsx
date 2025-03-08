@@ -21,7 +21,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         } outline-0 transition-all duration-300 ease-in-out focus:w-32 md:focus:w-48 focus:opacity-100 ${
           className || ""
         }`}
-        placeholder={`${t("home.header.searchInput")}...`}
+        placeholder={`${t("header.searchInput")}...`}
         {...props}
       />
     );

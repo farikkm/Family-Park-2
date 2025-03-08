@@ -5,6 +5,7 @@ import Transitionable from "@/components/ui/Transitionable";
 import SearchInput from "@/components/header/SearchInput";
 import { useTranslation } from "react-i18next";
 import getHref from "@/utils/getHref";
+import AdditionalLinks from "./AdditionalLinks";
 
 const locales = {
   ru: { title: "RU" },
@@ -301,25 +302,6 @@ const Modal = ({
     },
   ];
 
-  const additionalLinks = [
-    {
-      id: 1,
-      text: t("header.links.visitors-rules"),
-      href: getHref("/faq"),
-    },
-    {
-      id: 2,
-      text: t("header.links.parking-rules"),
-      href: getHref("/faq"),
-    },
-    {
-      id: 3,
-      text: t("header.links.advertising-rules"),
-      href: getHref("/faq"),
-    },
-    { id: 4, text: t("header.links.faq"), href: getHref("/faq") },
-  ];
-
   const closeMenu = () => {
     document.body.classList.remove("lock");
     setIsShowModal(false);
@@ -429,11 +411,7 @@ const Modal = ({
             </div>
             {/* ========================= ADDITIONAL-LINKS ============================ */}
             <div className="mt-5 flex flex-col gap-3 *:cursor-pointer">
-              {additionalLinks.map((link) => (
-                <Link key={link.id} to={link.href} onClick={closeMenu}>
-                  {link.text}
-                </Link>
-              ))}
+              <AdditionalLinks />
             </div>
           </div>
           {/* ========================= ADDITIONAL INFO  ============================ */}
