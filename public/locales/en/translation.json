@@ -1,33 +1,102 @@
 {
+  "header": {
+    "searchInput": "Search",
+    "links": {
+      "concerts": "Concerts and events",
+      "map": "Map of the shopping mall",
+      "shops": "Shops",
+      "food": "Food",
+      "entertainment": "Entertainment and services",
+      "sales": "Promotions and discounts",
+      "tenant": "For tenants",
+      "hr": "Work at Family PARK",
+      "lost-items": "Missing items",
+      "visitors-rules": "Visitors rules",
+      "parking-rules": "Parking rules",
+      "advertising-rules": "Advertising rules",
+      "faq": "FAQ"
+    }
+  },
+  "footer": {
+    "title": "Thematic entertainment center in the city of Samarkand"
+  },
   "home": {
     "button1": "Missing items",
     "button2": "Work at Family PARK",
-    "header": {
-      "searchInput": "Search",
-      "links": {
-        "concerts": "Concerts and events",
-        "map": "Map of the shopping mall",
-        "shops": "Shops",
-        "food": "Food",
-        "entertainment": "Entertainment and services",
-        "sales": "Promotions and discounts",
-        "tenant": "For tenants",
-        "hr": "Work at Family PARK",
-        "lost-items": "Missing items",
-        "visitors-rules": "Visitors rules",
-        "parking-rules": "Parking rules",
-        "advertising-rules": "Advertising rules",
-        "faq": "FAQ"
-      }
-    },
     "hero": {
       "title1": "WHERE YOU,",
       "title2": "ARE LOVED",
       "subtitle": "The largest shopping mall in Samarkand. A place where you and your loved ones will have a blast of emotions and unforgettable days, only with us. at FAMILY PARK!"
+    },
+
+    "statistics": {
+      "title": "DISCOVER A WORLD OF ENTERTAINMENT ONLY WITH US",
+      "top": {
+        "item1": "Stores, restaurants, and entertainment",
+        "item2": "Entertainment spots",
+        "item3": "World-famous brands",
+        "item4": "Want to stay stylish? Major global brands will help you pick the perfect look for the season!"
+      },
+      "bottom": {
+        "item1": {
+          "title": "Entertainment",
+          "text": "Ice rink, go-karting, bowling, and a cinema where you can have fun with friends and family."
+        },
+        "item2": {
+          "title": "Food",
+          "text": "Cafés and restaurants where you can relax and enjoy dishes made from fresh ingredients."
+        },
+        "item3": {
+          "title": "Shopping",
+          "text": "Want to stay stylish? Major global brands will help you pick the perfect look for the season!"
+        },
+        "item4": {
+          "title": "Services",
+          "text": "Need travel tickets? Want to tailor your clothes? You can find anything at Family Park!"
+        }
+      }
+    },
+    "shops": {
+      "title": "Shops"
+    },
+    "food": {
+      "title": "Food"
+    },
+    "entertainment": {
+      "title": "Entertainment"
+    },
+    "events": {
+      "title": "Events"
+    },
+    "sales": {
+      "title": "Promotions & Discounts"
+    },
+    "tenant": {
+      "title": "WANT TO BECOME OUR TENANT?",
+      "subtitle": "Stay updated on world premieres in our cinema!"
     }
   },
   "faq": {
     "title": "Frequently asked questions",
     "subtitle": "Find answers to frequently asked questions"
+  },
+
+  "buttons": {
+    "see-all": "View all",
+    "send": "Send"
+  },
+  "tenant-input": {
+    "title1": "Your Business:",
+    "title2": "Your Contact Information:",
+    "column1": {
+      "trade-profile": "Trade Profile",
+      "desired-area": "Desired Area",
+      "company-name": "Brand/Company Name"
+    },
+    "column2": {
+      "contact": "Contact Person Name",
+      "mail": "Email",
+      "phone": "Phone"
+    }
   }
 }

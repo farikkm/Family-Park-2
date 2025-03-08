@@ -194,11 +194,11 @@ const Header = ({
                 {BLACK_OR_WHITE ? (
                   <img
                     className="w-25"
-                    src="/headerLogoWhite.png"
+                    src="/logo/headerLogoWhite.png"
                     alt="header-logo"
                   />
                 ) : (
-                  <img src="/headerLogo.png" alt="header-logo" />
+                  <img src="/logo/headerLogo.png" alt="header-logo" />
                 )}
               </Transitionable>
             </AnimatePresence>
@@ -279,24 +279,24 @@ const Modal = ({
   const { t } = useTranslation();
 
   const links = [
-    { id: 1, text: t("home.header.links.concerts"), href: getHref("/catalog") },
-    { id: 2, text: t("home.header.links.map"), href: getHref("/map") },
-    { id: 3, text: t("home.header.links.shops"), href: getHref("/catalog") },
-    { id: 4, text: t("home.header.links.food"), href: getHref("/catalog") },
+    { id: 1, text: t("header.links.concerts"), href: getHref("/catalog") },
+    { id: 2, text: t("header.links.map"), href: getHref("/map") },
+    { id: 3, text: t("header.links.shops"), href: getHref("/catalog") },
+    { id: 4, text: t("header.links.food"), href: getHref("/catalog") },
     {
       id: 5,
-      text: t("home.header.links.entertainment"),
+      text: t("header.links.entertainment"),
       href: getHref("/catalog"),
     },
-    { id: 6, text: t("home.header.links.sales"), href: getHref("/catalog") },
-    { id: 7, text: t("home.header.links.tenant"), href: getHref("/tenant") },
+    { id: 6, text: t("header.links.sales"), href: getHref("/catalog") },
+    { id: 7, text: t("header.links.tenant"), href: getHref("/tenant") },
   ];
 
   const redLinks = [
-    { id: 1, text: t("home.header.links.hr"), href: getHref("/hr") },
+    { id: 1, text: t("header.links.hr"), href: getHref("/hr") },
     {
       id: 2,
-      text: t("home.header.links.lost-items"),
+      text: t("header.links.lost-items"),
       href: getHref("/lost-item"),
     },
   ];
@@ -304,20 +304,20 @@ const Modal = ({
   const additionalLinks = [
     {
       id: 1,
-      text: t("home.header.links.visitors-rules"),
+      text: t("header.links.visitors-rules"),
       href: getHref("/faq"),
     },
     {
       id: 2,
-      text: t("home.header.links.parking-rules"),
+      text: t("header.links.parking-rules"),
       href: getHref("/faq"),
     },
     {
       id: 3,
-      text: t("home.header.links.advertising-rules"),
+      text: t("header.links.advertising-rules"),
       href: getHref("/faq"),
     },
-    { id: 4, text: t("home.header.links.faq"), href: getHref("/faq") },
+    { id: 4, text: t("header.links.faq"), href: getHref("/faq") },
   ];
 
   const closeMenu = () => {
@@ -392,7 +392,7 @@ const Modal = ({
             {/* ========================= HEADER-LOGO ============================ */}
             <button onClick={() => closeMenu()}>
               <Transitionable rotatable>
-                <img src="/headerLogo.png" alt="header-logo" />
+                <img src="/logo/headerLogo.png" alt="header-logo" />
               </Transitionable>
             </button>
             {/* ========================= CLOSE-ICON ============================ */}

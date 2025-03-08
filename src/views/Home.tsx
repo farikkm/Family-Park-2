@@ -1,25 +1,7 @@
 import Slider from "@/components/Slider";
 import Button from "@/components/ui/Button";
 import { Link } from "react-router-dom";
-
 import Header from "@/components/Header";
-import CatalogItem from "@/components/CatalogItem";
-
-// Images
-import heroImg from "@/assets/images/hero.png";
-import heroImgDesktop from "@/assets/images/hero/img.png";
-import heroLogo from "@/assets/images/hero/logo.png";
-import shopImg from "@/assets/images/shops/shop.png";
-import img1 from "@/assets/images/statistics/1.svg";
-import img2 from "@/assets/images/statistics/2.svg";
-import img3 from "@/assets/images/statistics/3.svg";
-import img4 from "@/assets/images/statistics/4.svg";
-
-// Swiper
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import ItemsSwiper from "@/components/ItemsSwiper";
 import isMobileUtil from "@/utils";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
@@ -27,6 +9,20 @@ import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
 import getHref from "@/utils/getHref";
 import SeeAllButton from "@/components/ui/SeeAllButton";
+import CatalogItems from "@/components/catalog/CatalogItems";
+import Footer from "@/components/Footer";
+
+// Images
+import heroImg from "@/assets/images/hero.png";
+import heroImgDesktop from "@/assets/images/hero/img.png";
+import heroLogo from "@/assets/images/hero/logo.png";
+import shopImg from "@/assets/images/shops/shop.png";
+
+// Swiper
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import ItemsSwiper from "@/components/ItemsSwiper";
 
 // =================================== HOME PAGE =================================== //
 
@@ -47,7 +43,7 @@ const Home = () => {
       EventsSection,
       Sales,
       Tenant,
-      FooterDesktop,
+      Footer,
     ];
   }
 
@@ -118,12 +114,16 @@ function Hero() {
 }
 
 function Statistics() {
+  const { t } = useTranslation();
+  const items = Object.values(
+    t("home.statistics.bottom", { returnObjects: true })
+  );
+
   return (
     <section id="statistics" className="z-20">
       <div className="red-gradient statistics-top py-7 px-5 text-white md:pt-30 3xl:pt-35 3xl:pb-15 ">
         <h2 className="text-4xl 3xl:text-5xl max-w-sm  mx-auto text-center md:max-w-full">
-          ОТКРОЙТЕ <span className="font-black">МИР РАЗВЛЕЧЕНИЙ</span> ТОЛЬКО{" "}
-          <span className="font-black">У НАС</span>
+          {t("home.statistics.title")}
         </h2>
         <div className="grid grid-cols-2 gap-4 mt-4 md:mt-8 md:max-w-4xl md:mx-auto md:grid-cols-4">
           <div>
@@ -131,7 +131,7 @@ function Statistics() {
               80+{" "}
             </h3>
             <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
-              Магазинов, ресторанов и развлечений
+              {t("home.statistics.top.item1")}
             </span>
           </div>
           <div>
@@ -139,7 +139,7 @@ function Statistics() {
               10+{" "}
             </h3>
             <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
-              Развлекательных точек
+              {t("home.statistics.top.item2")}
             </span>
           </div>
           <div className="hidden md:block">
@@ -147,88 +147,54 @@ function Statistics() {
               20+{" "}
             </h3>
             <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
-              Мировых брендов{" "}
+              {t("home.statistics.top.item3")}
             </span>
           </div>
           <div className="hidden md:block md:max-w-[300px]">
             <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
-              Хотите быть всегда на стиле? Крупные мировые бренды отлично
-              подберут вам лук на сезон!
+              {t("home.statistics.top.item4")}
             </span>
           </div>
         </div>
       </div>
-      <div className="statistics-bottom my-4 md:my-9 grid grid-cols-2 max-w-[400px] md:max-w-[800px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-80 md:mt-15 mx-auto rounded-4xl overflow-hidden *:text-white">
-        <div className="relative p-3 pr-10 bg-[#FD7824] h-auto">
-          <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
-              Развлечения
-            </h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
-              Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
-              провести время с друзьями и семьей
-            </p>
+      {/* ========================= BOTTOM-ITEMS ======================== */}
+      <div
+        className="statistics-bottom my-4 md:my-9 grid grid-cols-2 max-w-[400px] 
+        md:max-w-[800px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-85 md:mt-15 mx-auto rounded-4xl 
+        overflow-hidden *:text-white"
+      >
+        {items.map((item, index) => (
+          <div key={index} className="relative p-3 pr-10 h-auto nth-[1]:bg-[#FD7824] nth-[2]:bg-[#CF3559] nth-[3]:bg-[#8A6ABD] nth-[4]:bg-[#186E85]">
+            <div className="flex flex-col gap-5">
+              <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
+                {item.title}
+              </h2>
+              <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
+                {item.text}
+              </p>
+            </div>
+            <img
+              className="absolute top-10 right-0"
+              src={`/icons/statistics/${index + 1}.svg`}
+              alt="features-statistics-img"
+            />
           </div>
-          <img
-            className="absolute top-10 right-0"
-            src={img1}
-            alt="features-statistics-img"
-          />
-        </div>
-        <div className="relative p-3 pr-10 bg-[#CF3559] h-auto">
-          <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
-              Развлечения
-            </h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
-              Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
-              провести время с друзьями и семьей
-            </p>
-          </div>
-          <img
-            className="absolute top-10 right-0"
-            src={img2}
-            alt="features-statistics-img"
-          />
-        </div>
-        <div className="relative p-3 pr-10 bg-[#8A6ABD] h-auto">
-          <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
-              Развлечения
-            </h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
-              Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
-              провести время с друзьями и семьей
-            </p>
-          </div>
-          <img
-            className="absolute top-10 right-0"
-            src={img3}
-            alt="features-statistics-img"
-          />
-        </div>
-        <div className="relative p-3 pr-10 bg-[#186E85] h-auto">
-          <div className="flex flex-col gap-5">
-            <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
-              Развлечения{" "}
-            </h2>
-            <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
-              Ледовый каток, Картинг, Боулинг, Кинотеатр, где можно весело
-              провести время с друзьями и семьей
-            </p>
-          </div>
-          <img
-            className="absolute top-10 right-0"
-            src={img4}
-            alt="features-statistics-img"
-          />
-        </div>
+        ))}
       </div>
     </section>
   );
 }
 
 function Shops() {
+  const { t } = useTranslation();
+
+  const items = [
+    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+  ];
+
   return (
     <section id="shops" className="relative md:pt-30 md:px-35">
       {/* Decor */}
@@ -236,24 +202,29 @@ function Shops() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <Title text="Магазины" />
+          <Title text={t("home.shops.title")} />
           <SeeAllButton />
         </div>
 
+        {/* ===== Desktop ===== */}
         {!isMobileUtil() && <ItemsSwiper />}
-
-        <div className="mt-5 grid gap-2 gap-y-4 grid-cols-2 sm:grid-cols-3 *:text-[#25254C] *:max-w-[200px] md:hidden">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </div>
+        {/* ===== Mobile ===== */}
+        <CatalogItems items={items} className="mt-5" />
       </div>
     </section>
   );
 }
 
 function Foods() {
+  const { t } = useTranslation();
+
+  const items = [
+    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+  ];
+
   return (
     <section id="foods" className="relative md:pt-30 md:px-35">
       {/* Decor */}
@@ -261,24 +232,29 @@ function Foods() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <Title text="Еда" />
+          <Title text={t("home.food.title")} />
           <SeeAllButton />
         </div>
 
+        {/* ===== Desktop ===== */}
         {!isMobileUtil() && <ItemsSwiper />}
-
-        <div className="mt-5 grid gap-2 gap-y-4 grid-cols-2 sm:grid-cols-3 *:text-[#25254C] *:max-w-[200px] md:hidden">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </div>
+        {/* ===== Mobile ===== */}
+        <CatalogItems items={items} className="mt-5" />
       </div>
     </section>
   );
 }
 
 function Entartainments() {
+  const { t } = useTranslation();
+
+  const items = [
+    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+  ];
+
   return (
     <section id="entartainments" className="relative md:pt-30 md:px-35">
       {/* Decor */}
@@ -286,24 +262,28 @@ function Entartainments() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <Title text="Развлечения" />
+          <Title text={t("home.entertainment.title")} />
           <SeeAllButton />
         </div>
 
+        {/* ===== Desktop ===== */}
         {!isMobileUtil() && <ItemsSwiper />}
-
-        <div className="mt-5 grid gap-2 gap-y-4 grid-cols-2 sm:grid-cols-3 *:text-[#25254C] *:max-w-[200px] md:hidden">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </div>
+        {/* ===== Mobile ===== */}
+        <CatalogItems items={items} className="mt-5" />
       </div>
     </section>
   );
 }
 
 function EventsSection() {
+  const { t } = useTranslation();
+
+  const items = [
+    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+  ];
   return (
     <section id="events" className="relative md:pt-30 md:px-35">
       {/* Decor */}
@@ -311,24 +291,28 @@ function EventsSection() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <Title text="События" />
+          <Title text={t("home.events.title")} />
           <SeeAllButton />
         </div>
 
+        {/* ===== Desktop ===== */}
         {!isMobileUtil() && <ItemsSwiper />}
-
-        <div className="mt-5 grid gap-2 gap-y-4 grid-cols-2 sm:grid-cols-3 *:text-[#25254C] *:max-w-[200px] md:hidden">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </div>
+        {/* ===== Mobile ===== */}
+        <CatalogItems items={items} className="mt-5" />
       </div>
     </section>
   );
 }
 
 function Sales() {
+  const { t } = useTranslation();
+
+  const items = [
+    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+  ];
   return (
     <section id="sales" className="relative md:pt-30 md:px-35">
       {/* Decor */}
@@ -336,32 +320,29 @@ function Sales() {
       {/* Content */}
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
-          <Title text="Акции и скидки" />
+          <Title text={t("home.sales.title")} />
           <SeeAllButton />
         </div>
 
+        {/* ===== Desktop ===== */}
         {!isMobileUtil() && <ItemsSwiper />}
-
-        <div className="mt-5 grid gap-2 gap-y-4 grid-cols-2 sm:grid-cols-3 *:text-[#25254C] *:max-w-[200px] md:hidden">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </div>
+        {/* ===== Mobile ===== */}
+        <CatalogItems items={items} className="mt-5" />
       </div>
     </section>
   );
 }
 
 function Tenant() {
+  const { t } = useTranslation();
   let isMobile = isMobileUtil();
 
   return (
     <div id="tenant" className="pb-20 pt-5 px-5 relative md:pt-30 md:px-35">
       <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
       <div className="*:text-white">
-        <Title className="uppercase!" text="ХОТИТЕ СТАТЬ НАШИМ АРЕНДАТОРОМ?" />
-        <Subtitle text="Будьте в курсе мировых премьер в нашем кинопрокате!" />
+        <Title className="uppercase!" text={t("home.tenant.title")} />
+        <Subtitle text={t("home.tenant.subtitle")} />
       </div>
       <div className="mt-15 md:mt-10 md:max-w-4xl 3xl:max-w-5xl md:mx-auto">
         <form
@@ -371,11 +352,11 @@ function Tenant() {
           <div className="md:grid md:grid-cols-2 md:gap-5">
             <div>
               <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-xl">
-                Ваш бизнес:
+                { t("tenant-input.title1") }
               </h3>
               <label className="flex flex-col mb-3" htmlFor="first-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  Торговый профиль
+                  { t("tenant-input.column1.trade-profile") }
                 </span>
                 <select
                   className="*:font-thin py-2 border-b 3xl:text-lg"
@@ -392,7 +373,7 @@ function Tenant() {
                 htmlFor="second-label"
               >
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  Желаемая площадь
+                { t("tenant-input.column1.desired-area") }
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -405,7 +386,7 @@ function Tenant() {
                 htmlFor="third-label"
               >
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  Название бренда/компании
+                  { t("tenant-input.column1.company-name") }
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -416,11 +397,11 @@ function Tenant() {
             </div>
             <div className="md:block hidden">
               <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-lg">
-                Ваши контактные данные:
+                { t("tenant-input.title2") }
               </h3>
               <label className="flex flex-col mb-3" htmlFor="fourth-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  Имя контактного лица
+                  { t("tenant-input.column2.contact") }
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -430,7 +411,7 @@ function Tenant() {
               </label>
               <label className="flex flex-col mb-3" htmlFor="fifth-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  Почта
+                { t("tenant-input.column2.mail") }
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -440,7 +421,7 @@ function Tenant() {
               </label>
               <label className="flex flex-col mb-3" htmlFor="sixth-label">
                 <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  Телефон
+                { t("tenant-input.column2.phone") }
                 </span>
                 <input
                   className="*:font-thin py-1 border-b"
@@ -455,180 +436,22 @@ function Tenant() {
             {isMobile ? (
               <Link
                 to="/tenant"
-                className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold"
+                className="uppercase bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold"
               >
-                ОТПРАВИТЬ
+                {t("buttons.send")}
               </Link>
             ) : (
               <Link
                 to="/"
-                className="bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold text-sm 3xl:text-xl"
+                className="uppercase bg-gradient-to-br from-[#fa557b] to-[#bb2649] py-4 px-20 rounded-4xl text-white font-bold text-sm 3xl:text-xl"
               >
-                ОТПРАВИТЬ
+                {t("buttons.send")}
               </Link>
             )}
           </div>
         </form>
       </div>
     </div>
-  );
-}
-
-function Footer() {
-  return (
-    <footer id="footer" className="py-10 px-5 bg-[#F2F2F2]">
-      <div className="flex flex-col">
-        <span className="text-2xl font-bold">+998 94 440 44 40</span>
-        <span className="text-2xl font-bold">familypark@gmail.com</span>
-        <div className="mt-4 flex gap-3 items-center">
-          <img src="/icons/clock.svg" alt="" />
-          <span>Пн-Вс с 10:00 до 23:00 </span>
-        </div>
-      </div>
-      <div className="mt-10 mb-7">
-        <div className="flex justify-between items-start">
-          <div className="flex flex-col gap-5">
-            <h3 className="font-bold text-lg">Социальные сети</h3>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/instagram.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Instagram</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/telegram.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Telegram</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/tiktok.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Tik Tok</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/facebook.svg"
-                alt="instagram-icon"
-                className="h-6 w-6"
-              />
-              <span>Facebook</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/youtube.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Youtube</span>
-            </div>
-          </div>
-          <div className="flex flex-col gap-3">
-            <h3 className="font-bold text-lg">Правила</h3>
-            <span>Правила посетителя</span>
-            <span>Правила парковки</span>
-            <span>Правила размещения рекламы</span>
-          </div>
-        </div>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <img src="/footerLogo.svg" alt="footer-logo" />
-        <h3 className="mt-10 text-2xl text-center">
-          Тематически-развлекательный центр в городе Самарканд
-        </h3>
-      </div>
-    </footer>
-  );
-}
-
-function FooterDesktop() {
-  return (
-    <footer
-      id="footer"
-      className="py-10 px-5 bg-[#F2F2F2] pt-40 h-screen items-start *:w-full"
-    >
-      <div className="grid grid-cols-4">
-        <div className="flex flex-col items-center justify-center">
-          <img src="/footerLogo.svg" alt="footer-logo" />
-          <h3 className="mt-10 text-2xl text-center">
-            Тематически-развлекательный центр в городе Самарканд
-          </h3>
-        </div>
-        <div className="flex flex-col ml-5">
-          <span className="text-2xl font-bold">+998 94 440 44 40</span>
-          <span className="text-2xl font-bold">familypark@gmail.com</span>
-          <div className="mt-4 flex gap-3 items-center">
-            <img src="/icons/clock.svg" alt="" />
-            <span>Пн-Вс с 10:00 до 23:00 </span>
-          </div>
-        </div>
-        <div className="ml-20">
-          <div className="flex justify-between items-start">
-            <div className="flex flex-col gap-5">
-              <h3 className="font-bold text-lg">Социальные сети</h3>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/instagram.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Instagram</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/telegram.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Telegram</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/tiktok.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Tik Tok</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/facebook.svg"
-                  alt="instagram-icon"
-                  className="h-6 w-6"
-                />
-                <span>Facebook</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/youtube.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Youtube</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          <h3 className="font-bold text-lg">Правила</h3>
-          <span>Правила посетителя</span>
-          <span>Правила парковки</span>
-          <span>Правила размещения рекламы</span>
-        </div>
-      </div>
-      <img
-        className="w-300 h-30 transform scale-150 block mt-40"
-        src="/footerLogo.svg"
-        alt=""
-      />
-    </footer>
   );
 }
 

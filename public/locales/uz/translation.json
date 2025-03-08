@@ -1,33 +1,101 @@
 {
+  "header": {
+    "searchInput": "Izlash",
+    "links": {
+      "concerts": "Konsertlar va tadbirlar",
+      "map": "Savdo markazi xaritasi",
+      "shops": "Do'konlar",
+      "food": "Oziq-ovqat",
+      "entertainment": "O'yin-kulgi va xizmatlar",
+      "sales": "Aktsiyalar va chegirmalar",
+      "tenant": "Ijarachilar uchun",
+      "hr": "Family Parkda ishlash",
+      "lost-items": "Yo'qolgan narsalar",
+      "visitors-rules": "Tashrif buyuruvchilar qoidalari",
+      "parking-rules": "Avtoturargoh qoidalari",
+      "advertising-rules": "Reklama qoidalari",
+      "faq": "Tez-tez beriladigan savollar"
+    }
+  },
+  "footer": {
+    "title": "Samarqand shahridagi tematik ko'ngilochar markaz"
+  },
   "home": {
     "button1": "Yo'qolgan narsalar",
     "button2": "Family Parkda ishlash",
-    "header": {
-      "searchInput": "Izlash",
-      "links": {
-        "concerts": "Konsertlar va tadbirlar",
-        "map": "Savdo markazi xaritasi",
-        "shops": "Do'konlar",
-        "food": "Oziq-ovqat",
-        "entertainment": "O'yin-kulgi va xizmatlar",
-        "sales": "Aktsiyalar va chegirmalar",
-        "tenant": "Ijarachilar uchun",
-        "hr": "Family Parkda ishlash",
-        "lost-items": "Yo'qolgan narsalar",
-        "visitors-rules": "Tashrif buyuruvchilar qoidalari",
-        "parking-rules": "Avtoturargoh qoidalari",
-        "advertising-rules": "Reklama qoidalari",
-        "faq": "Tez-tez beriladigan savollar"
-      }
-    },
     "hero": {
       "title1": "Bu joy,",
       "title2": "Siz sevilasiz",
       "subtitle": "Samarqanddagi eng yirik savdo majmuasi. Siz va yaqinlaringiz hissiyotlar bo'roni va unutilmas kunlarga ega bo'ladigan joy, faqat biz bilan OILAVIY PARKda!"
+    },
+    "statistics": {
+      "title": "FAQAT BIZDA KO'NGILOCHAR DUNYONI KASHF QILING",
+      "top": {
+        "item1": "Do‘konlar, restoranlar va ko‘ngilochar maskanlar",
+        "item2": "Ko‘ngilochar joylar",
+        "item3": "Jahon brendlari",
+        "item4": "Har doim zamonaviy bo‘lishni xohlaysizmi? Mashhur jahon brendlari sizga mavsum uchun eng zo‘r uslubni tanlashda yordam beradi!"
+      },
+      "bottom": {
+        "item1": {
+          "title": "Ko'ngilochar maskanlar",
+          "text": "Muz maydoni, karting, bouling va do‘stlaringiz va oilangiz bilan maroqli vaqt o‘tkazishingiz mumkin bo‘lgan kinoteatr."
+        },
+        "item2": {
+          "title": "Ovqatlanish",
+          "text": "Kafelar va restoranlar – dam olish va yangi mahsulotlardan tayyorlangan taomlardan bahramand bo‘lish uchun eng yaxshi joy."
+        },
+        "item3": {
+          "title": "Savdo",
+          "text": "Har doim zamonaviy bo‘lishni xohlaysizmi? Mashhur jahon brendlari sizga mavsum uchun eng zo‘r uslubni tanlashda yordam beradi!"
+        },
+        "item4": {
+          "title": "Xizmatlar",
+          "text": "Sayohat chiptalarini olmoqchimisiz? Kiyim tikdirmoqchimisiz? Family Parkda hamma narsani topishingiz mumkin!"
+        }
+      }
+    },
+    "shops": {
+      "title": "Do‘konlar"
+    },
+    "food": {
+      "title": "Ovqatlanish"
+    },
+    "entertainment": {
+      "title": "Ko‘ngilochar maskanlar"
+    },
+    "events": {
+      "title": "Tadbirlar"
+    },
+    "sales": {
+      "title": "Aksiya va chegirmalar"
+    },
+    "tenant": {
+      "title": "BIZNING IJARACHIMIZ BO‘LISHNI XOHLAYSIZMI?",
+      "subtitle": "Kinoteatrimizdagi jahon premyeralari haqida xabardor bo‘ling!"
     }
   },
   "faq": {
     "title": "Tez-tez beriladigan savollar",
     "subtitle": "Tez-tez beriladigan savollarga javob toping"
+  },
+
+  "buttons": {
+    "see-all": "Hammasini ko'rish",
+    "send": "Yuborish"
+  },
+  "tenant-input": {
+    "title1": "Biznesingiz:",
+    "title2": "Aloqa ma’lumotlaringiz:",
+    "column1": {
+      "trade-profile": "Savdo profili",
+      "desired-area": "Istalgan maydon",
+      "company-name": "Brend/Kompaniya nomi"
+    },
+    "column2": {
+      "contact": "Bog‘lanish uchun shaxs",
+      "mail": "Elektron pochta",
+      "phone": "Telefon"
+    }
   }
 }

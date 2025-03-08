@@ -48,8 +48,7 @@ const FileUploader = () => {
           onClick={() => fileInputRef.current?.click()}
         >
           загрузите файл
-        </span>{" "}
-        резюме
+        </span>
         <br />
         (doc, pdf, docx, rtf).
       </p>

@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
-import CatalogItem from "./CatalogItem";
+import CatalogItem from "./catalog/CatalogItem";
 
 const ItemsSwiper = () => {
   return (

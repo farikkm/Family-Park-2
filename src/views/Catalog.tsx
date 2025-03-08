@@ -1,4 +1,4 @@
-import CatalogItem from "@/components/CatalogItem";
+import CatalogItem from "@/components/catalog/CatalogItem";
 import Header from "@/components/Header";
 
 import shopImg from "@/assets/images/shops/shop.png";
