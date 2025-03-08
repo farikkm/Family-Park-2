@@ -25,12 +25,14 @@ import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
 import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
+import getHref from "@/utils/getHref";
+import SeeAllButton from "@/components/ui/SeeAllButton";
 
 // =================================== HOME PAGE =================================== //
 
 const Home = () => {
   let sections;
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   let isMobile = isMobileUtil();
 
   if (isMobile) {
@@ -56,12 +58,12 @@ const Home = () => {
         {sections && <Slider sections={sections} />}
       </main>
       <div className="buttons hidden md:flex fixed bottom-7 right-27 z-6  gap-3 *:w-[150px] 3xl:*:w-[200px] *:text-left *:active:scale-110">
-        <Link to="/lost-item">
-          <Button className="3xl:text-[15px]">{ t("home.button1") }</Button>
+        <Link to={getHref("lost-item")}>
+          <Button className="3xl:text-[15px]">{t("home.button1")}</Button>
         </Link>
-        <Link to="/hr">
+        <Link to={getHref("/hr")}>
           <Button bg="blue" className="3xl:text-[15px] px-2!">
-            { t("home.button2") }
+            {t("home.button2")}
           </Button>
         </Link>
       </div>
@@ -72,7 +74,7 @@ const Home = () => {
 // =================================== SECTIONS =================================== //
 
 function Hero() {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <>
@@ -235,9 +237,7 @@ function Shops() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="Магазины" />
-          <Link to={"/catalog"} className="see-all">
-            Посмотреть все
-          </Link>
+          <SeeAllButton />
         </div>
 
         {!isMobileUtil() && <ItemsSwiper />}
@@ -262,9 +262,7 @@ function Foods() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="Еда" />
-          <Link to={"/catalog"} className="see-all">
-            Посмотреть все
-          </Link>
+          <SeeAllButton />
         </div>
 
         {!isMobileUtil() && <ItemsSwiper />}
@@ -289,9 +287,7 @@ function Entartainments() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="Развлечения" />
-          <Link to={"/catalog"} className="see-all">
-            Посмотреть все
-          </Link>
+          <SeeAllButton />
         </div>
 
         {!isMobileUtil() && <ItemsSwiper />}
@@ -316,9 +312,7 @@ function EventsSection() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="События" />
-          <Link to={"/catalog"} className="see-all">
-            Посмотреть все
-          </Link>
+          <SeeAllButton />
         </div>
 
         {!isMobileUtil() && <ItemsSwiper />}
@@ -343,9 +337,7 @@ function Sales() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text="Акции и скидки" />
-          <Link to={"/catalog"} className="see-all">
-            Посмотреть все
-          </Link>
+          <SeeAllButton />
         </div>
 
         {!isMobileUtil() && <ItemsSwiper />}
@@ -645,5 +637,5 @@ export default function HomeWrapper() {
     <Suspense fallback="loading...">
       <Home />
     </Suspense>
-  )
-};
+  );
+}

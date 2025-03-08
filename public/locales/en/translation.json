@@ -11,7 +11,13 @@
         "food": "Food",
         "entertainment": "Entertainment and services",
         "sales": "Promotions and discounts",
-        "tenant": "For tenants"
+        "tenant": "For tenants",
+        "hr": "Work at Family PARK",
+        "lost-items": "Missing items",
+        "visitors-rules": "Visitors rules",
+        "parking-rules": "Parking rules",
+        "advertising-rules": "Advertising rules",
+        "faq": "FAQ"
       }
     },
     "hero": {

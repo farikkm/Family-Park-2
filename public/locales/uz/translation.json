@@ -1,6 +1,6 @@
 {
   "home": {
-    "button1": "yo'qolgan narsalar",
+    "button1": "Yo'qolgan narsalar",
     "button2": "Family Parkda ishlash",
     "header": {
       "searchInput": "Izlash",
@@ -11,7 +11,13 @@
         "food": "Oziq-ovqat",
         "entertainment": "O'yin-kulgi va xizmatlar",
         "sales": "Aktsiyalar va chegirmalar",
-        "tenant": "Ijarachilar uchun"
+        "tenant": "Ijarachilar uchun",
+        "hr": "Family Parkda ishlash",
+        "lost-items": "Yo'qolgan narsalar",
+        "visitors-rules": "Tashrif buyuruvchilar qoidalari",
+        "parking-rules": "Avtoturargoh qoidalari",
+        "advertising-rules": "Reklama qoidalari",
+        "faq": "Tez-tez beriladigan savollar"
       }
     },
     "hero": {

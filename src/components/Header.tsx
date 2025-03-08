@@ -1,9 +1,10 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Transitionable from "@/components/ui/Transitionable";
 import SearchInput from "@/components/header/SearchInput";
 import { useTranslation } from "react-i18next";
+import getHref from "@/utils/getHref";
 
 const locales = {
   ru: { title: "RU" },
@@ -11,18 +12,59 @@ const locales = {
   uz: { title: "UZ" },
 };
 
-const showInput = (elem: HTMLInputElement | null) => {
-  if (!elem) return; // Проверка на null
+const socialMediaIcons = [
+  {
+    id: 1,
+    path: "/icons/instagram.svg",
+    altVar: "instagram-icon",
+    link: "https://www.instagram.com/",
+  },
+  {
+    id: 2,
+    path: "/icons/telegram.svg",
+    altVar: "telegram-icon",
+    link: "https://www.telegram.com/",
+  },
+  {
+    id: 3,
+    path: "/icons/youtube.svg",
+    altVar: "youtube-icon",
+    link: "https://www.youtube.com/",
+  },
+  {
+    id: 4,
+    path: "/icons/facebook.svg",
+    altVar: "facebook-icon",
+    link: "https://www.facebook.com/",
+  },
+  {
+    id: 5,
+    path: "/icons/tiktok.svg",
+    altVar: "tiktok-icon",
+    link: "https://www.tiktok.com/",
+  },
+];
 
-  if (elem.classList.contains("w-0")) {
-    elem.classList.remove("w-0", "opacity-0");
-    elem.classList.add("md:w-48", "w-32", "opacity-100");
-    elem.focus();
-  } else {
-    elem.classList.remove("md:w-48", "w-32", "opacity-100");
-    elem.classList.add("w-0", "opacity-0");
-    elem.blur();
-  }
+const Locales = () => {
+  const { i18n } = useTranslation();
+
+  return (
+    <>
+      {Object.keys(locales).map((locale) => (
+        <span
+          key={locale}
+          className={`font-bold text-lg ${
+            i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
+          }`}
+          onClick={() => {
+            i18n.changeLanguage(locale);
+          }}
+        >
+          {locales[locale as keyof typeof locales].title}
+        </span>
+      ))}
+    </>
+  );
 };
 
 const Header = ({
@@ -37,6 +79,7 @@ const Header = ({
   const [iconState, setIconState] = useState(false);
   const { i18n } = useTranslation();
   const location = useLocation();
+  const BLACK_OR_WHITE = iconState || icons === "white"
 
   const openMenu = () => {
     document.body.classList.add("lock");
@@ -92,41 +135,32 @@ const Header = ({
 
   return (
     <>
-      {/* ======================================================= HEADER =======================================================*/}
+      {/* //! ======================================================= HEADER =======================================================*/}
 
       <header
         className={`header backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 py-7 pb-0 ${
-          icons === "white" ? "bg-transparent" : "bg-white"
+          BLACK_OR_WHITE ? "bg-transparent" : "bg-white"
         } ${className}`}
       >
         <div className="flex justify-between items-center">
+          {/* ========================= LEFT-SIDE ============================ */}
           <div className="flex items-center gap-10">
+            {/* ========================= LOCALES ============================ */}
             <div
               className={`hidden md:flex gap-2 items-center *:cursor-pointer ${
-                iconState || icons === "white" ? "text-white" : "text-black"
+                BLACK_OR_WHITE ? "text-white" : "text-black"
               }`}
             >
-              {Object.keys(locales).map((locale) => (
-                <span
-                  key={locale}
-                  className={`font-bold text-lg ${
-                    i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
-                  }`}
-                  onClick={() => {
-                    i18n.changeLanguage(locale);
-                  }}
-                >
-                  {locales[locale as keyof typeof locales].title}
-                </span>
-              ))}
+              <Locales />
             </div>
+            {/* ========================= SEARCH-INPUT ============================ */}
             <div>
               <form id="header-search" className="flex items-center relative">
                 <Transitionable
                   key={iconState.toString()}
                   onClick={openSearchInputRef}
                 >
-                  {iconState || icons === "white" ? (
+                  {BLACK_OR_WHITE ? (
                     <div className="flex items-center">
                       <img
                         className="h-[25px]"
@@ -145,7 +179,7 @@ const Header = ({
                   )}
                 </Transitionable>
 
-                {iconState || icons === "white" ? (
+                {BLACK_OR_WHITE ? (
                   <SearchInput ref={searchInputRef} color="white" />
                 ) : (
                   <SearchInput ref={searchInputRef} color="black" />
@@ -153,10 +187,11 @@ const Header = ({
               </form>
             </div>
           </div>
+          {/* ========================= HEADER-LOGO ============================ */}
           <Link to="/">
             <AnimatePresence mode="wait">
               <Transitionable key={iconState.toString()} rotatable>
-                {iconState || icons === "white" ? (
+                {BLACK_OR_WHITE ? (
                   <img
                     className="w-25"
                     src="/headerLogoWhite.png"
@@ -168,13 +203,15 @@ const Header = ({
               </Transitionable>
             </AnimatePresence>
           </Link>
+          {/* ========================= RIGHT-SIDE ============================ */}
           <div className="flex items-center gap-24">
+            {/* ========================= SOCIAL-MEDIA ============================ */}
             <AnimatePresence mode="wait">
               <Transitionable
                 key={iconState.toString()}
                 className="hidden mt-3 md:flex items-center gap-5 *:w-8 *:h-8 *:cursor-pointer"
               >
-                {iconState || icons === "white" ? (
+                {BLACK_OR_WHITE ? (
                   <>
                     <img src="/icons/white/Vector.svg" alt="instagram-icon" />
                     <img src="/icons/white/Vector(1).svg" alt="telegram-icon" />
@@ -192,22 +229,26 @@ const Header = ({
                   </>
                 ) : (
                   <>
-                    <img src="/icons/instagram.svg" alt="instagram-icon" />
-                    <img src="/icons/telegram.svg" alt="telegram-icon" />
-                    <img src="/icons/youtube.svg" alt="youtube-icon" />
-                    <img src="/icons/facebook.svg" alt="facebook-icon" />
-                    <img src="/icons/tiktok.svg" alt="tiktok-icon" />
+                    {socialMediaIcons.map((item) => (
+                      <a key={item.id} href={item.link} target="_blank">
+                        <img
+                          className="w-8 h-8"
+                          src={item.path}
+                          alt={item.altVar}
+                        />
+                      </a>
+                    ))}
                   </>
                 )}
               </Transitionable>
             </AnimatePresence>
-
+            {/* ========================= MENU-ICON ============================ */}            
             <Transitionable
               key={iconState.toString()}
               onClick={openMenu}
               className="mt-2 p-1"
             >
-              {iconState || icons === "white" ? (
+              {BLACK_OR_WHITE ? (
                 <img src="/icons/menuWhite.svg" alt="menu-icon" />
               ) : (
                 <img src="/icons/menu-icon.svg" alt="menu-icon" />
@@ -225,6 +266,8 @@ const Header = ({
   );
 };
 
+// ! ==================================== MODAL ============================================== ! //
+
 const Modal = ({
   setIsShowModal,
 }: {
@@ -233,8 +276,49 @@ const Modal = ({
 }) => {
   const modal = useRef<HTMLDivElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
-  const { t, i18n } = useTranslation();
-  const { lng } = useParams();
+  const { t } = useTranslation();
+
+  const links = [
+    { id: 1, text: t("home.header.links.concerts"), href: getHref("/catalog") },
+    { id: 2, text: t("home.header.links.map"), href: getHref("/map") },
+    { id: 3, text: t("home.header.links.shops"), href: getHref("/catalog") },
+    { id: 4, text: t("home.header.links.food"), href: getHref("/catalog") },
+    {
+      id: 5,
+      text: t("home.header.links.entertainment"),
+      href: getHref("/catalog"),
+    },
+    { id: 6, text: t("home.header.links.sales"), href: getHref("/catalog") },
+    { id: 7, text: t("home.header.links.tenant"), href: getHref("/tenant") },
+  ];
+
+  const redLinks = [
+    { id: 1, text: t("home.header.links.hr"), href: getHref("/hr") },
+    {
+      id: 2,
+      text: t("home.header.links.lost-items"),
+      href: getHref("/lost-item"),
+    },
+  ];
+
+  const additionalLinks = [
+    {
+      id: 1,
+      text: t("home.header.links.visitors-rules"),
+      href: getHref("/faq"),
+    },
+    {
+      id: 2,
+      text: t("home.header.links.parking-rules"),
+      href: getHref("/faq"),
+    },
+    {
+      id: 3,
+      text: t("home.header.links.advertising-rules"),
+      href: getHref("/faq"),
+    },
+    { id: 4, text: t("home.header.links.faq"), href: getHref("/faq") },
+  ];
 
   const closeMenu = () => {
     document.body.classList.remove("lock");
@@ -286,25 +370,15 @@ const Modal = ({
         exit={{ opacity: 0, left: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
-        {/* ========================= HEADING ============================ */}
+        {/* //! ========================= HEADING ============================ //! */}
         <div className="modal__heading px-10 py-7 pb-0">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-10">
+              {/* ========================= LOCALES ============================ */}
               <div className="hidden md:flex gap-2 items-center *:cursor-pointer">
-                {Object.keys(locales).map((locale) => (
-                  <span
-                    key={locale}
-                    className={`font-bold text-lg ${
-                      i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
-                    }`}
-                    onClick={() => {
-                      i18n.changeLanguage(locale);
-                    }}
-                  >
-                    {locales[locale as keyof typeof locales].title}
-                  </span>
-                ))}
+                <Locales />
               </div>
+              {/* ========================= SEARCH-INPUT ============================ */}
               <form id="modal-search" className="flex items-center relative">
                 <img
                   className="cursor-pointer h-8 md:h-6"
@@ -315,11 +389,13 @@ const Modal = ({
                 <SearchInput ref={searchInputRef} color="black" />
               </form>
             </div>
+            {/* ========================= HEADER-LOGO ============================ */}
             <button onClick={() => closeMenu()}>
               <Transitionable rotatable>
                 <img src="/headerLogo.png" alt="header-logo" />
               </Transitionable>
             </button>
+            {/* ========================= CLOSE-ICON ============================ */}
             <img
               onClick={closeMenu}
               className="cursor-pointer h-10"
@@ -328,65 +404,36 @@ const Modal = ({
             />
           </div>
         </div>
-        {/* ========================= CONTENT ============================ */}
+        {/* //! ========================= CONTENT ============================ //! */}
         <div className="modal__bottom p-5 md:flex md:flex-row-reverse md:gap-4 md:items-end md:justify-center">
           <div className="md:w-full">
             {/* ========================= LANGUAGES ============================ */}
             <div className="*:mr-2 md:hidden">
-              {Object.keys(locales).map((locale) => (
-                <span
-                  key={locale}
-                  className={`font-bold text-lg ${
-                    i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
-                  }`}
-                  onClick={() => {
-                    i18n.changeLanguage(locale);
-                  }}
-                >
-                  {locales[locale as keyof typeof locales].title}
-                </span>
-              ))}
+              <Locales />
             </div>
             {/* ========================= LINKS ============================ */}
             <div className="header-menu-links inline-flex flex-col gap-5 text-[#25254C] *:text-3xl *:cursor-pointer mt-5 italic font-bold md:not-italic md:*:text-4xl">
-              <Link to={`/${i18n.resolvedLanguage}/catalog`} onClick={closeMenu}>
-                {t("home.header.links.concerts")}
-              </Link>
-              <Link to="/map" onClick={closeMenu}>
-                {t("home.header.links.map")}
-              </Link>
-              <Link to="/catalog" onClick={closeMenu}>
-                {t("home.header.links.shops")}
-              </Link>
-              <Link to="/catalog" onClick={closeMenu}>
-                {t("home.header.links.food")}
-              </Link>
-              <Link to="/catalog" onClick={closeMenu}>
-                {t("home.header.links.entertainment")}
-              </Link>
-              <Link to="/catalog" onClick={closeMenu}>
-                {t("home.header.links.sales")}
-              </Link>
-              <Link to="/tenant" onClick={closeMenu}>
-                {t("home.header.links.tenant")}
-              </Link>
+              {links.map((link) => (
+                <Link key={link.id} to={link.href} onClick={closeMenu}>
+                  {link.text}
+                </Link>
+              ))}
             </div>
             {/* ========================= BOTTOM-LINKS ============================ */}
             <div className="mt-10 flex flex-col gap-3 *:text-3xl text-[#C83053] font-bold *:cursor-pointer">
-              <Link to="/hr" onClick={closeMenu}>
-                Работа в Family Park
-              </Link>
-              <Link to="/lost-item" onClick={closeMenu}>
-                Потерянные вещи
-              </Link>
+              {redLinks.map((link) => (
+                <Link key={link.id} to={link.href} onClick={closeMenu}>
+                  {link.text}
+                </Link>
+              ))}
             </div>
+            {/* ========================= ADDITIONAL-LINKS ============================ */}
             <div className="mt-5 flex flex-col gap-3 *:cursor-pointer">
-              <span>Правила посетителя</span>
-              <span>Правила парковки</span>
-              <span>Правила размещения рекламы</span>
-              <Link to={`/${lng}/faq`} onClick={closeMenu}>
-                Часто задаваемые вопросы
-              </Link>
+              {additionalLinks.map((link) => (
+                <Link key={link.id} to={link.href} onClick={closeMenu}>
+                  {link.text}
+                </Link>
+              ))}
             </div>
           </div>
           {/* ========================= ADDITIONAL INFO  ============================ */}
@@ -408,12 +455,12 @@ const Modal = ({
               </span>
             </div>
             {/* ========================= ICONS ============================ */}
-            <div className="mt-3 flex items-center gap-5 *:w-8 *:h-8 *:cursor-pointer">
-              <img src="/icons/instagram.svg" alt="instagram-icon" />
-              <img src="/icons/telegram.svg" alt="telegram-icon" />
-              <img src="/icons/youtube.svg" alt="youtube-icon" />
-              <img src="/icons/facebook.svg" alt="facebook-icon" />
-              <img src="/icons/tiktok.svg" alt="tiktok-icon" />
+            <div className="mt-3 flex items-center gap-5 *:cursor-pointer">
+              {socialMediaIcons.map((item) => (
+                <a key={item.id} href={item.link} target="_blank">
+                  <img className="w-8 h-8" src={item.path} alt={item.altVar} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -421,5 +468,21 @@ const Modal = ({
     </AnimatePresence>
   );
 };
+
+
+function showInput(elem: HTMLInputElement | null) {
+  if (!elem) return; // Проверка на null
+
+  if (elem.classList.contains("w-0")) {
+    elem.classList.remove("w-0", "opacity-0");
+    elem.classList.add("md:w-48", "w-32", "opacity-100");
+    elem.focus();
+  } else {
+    elem.classList.remove("md:w-48", "w-32", "opacity-100");
+    elem.classList.add("w-0", "opacity-0");
+    elem.blur();
+  }
+};
+
 
 export default Header;

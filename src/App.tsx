@@ -20,8 +20,8 @@ import LostItem from "./views/LostItem";
 import Map from "./views/Map";
 import FAQ from "./views/FAQ";
 import i18n from "./i18n";
-import { getCurrentLng } from "./utils/language";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const supportedLanguages = ["ru", "en", "uz"];
 
@@ -29,11 +29,12 @@ function LanguageGuard() {
   const { lng } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const { i18n } = useTranslation()
 
   useEffect(() => {
     if (!supportedLanguages.includes(lng || "")) {
       navigate(
-        `/${getCurrentLng}${location.pathname.replace(/^\/[^/]+/, "")}`,
+        `/${i18n.language}${location.pathname.replace(/^\/[^/]+/, "")}`,
         { replace: true }
       );
     }
@@ -75,6 +76,7 @@ const NotFound = () => {
 
 function App() {
   const [langKey, setLangKey] = useState(i18n.language);
+  let shortLng = i18n.language.split("-")[0];
 
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
@@ -94,10 +96,10 @@ function App() {
           {/* Редирект по умолчанию */}
           <Route
             path="/"
-            element={<Navigate to={`/${i18n.language}/`} replace />}
+            element={<Navigate to={`/${shortLng}/`} replace />}
           />
           {/* Странциы с нужными языками */}
-          <Route path="/:lng/*" element={<LanguageGuard />}>
+          <Route path="/:lng/" element={<LanguageGuard />}>
             <Route path="" element={<Home />} />
             <Route path={`map`} element={<Map />} />
             <Route path={`catalog`} element={<Catalog />} />
@@ -110,7 +112,7 @@ function App() {
             <Route path={`faq`} element={<FAQ />} />
           </Route>
           {/* Если неверный путь */}
-          {/* <Route path="/:lng/*" element={<NotFound />} />  */}
+          <Route path="/:lng/*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>
