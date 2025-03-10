@@ -82,7 +82,28 @@
 
   "hr": {
     "title": "BIZ BILAN ISHLASHNI XOHLAYSIZMI?",
-    "subtitle": "FAMILY PARK jamoasining bir qismi bo‘ling!"
+    "subtitle": "FAMILY PARK jamoasining bir qismi bo‘ling!",
+    "why_our_company": [
+      "Rasmiy ishga joylashish",
+      "Oq ish haqi (shaffof maosh)",
+      "Kasbiy va martaba o‘sishi",
+      "Zamonaviy va qulay ofis",
+      "Zamonaviy jihozlar",
+      "Xodimlar uchun chegirmalar"
+    ],
+    "modal": {
+      "title": "Rezyume yuborish",
+      "label1": "F.I.O",
+      "label2": "Telefon",
+      "label3": "Email",
+      "dragFile": "Faylni tortib olib keling yoki",
+      "loadFile": "yuklang",
+      "selectedFile": "Tanlangan fayl:",
+      "attention": "Diqqat!",
+      "attentionText": "Yuklanadigan fayl hajmi",
+      "fileSize": "10MB dan oshmasligi kerak",
+      "link": "Yoki rezyume havolasini qo‘ying"
+    }
   },
 
   "lost-item": {
@@ -92,7 +113,13 @@
 
   "tenant": {
     "title": "Bizning ijarachimiz bo‘lishni xohlaysizmi?",
-    "subtitle": "Kinoteatrimizdagi jahon premyeralari haqida xabardor bo‘ling!"
+    "subtitle": "Kinoteatrimizdagi jahon premyeralari haqida xabardor bo‘ling!",
+    "types": {
+      "shop": "Do‘kon",
+      "food": "Oziq-ovqat",
+      "entertainment": "Ko‘ngilochar"
+    }
+    
   },
 
   "buttons": {
@@ -119,12 +146,22 @@
     "column1": {
       "contact-name": "Bog‘lanish uchun shaxs",
       "phone": "Telefon",
-      "what-lost": "Nima yo‘qoldi:"
+      "what-lost": "Nima yo‘qoldi:",
+      "working-days": "Ish kunlari"
     },
     "column2": {
       "where": "Qayerda edingiz?",
       "time": "Yo‘qolgan vaqt",
       "comment": "Izoh:"
     }
+  },
+  "weekdays": {
+    "monday": "Dushanba",
+    "tuesday": "Seshanba",
+    "wednesday": "Chorshanba",
+    "thursday": "Payshanba",
+    "friday": "Juma",
+    "saturday": "Shanba",
+    "sunday": "Yakshanba"
   }
 }

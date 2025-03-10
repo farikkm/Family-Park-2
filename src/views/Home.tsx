@@ -42,7 +42,6 @@ const Home = () => {
       Foods,
       Entartainments,
       EventsSection,
-      Sales,
       Tenant,
       Footer,
     ];
@@ -207,7 +206,7 @@ function Shops() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.shops.title")} />
-          <SeeAllButton />
+          <SeeAllButton category="shops"/>
         </div>
 
         {/* ===== Desktop ===== */}
@@ -237,7 +236,7 @@ function Foods() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.food.title")} />
-          <SeeAllButton />
+          <SeeAllButton category="food"/>
         </div>
 
         {/* ===== Desktop ===== */}
@@ -267,7 +266,7 @@ function Entartainments() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.entertainment.title")} />
-          <SeeAllButton />
+          <SeeAllButton category="entartainment"/>
         </div>
 
         {/* ===== Desktop ===== */}

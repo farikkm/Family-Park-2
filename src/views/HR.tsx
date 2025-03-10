@@ -4,15 +4,6 @@ import { AnimatePresence, motion } from "motion/react";
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-const whyOurCompanyItems = [
-  { id: 1, text: "Официальное трудоустройство" },
-  { id: 2, text: "Официальное трудоустройство" },
-  { id: 3, text: "Официальное трудоустройство" },
-  { id: 4, text: "Официальное трудоустройство" },
-  { id: 5, text: "Официальное трудоустройство" },
-  { id: 6, text: "Официальное трудоустройство" },
-];
-
 const vacancies = [
   {
     id: 1,
@@ -32,6 +23,7 @@ const vacancies = [
 ];
 
 const FileUploader = () => {
+  const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>("");
 
@@ -43,12 +35,13 @@ const FileUploader = () => {
   return (
     <div className="border-2 border-dashed border-black py-6 px-6 md:px-32 text-center">
       <p className="text-gray-700">
-        Перетащите или{" "}
+        {t("hr.modal.dragFile")}
+        {" "}
         <span
           className="text-blue-500 hover:underline cursor-pointer"
           onClick={() => fileInputRef.current?.click()}
         >
-          загрузите файл
+          {t("hr.modal.loadFile")}
         </span>
         <br />
         (doc, pdf, docx, rtf).
@@ -61,16 +54,20 @@ const FileUploader = () => {
         onChange={handleFileChange}
       />
       {fileName && (
-        <p className="mt-2 text-sm text-green-600">Выбран файл: {fileName}</p>
+        <p className="mt-2 text-sm text-green-600">{t("hr.modal.selectedFile")} {fileName}</p>
       )}
     </div>
   );
 };
 
 const HR = () => {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
+
+  const whyOurCompanyItems = t("hr.why_our_company", {
+    returnObjects: true,
+  }) as string[];
 
   function openModal() {
     setShowModal(true);
@@ -84,11 +81,11 @@ const HR = () => {
 
   function closeModalByBackdrop(e: React.FormEvent) {
     const isClickOnBackdrop = e.target === modalRef.current;
-    if (isClickOnBackdrop) closeModal()
+    if (isClickOnBackdrop) closeModal();
   }
 
   function sendInfo() {
-    closeModal()
+    closeModal();
   }
   return (
     <>
@@ -96,10 +93,10 @@ const HR = () => {
       <div id="hr" className="relative pt-30 pb-10 px-5 md:px-30">
         <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
         <h1 className="text-white text-5xl md:text-7xl md:mt-5 md:mb-3 font-black mb-1">
-          { t("hr.title") }
+          {t("hr.title")}
         </h1>
         <span className="text-white text-2xl font-normal">
-          { t("hr.subtitle") }
+          {t("hr.subtitle")}
         </span>
 
         {/* ===================== Почему наша компания? ===================== */}
@@ -107,13 +104,13 @@ const HR = () => {
           <h5 className="font-black text-center md:text-xl">
             Почему наша компания?
           </h5>
-          <div className="flex flex-col gap-10 justify-center items-center mt-5 px-5">
-            {whyOurCompanyItems.map((item) => (
-              <div key={item.id} className="flex items-center gap-4">
-                <button className="block shadow-xs shadow-black py-2 px-4  min-w-[52px] rounded-[25px] text-3xl font-black text-white bg-gradient-to-br from-[#25254C] to-[#6A6DBD]">
-                  {item.id}
+          <div className="w-fit flex flex-col gap-10 justify-center mt-5 mx-auto px-5">
+            {whyOurCompanyItems.map((text, index) => (
+              <div key={index} className="flex items-center gap-4">
+                <button className="block light-shadow py-2 px-4  min-w-[52px] rounded-[25px] text-3xl font-black text-white bg-gradient-to-br from-[#25254C] to-[#6A6DBD]">
+                  {index + 1}
                 </button>
-                <span>{item.text}</span>
+                <span>{text}</span>
               </div>
             ))}
           </div>
@@ -126,7 +123,7 @@ const HR = () => {
               onClick={openModal}
               className="cursor-pointer active:scale-110 transition-all red-gradient translate-y-15 text-white uppercase px-7 py-5 font-black rounded-4xl"
             >
-              оставить резюме
+              {t("hr.modal.title")}
             </button>
           </div>
         </div>
@@ -196,11 +193,13 @@ const HR = () => {
             >
               <div className="flex w-full flex-col gap-6 items-center">
                 <h2 className="text-center text-4xl font-bold">
-                  Оставить резюме
+                  {t("hr.modal.title")}
                 </h2>
                 <div className="flex flex-col md:flex-row gap-4 justify-between w-full *:md:max-w-[250px] *:w-full">
                   <label className="flex flex-col mb-3">
-                    <span className="text-black font-bold">ФИО</span>
+                    <span className="text-black font-bold">
+                      {t("hr.modal.label1")}
+                    </span>
                     <input
                       className="*:font-thin py-1 border-b active:outline-0"
                       type="text"
@@ -208,24 +207,25 @@ const HR = () => {
                     />
                   </label>
                   <label className="flex flex-col mb-3">
-                    <span className="text-black font-bold">Телефон</span>
-                    <input
-                      className="*:font-thin py-1 border-b"
-                      type="text"
-                    />
+                    <span className="text-black font-bold">
+                      {t("hr.modal.label2")}
+                    </span>
+                    <input className="*:font-thin py-1 border-b" type="text" />
                   </label>
                   <label className="flex flex-col mb-3">
-                    <span className="text-black font-bold">Почта</span>
-                    <input
-                      className="*:font-thin py-1 border-b"
-                      type="text"
-                    />
+                    <span className="text-black font-bold">
+                      {t("hr.modal.label3")}
+                    </span>
+                    <input className="*:font-thin py-1 border-b" type="text" />
                   </label>
                 </div>
                 <FileUploader />
                 <p>
-                  <strong>Обратите внимание!</strong> Прикрепляемый файл должен
-                  быть не более <strong>10мб</strong>
+                  <strong>{t("hr.modal.attention")}</strong>
+                  {" "}
+                  {t("hr.modal.attentionText")}
+                  {" "}
+                  <strong>{t("hr.modal.fileSize")}</strong>
                 </p>
                 <div className="max-w-[600px] w-full">
                   <label
@@ -233,7 +233,7 @@ const HR = () => {
                     htmlFor="third-label"
                   >
                     <span className="text-[#474747] font-bold">
-                      Или вставьте ссылку на резюме
+                      {t("hr.modal.link")}
                     </span>
                     <input
                       className="*:font-thin py-1 border-b active:outline-0"
@@ -248,7 +248,7 @@ const HR = () => {
                     onClick={sendInfo}
                     className="cursor-pointer active:scale-110 transition-all red-gradient text-white uppercase px-16 py-4 font-black rounded-4xl"
                   >
-                    ОТПРАВИТЬ
+                    {t("buttons.send")}
                   </button>
                 </div>
               </div>

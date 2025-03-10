@@ -78,7 +78,28 @@
   },
   "hr": {
     "title": "WANT TO WORK WITH US?",
-    "subtitle": "Join the FAMILY PARK team!"
+    "subtitle": "Join the FAMILY PARK team!",
+    "why_our_company": [
+      "Official employment",
+      "Transparent (white) salary",
+      "Professional and career growth",
+      "Stylish and comfortable office",
+      "Modern equipment",
+      "Employee discounts"
+    ],
+    "modal": {
+      "title": "Submit Resume",
+      "label1": "Full Name",
+      "label2": "Phone",
+      "label3": "Email",
+      "dragFile": "Drag or",
+      "loadFile": "upload a file",
+      "selectedFile": "Selected file:",
+      "attention": "Attention!",
+      "attentionText": "The attached file must not exceed",
+      "fileSize": "10MB",
+      "link": "Or insert a link to the resume"
+    }
   },
   "faq": {
     "title": "Frequently asked questions",
@@ -91,7 +112,12 @@
 
   "tenant": {
     "title": "Want to become our tenant?",
-    "subtitle": "Stay updated on world premieres in our cinema!"
+    "subtitle": "Stay updated on world premieres in our cinema!",
+    "types": {
+      "shop": "Shop",
+      "food": "Food",
+      "entertainment": "Entertainment"
+    }
   },
 
   "buttons": {
@@ -118,12 +144,22 @@
     "column1": {
       "contact-name": "Contact Person Name",
       "phone": "Phone",
-      "what-lost": "What was lost:"
+      "what-lost": "What was lost:",
+      "working-days": "Working Days"
     },
     "column2": {
       "where": "Where were you?",
       "time": "Time of loss",
       "comment": "Comment:"
     }
+  },
+  "weekdays": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
   }
 }

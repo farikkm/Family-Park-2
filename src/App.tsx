@@ -32,7 +32,7 @@ function App() {
           >
             <Route path="" element={<Home />} />
             <Route path={`map`} element={<Map />} />
-            <Route path={`catalog`} element={<Catalog />} />
+            <Route path={`catalog/:category`} element={<Catalog />} />
             <Route path={`market`} element={<Market />} />
             <Route path={`events`} element={<Events />} />
             <Route path={`cinema`} element={<Cinema />} />

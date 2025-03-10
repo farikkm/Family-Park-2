@@ -44,29 +44,8 @@ const FAQ = () => {
                     <span>{ question.question_faq }</span>
                   </p>
                 ))}
-                <span>{ t("home.button1") }</span>
               </div>
             </Accordion>
-
-            {/* <Accordion title="FAQ #2" className="mt-8!" initialState="close">
-              <div className="mt-5 flex flex-col gap-5 px-3">
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-              </div>
-            </Accordion>
-
-            <Accordion title="FAQ #3" className="mt-8!" initialState="close">
-              <div className="mt-5 flex flex-col gap-5 px-3">
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-                <p>Frequent Asked Questions</p>
-              </div>
-            </Accordion> */}
           </div>
         </div>
       </div>
