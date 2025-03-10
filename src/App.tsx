@@ -1,14 +1,4 @@
-import {
-  BrowserRouter,
-  Navigate,
-  Outlet,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-  useParams,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "@/views/Home";
 import Catalog from "@/views/Catalog";
 import Market from "@/views/Market";
@@ -20,86 +10,26 @@ import LostItem from "./views/LostItem";
 import Map from "./views/Map";
 import FAQ from "./views/FAQ";
 import i18n from "./i18n";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-
-const supportedLanguages = ["ru", "en", "uz"];
-
-function LanguageGuard() {
-  const { lng } = useParams();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { i18n } = useTranslation()
-
-  useEffect(() => {
-    if (!supportedLanguages.includes(lng || "")) {
-      navigate(
-        `/${i18n.language}${location.pathname.replace(/^\/[^/]+/, "")}`,
-        { replace: true }
-      );
-    }
-  }, [lng, navigate]);
-
-  useEffect(() => {
-    const onLanguageChange = (newLng: string) => {
-      if (supportedLanguages.includes(newLng) && newLng !== lng) {
-        const newPath = `/${newLng}${location.pathname.replace(
-          /^\/[^/]+/,
-          ""
-        )}`;
-        navigate(newPath, { replace: true });
-      }
-    };
-
-    i18n.on("languageChanged", onLanguageChange);
-    return () => {
-      i18n.off("languageChanged", onLanguageChange);
-    };
-  }, [lng, navigate]);
-
-  return <Outlet />;
-}
-
-const NotFound = () => {
-  return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <h1 className="text-4xl font-bold mb-4">404 - Page Not Found</h1>
-      <p className="text-gray-600 mb-6">
-        The page you are looking for does not exist.
-      </p>
-      <Link to="/" className="text-blue-500 hover:underline">
-        Go to Home
-      </Link>
-    </div>
-  );
-};
+import { useState } from "react";
+import NotFound from "./views/NotFound";
+import LanguageGuard from "./LanguageGuard";
+import Wrapper from "./MainLayout";
 
 function App() {
   const [langKey, setLangKey] = useState(i18n.language);
   let shortLng = i18n.language.split("-")[0];
 
-  useEffect(() => {
-    const handleLanguageChange = (lng: string) => {
-      setLangKey(lng); // Меняем ключ → принудительный ререндер всех компонентов
-    };
-
-    i18n.on("languageChanged", handleLanguageChange);
-    return () => {
-      i18n.off("languageChanged", handleLanguageChange);
-    };
-  }, []);
-
   return (
     <BrowserRouter>
-      <div className="wrapper" key={langKey}>
+      <Wrapper onLangChange={langKey}>
         <Routes>
           {/* Редирект по умолчанию */}
-          <Route
-            path="/"
-            element={<Navigate to={`/${shortLng}/`} replace />}
-          />
+          <Route path="/" element={<Navigate to={`/${shortLng}/`} replace />} />
           {/* Странциы с нужными языками */}
-          <Route path="/:lng/" element={<LanguageGuard />}>
+          <Route
+            path="/:lng/"
+            element={<LanguageGuard setLangKey={setLangKey} />}
+          >
             <Route path="" element={<Home />} />
             <Route path={`map`} element={<Map />} />
             <Route path={`catalog`} element={<Catalog />} />
@@ -114,7 +44,7 @@ function App() {
           {/* Если неверный путь */}
           <Route path="/:lng/*" element={<NotFound />} />
         </Routes>
-      </div>
+      </Wrapper>
     </BrowserRouter>
   );
 }

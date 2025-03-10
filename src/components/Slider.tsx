@@ -19,7 +19,6 @@ interface Props {
 const Slider = ({ sections }: Props) => {
   const swiperRef = useRef<SwiperRef>(null);
   const [showScrollbar, setShowScrollbar] = useState<boolean>(true);
-  const [isLastSlide, setIsLastSlide] = useState<boolean>(false);
   const isMobile = isMobileUtil()
 
   // Листаем к странице после перезагрузки
@@ -35,14 +34,6 @@ const Slider = ({ sections }: Props) => {
     if (isMobile) setShowScrollbar(false);
   }, [showScrollbar]);
 
-  // Last Slide with Footer
-  useEffect(() => {
-    if (isLastSlide) {
-      document.body.style.overflowY = "auto"; // Разрешаем скролл во время последнего слайда
-    } else {
-      document.body.style.overflowY = "hidden"; // Блокируем скролл для Swiper
-    }
-  }, [isLastSlide]);
 
   // Functions
   const scrollUp = () => {
@@ -79,7 +70,6 @@ const Slider = ({ sections }: Props) => {
         speed={500}
         onSlideChange={(swiper) => {
           localStorage.setItem("swiperIndex", String(swiper.activeIndex));
-          setIsLastSlide(swiper.activeIndex === sections.length - 1);
         }}
       >
         {sections.map((section: any, index: number) => (

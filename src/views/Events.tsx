@@ -1,11 +1,7 @@
 import Header from "@/components/Header";
 import Title from "@/components/ui/Title";
-import { useEffect } from "react";
 
 const Events = () => {
-  useEffect(() => {
-    document.body.removeAttribute("style");
-  }, []);
   return (
     <>
       <Header />

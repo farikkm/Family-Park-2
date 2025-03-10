@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Accordion from "@/components/ui/Accordion";
 import { AnimatePresence, motion } from "motion/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const whyOurCompanyItems = [
@@ -90,10 +90,6 @@ const HR = () => {
   function sendInfo() {
     closeModal()
   }
-
-  useEffect(() => {
-    document.body.removeAttribute("style");
-  }, []);
   return (
     <>
       <Header icons="white" />

@@ -2,14 +2,10 @@ import Header from "@/components/Header";
 import SendButton from "@/components/ui/SendButton";
 import Subtitle from "@/components/ui/Subtitle";
 import Title from "@/components/ui/Title";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const Tenant = () => {
   const {t} = useTranslation();
-  useEffect(() => {
-    document.body.removeAttribute("style");
-  }, []);
   return (
     <>
       <Header />

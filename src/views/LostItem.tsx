@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import { useEffect } from "react";
 import Title from "@/components/ui/Title";
 import { useTranslation } from "react-i18next";
 import Subtitle from "@/components/ui/Subtitle";
@@ -7,9 +6,6 @@ import SendButton from "@/components/ui/SendButton";
 
 const LostItem = () => {
   const {t} = useTranslation();
-  useEffect(() => {
-    document.body.removeAttribute("style");
-  }, []);
 
   return (
     <>

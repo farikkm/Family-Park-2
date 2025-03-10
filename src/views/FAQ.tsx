@@ -21,7 +21,6 @@ const FAQ = () => {
   const {request} = useHttp()
 
   useEffect(() => {
-    document.body.removeAttribute("style");
     request(`${apiBaseUrl}/additional/faq/`, "GET", null, { "Accept-Language": `${i18n.resolvedLanguage}` }).then(res => setQuestions(res))
   }, [getCurrentLng]);
   return (

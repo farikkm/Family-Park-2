@@ -2,12 +2,8 @@ import CatalogItem from "@/components/catalog/CatalogItem";
 import Header from "@/components/Header";
 
 import shopImg from "@/assets/images/shops/shop.png";
-import { useEffect } from "react";
 
 const Catalog = () => {
-  useEffect(() => {
-    document.body.removeAttribute('style')
-  }, [])
   return (
     <>
       <Header icons="white" />

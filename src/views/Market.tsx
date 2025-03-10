@@ -5,16 +5,11 @@ import "swiper/css";
 
 import shopImg from "@/assets/images/shops/shop.png";
 import shopImg2 from "@/assets/images/shops/shop2.png";
-import { useEffect } from "react";
 import isMobileUtil from "@/utils";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
 
 const Market = () => {
-  useEffect(() => {
-    document.body.removeAttribute("style");
-  }, []);
-
   let isMobile = isMobileUtil()
 
   // const {request} = useHttp()

@@ -185,9 +185,9 @@ const Header = ({
             </div>
           </div>
           {/* ========================= HEADER-LOGO ============================ */}
-          <Link to="/">
-            <AnimatePresence mode="wait">
-              <Transitionable key={iconState.toString()} rotatable>
+          <AnimatePresence mode="wait">
+            <Transitionable key={iconState.toString()} rotatable>
+              <Link to="/">
                 {BLACK_OR_WHITE ? (
                   <img
                     className="w-25"
@@ -197,9 +197,9 @@ const Header = ({
                 ) : (
                   <img src="/logo/headerLogo.png" alt="header-logo" />
                 )}
-              </Transitionable>
-            </AnimatePresence>
-          </Link>
+              </Link>
+            </Transitionable>
+          </AnimatePresence>
           {/* ========================= RIGHT-SIDE ============================ */}
           <div className="flex items-center gap-24">
             {/* ========================= SOCIAL-MEDIA ============================ */}

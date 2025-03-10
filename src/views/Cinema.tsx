@@ -2,7 +2,6 @@ import Header from "@/components/Header";
 import Accordion from "@/components/ui/Accordion";
 import Subtitle from "@/components/ui/Subtitle";
 import Title from "@/components/ui/Title";
-import { useEffect } from "react";
 
 const CinemaHallSession = () => {
   return (
@@ -20,9 +19,6 @@ const CinemaHallSession = () => {
 };
 
 const Cinema = () => {
-  useEffect(() => {
-    document.body.removeAttribute("style");
-  }, []);
   return (
     <>
       <Header icons="white" />
