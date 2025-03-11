@@ -10,7 +10,7 @@ import { Suspense } from "react";
 import getHref from "@/utils/getHref";
 import SeeAllButton from "@/components/ui/SeeAllButton";
 import CatalogItems from "@/components/catalog/CatalogItems";
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer/Footer";
 
 // Images
 import heroImg from "@/assets/images/hero.png";
