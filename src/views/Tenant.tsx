@@ -1,16 +1,35 @@
 import Header from "@/components/Header";
-import WeekSchedule from "@/components/tenant/WorkingHours";
-import SendButton from "@/components/ui/SendButton";
+import TenantForm from "@/components/tenant/TenantForm";
 import Subtitle from "@/components/ui/Subtitle";
 import Title from "@/components/ui/Title";
 import { useTranslation } from "react-i18next";
+// import { useHttp } from "@/hooks/useHttp";
 
 const Tenant = () => {
   const { t } = useTranslation();
+  // const {request} = useHttp()
+  // const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const tenantTypes = t("tenant.types", {
-    returnObjects: true,
-  }) as Record<string, string>;
+  // const tenantTypes = t("tenant.types", {
+  //   returnObjects: true,
+  // }) as Record<string, string>;
+
+  // useEffect(() => {
+  //   request(`${apiBaseUrl}/tenats/tenats`, "POST", {
+  //     name: "KFC",
+  //     tenant_type: "Food",
+  //     working_day: ["Monday", "Thursday", "Sunday"],
+  //     working_hours_open: "9:00",
+  //     working_hours_close: "18:00",
+  //     phone_number: "998 91 123 45 67",
+  //     key_word: "Kentuky",
+  //     short_descriptions: "The tastiest chicken",
+  //     alias: "KFC",
+  //     status: true,
+  //     content: "Kentucky Fried Chicken",
+  //     map_t: "100.1"
+  //   }).then(res => console.log(res))
+  // }, [])
 
   return (
     <>
@@ -22,107 +41,7 @@ const Tenant = () => {
           <Subtitle text={t("tenant.subtitle")} />
         </div>
         <div className="mt-5 md:mt-0 flex justify-center">
-          <form
-            className="w-full max-w-[800px] p-4 md:p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
-            action="#"
-          >
-            <div>
-              <div>
-                <h3 className="uppercase font-bold mb-2">
-                  {t("tenant-input.title1")}
-                </h3>
-                <label className="flex flex-col mb-3" htmlFor="first-label">
-                  <span className="text-[#858585] font-bold">
-                    {t("tenant-input.column1.trade-profile")}
-                  </span>
-                  <select
-                    required
-                    className="*:font-thin py-2 border-b"
-                    id="first-label"
-                  >
-                    {Object.entries(tenantTypes).map(([value, label]) => (
-                      <option key={value} value={value}>
-                        {label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label className="flex flex-col mb-3" htmlFor="second-label">
-                  <span className="text-[#858585] font-bold">
-                    {t("tenant-input.column1.desired-area")}
-                  </span>
-                  <input
-                    required
-                    className="*:font-thin py-1 border-b"
-                    type="text"
-                    id="second-label"
-                  />
-                </label>
-                <label className="flex flex-col mb-3" htmlFor="third-label">
-                  <span className="text-[#858585] font-bold">
-                    {t("tenant-input.column1.company-name")}
-                  </span>
-                  <input
-                    required
-                    className="*:font-thin py-1 border-b"
-                    type="text"
-                    id="third-label"
-                  />
-                </label>
-                <label className="flex flex-col mb-3" htmlFor="fourth-label">
-                  <span className="text-[#858585] font-bold">
-                    Короток описание
-                  </span>
-                  <input
-                    required
-                    className="*:font-thin py-1 border-b"
-                    type="text"
-                    id="third-label"
-                  />
-                </label>
-                <WeekSchedule />
-              </div>
-              <div>
-                <h3 className="uppercase font-bold mb-2">
-                  {t("tenant-input.title2")}
-                </h3>
-                <label className="flex flex-col mb-3" htmlFor="fourth-label">
-                  <span className="text-[#858585] font-bold">
-                    {t("tenant-input.column2.contact")}
-                  </span>
-                  <input
-                    className="*:font-thin py-1 border-b"
-                    type="text"
-                    id="fourth-label"
-                  />
-                </label>
-                <label className="flex flex-col mb-3" htmlFor="fifth-label">
-                  <span className="text-[#858585] font-bold">
-                    {t("tenant-input.column2.mail")}
-                  </span>
-                  <input
-                    className="*:font-thin py-1 border-b"
-                    type="text"
-                    id="fifth-label"
-                  />
-                </label>
-                <label className="flex flex-col mb-3" htmlFor="sixth-label">
-                  <span className="text-[#858585] font-bold">
-                    {t("tenant-input.column2.phone")}
-                  </span>
-                  <input
-                    className="*:font-thin py-1 border-b"
-                    type="text"
-                    id="sixth-label"
-                    placeholder="+998 __ ___ __ __"
-                  />
-                </label>
-              </div>
-              <div className="flex justify-center mt-10">
-                <SendButton />
-              </div>
-            </div>
-          </form>
+          <TenantForm />
         </div>
       </div>
     </>

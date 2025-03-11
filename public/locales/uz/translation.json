@@ -119,7 +119,6 @@
       "food": "Oziq-ovqat",
       "entertainment": "Ko‘ngilochar"
     }
-    
   },
 
   "buttons": {
@@ -132,7 +131,10 @@
     "column1": {
       "trade-profile": "Savdo profili",
       "desired-area": "Istalgan maydon",
-      "company-name": "Brend/Kompaniya nomi"
+      "company-name": "Brend/Kompaniya nomi",
+      "working-days": "Ish kunlari",
+      "short-description": "Qisqa tavsif",
+      "content": "To‘liq tavsif"
     },
     "column2": {
       "contact": "Bog‘lanish uchun shaxs",
@@ -146,8 +148,7 @@
     "column1": {
       "contact-name": "Bog‘lanish uchun shaxs",
       "phone": "Telefon",
-      "what-lost": "Nima yo‘qoldi:",
-      "working-days": "Ish kunlari"
+      "what-lost": "Nima yo‘qoldi:"
     },
     "column2": {
       "where": "Qayerda edingiz?",

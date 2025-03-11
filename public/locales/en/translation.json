@@ -130,7 +130,11 @@
     "column1": {
       "trade-profile": "Trade Profile",
       "desired-area": "Desired Area",
-      "company-name": "Brand/Company Name"
+      "company-name": "Brand/Company Name",
+
+      "working-days": "Working Days",
+      "short-description": "Short description",
+      "content": "Full description"
     },
     "column2": {
       "contact": "Contact Person Name",
@@ -144,8 +148,7 @@
     "column1": {
       "contact-name": "Contact Person Name",
       "phone": "Phone",
-      "what-lost": "What was lost:",
-      "working-days": "Working Days"
+      "what-lost": "What was lost:"
     },
     "column2": {
       "where": "Where were you?",

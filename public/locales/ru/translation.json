@@ -133,7 +133,9 @@
       "trade-profile": "Торговый профиль",
       "desired-area": "Желаемая площадь",
       "company-name": "Название бренда/компании",
-      "working-days": "Рабочие дни"
+      "working-days": "Рабочие дни",
+      "short-description": "Короткое описание",
+      "content": "Полное описание"
     },
     "column2": {
       "contact": "Имя контактного лица",

@@ -1,15 +1,20 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const WeekSchedule = () => {
-  const [schedule, setSchedule] = useState<Record<string, { open: string; close: string; isClosed: boolean }>>({
-    Monday: { open: "09:00", close: "18:00", isClosed: false },
-    Tuesday: { open: "09:00", close: "18:00", isClosed: false },
-    Wednesday: { open: "09:00", close: "18:00", isClosed: false },
-    Thursday: { open: "09:00", close: "18:00", isClosed: false },
-    Friday: { open: "09:00", close: "18:00", isClosed: false },
-    Saturday: { open: "09:00", close: "16:00", isClosed: false },
-    Sunday: { open: "10:00", close: "16:00", isClosed: true }
+  const {t} = useTranslation();
+
+  const initialSchedule = () => ({
+    [t("weekdays.monday")]: { open: "09:00", close: "18:00", isClosed: false },
+    [t("weekdays.tuesday")]: { open: "09:00", close: "18:00", isClosed: false },
+    [t("weekdays.wednesday")]: { open: "09:00", close: "18:00", isClosed: false },
+    [t("weekdays.thursday")]: { open: "09:00", close: "18:00", isClosed: false },
+    [t("weekdays.friday")]: { open: "09:00", close: "18:00", isClosed: false },
+    [t("weekdays.saturday")]: { open: "09:00", close: "16:00", isClosed: false },
+    [t("weekdays.sunday")]: { open: "10:00", close: "16:00", isClosed: true },
   });
+  
+  const [schedule, setSchedule] = useState<Record<string, { open: string; close: string; isClosed: boolean }>>(initialSchedule);
 
   const handleChange = (day: string, type: "open" | "close", value: string) => {
     setSchedule((prev) => ({
@@ -30,7 +35,7 @@ const WeekSchedule = () => {
   };
 
   return (
-    <div className="max-w-full p-2 mb-3 bg-white shadow-md rounded-xl border border-gray-200">
+    <div className="max-w-full p-2 mb-3 bg-white rounded-xl border border-gray-200">
       <h2 className="text-lg sm:text-xl font-bold mb-4 text-center text-gray-800">⏰ Рабочие часы</h2>
       <div className="space-y-4">
         {Object.entries(schedule).map(([day, { open, close, isClosed }]) => (

@@ -1,4 +1,4 @@
-import Slider from "@/components/Slider";
+import { SliderDesktop, SliderMobile } from "@/components/Slider";
 import Button from "@/components/ui/Button";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -22,7 +22,6 @@ import shopImg from "@/assets/images/shops/shop.png";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ItemsSwiper from "@/components/ItemsSwiper";
 import SendButton from "@/components/ui/SendButton";
 
 // =================================== HOME PAGE =================================== //
@@ -50,8 +49,8 @@ const Home = () => {
   return (
     <>
       <Header className="bg-transparent!" />
-      <main id="home" className="home mt-25 md:mt-0">
-        {sections && <Slider sections={sections} />}
+      <main id="home" className="home mt-20 md:mt-0">
+        {sections && <SliderDesktop sections={sections} />}
       </main>
       <div className="buttons hidden md:flex fixed bottom-7 right-27 z-6  gap-3 *:w-[150px] 3xl:*:w-[200px] *:text-left *:active:scale-110">
         <Link to={getHref("lost-item")}>
@@ -91,7 +90,7 @@ function Hero() {
           />
         </div>
         <div className="hero-content md:max-w-[700px] 3xl:max-w-[900px] w-full py-5 px-5 md:pr-6 md:pl-20">
-          <h2 className="text-5xl md:text-7xl font-black *:uppercase">
+          <h2 className="font-black *:uppercase">
             <img
               src={heroLogo}
               alt="hero-logo"
@@ -100,7 +99,7 @@ function Hero() {
             <span className="block 3xl:text-8xl 2xl:text-7xl text-6xl drop-shadow-2xl bg-gradient-to-br from-[#6A6DBD] to-[#25254C] text-transparent bg-clip-text">
               {t("home.hero.title1")}
             </span>
-            <span className="bg-gradient-to-b 3xl:text-8xl 2xl:text-7xl text-6xl drop-shadow-2xl from-[#fa557b] to-[#bb2649] bg-clip-text text-transparent ml-[60px]">
+            <span className="bg-gradient-to-b 2xl:text-7xl 3xl:text-8xl text-6xl drop-shadow-2xl from-[#fa557b] to-[#bb2649] bg-clip-text text-transparent ml-[60px]">
               {t("home.hero.title2")}
             </span>
           </h2>
@@ -125,7 +124,7 @@ function Statistics() {
         <h2 className="text-4xl 3xl:text-5xl max-w-sm  mx-auto text-center md:max-w-full">
           {t("home.statistics.title")}
         </h2>
-        <div className="grid grid-cols-2 gap-4 mt-4 md:mt-8 md:max-w-4xl md:mx-auto md:grid-cols-4">
+        <div className="hidden md:grid grid-cols-2 gap-4 mt-4 md:mt-8 md:max-w-4xl md:mx-auto md:grid-cols-4">
           <div>
             <h3 className="text-4xl 3xl:text-6xl font-bold md:font-black md:mb-2 md:text-5xl">
               80+{" "}
@@ -142,7 +141,7 @@ function Statistics() {
               {t("home.statistics.top.item2")}
             </span>
           </div>
-          <div className="hidden md:block">
+          <div className="block">
             <h3 className="text-4xl 3xl:text-6xl font-bold md:font-black md:mb-2 md:text-5xl">
               20+{" "}
             </h3>
@@ -150,7 +149,7 @@ function Statistics() {
               {t("home.statistics.top.item3")}
             </span>
           </div>
-          <div className="hidden md:block md:max-w-[300px]">
+          <div className="block md:max-w-[300px]">
             <span className="text-sm font-normal md:text-md 3xl:text-[16px]">
               {t("home.statistics.top.item4")}
             </span>
@@ -159,7 +158,7 @@ function Statistics() {
       </div>
       {/* ========================= BOTTOM-ITEMS ======================== */}
       <div
-        className="statistics-bottom my-4 md:my-9 grid grid-cols-2 max-w-[400px] 
+        className="statistics-bottom my-8 md:my-9 grid grid-cols-2 max-w-[400px] 
         md:max-w-[800px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-85 md:mt-15 mx-auto rounded-4xl 
         overflow-hidden *:text-white"
       >
@@ -206,11 +205,11 @@ function Shops() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.shops.title")} />
-          <SeeAllButton category="shops"/>
+          <SeeAllButton category="shops" />
         </div>
 
         {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <ItemsSwiper />}
+        {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
         <CatalogItems items={items} className="mt-5" />
       </div>
@@ -236,11 +235,11 @@ function Foods() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.food.title")} />
-          <SeeAllButton category="food"/>
+          <SeeAllButton category="food" />
         </div>
 
         {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <ItemsSwiper />}
+        {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
         <CatalogItems items={items} className="mt-5" />
       </div>
@@ -266,11 +265,11 @@ function Entartainments() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.entertainment.title")} />
-          <SeeAllButton category="entartainment"/>
+          <SeeAllButton category="entartainment" />
         </div>
 
         {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <ItemsSwiper />}
+        {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
         <CatalogItems items={items} className="mt-5" />
       </div>
@@ -299,7 +298,7 @@ function EventsSection() {
         </div>
 
         {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <ItemsSwiper />}
+        {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
         <CatalogItems items={items} className="mt-5" />
       </div>
@@ -307,38 +306,41 @@ function EventsSection() {
   );
 }
 
-function Sales() {
-  const { t } = useTranslation();
+// function Sales() {
+//   const { t } = useTranslation();
 
-  const items = [
-    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-  ];
-  return (
-    <section id="sales" className="relative md:pt-30 md:px-35">
-      {/* Decor */}
-      <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
-      {/* Content */}
-      <div className="shops__content py-5 px-5 text-white">
-        <div className="md:flex items-center justify-between">
-          <Title text={t("home.sales.title")} />
-          <SeeAllButton />
-        </div>
+//   const items = [
+//     { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//     { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//     { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//     { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//   ];
+//   return (
+//     <section id="sales" className="relative md:pt-30 md:px-35">
+//       {/* Decor */}
+//       <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
+//       {/* Content */}
+//       <div className="shops__content py-5 px-5 text-white">
+//         <div className="md:flex items-center justify-between">
+//           <Title text={t("home.sales.title")} />
+//           <SeeAllButton />
+//         </div>
 
-        {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <ItemsSwiper />}
-        {/* ===== Mobile ===== */}
-        <CatalogItems items={items} className="mt-5" />
-      </div>
-    </section>
-  );
-}
+//         {/* ===== Desktop ===== */}
+//         {!isMobileUtil() && <SliderMobile />}
+//         {/* ===== Mobile ===== */}
+//         <CatalogItems items={items} className="mt-5" />
+//       </div>
+//     </section>
+//   );
+// }
 
 function Tenant() {
   const { t } = useTranslation();
-  let isMobile = isMobileUtil();
+
+  const tenantTypes = t("tenant.types", {
+    returnObjects: true,
+  }) as Record<string, string>;
 
   return (
     <div id="tenant" className="pb-20 pt-5 px-5 relative md:pt-30 md:px-35">
@@ -352,99 +354,30 @@ function Tenant() {
           className="p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
           action="#"
         >
-          <div className="md:grid md:grid-cols-2 md:gap-5">
-            <div>
-              <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-xl">
-                {t("tenant-input.title1")}
-              </h3>
-              <label className="flex flex-col mb-3" htmlFor="first-label">
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  {t("tenant-input.column1.trade-profile")}
-                </span>
-                <select
-                  className="*:font-thin py-2 border-b 3xl:text-lg"
-                  id="first-label"
-                >
-                  <option value="Магазин">Магазин</option>
-                  <option value="Магазин">Акция</option>
-                  <option value="Магазин">Продукты</option>
-                  <option value="Магазин">Арендаторы</option>
-                </select>
-              </label>
-              <label
-                className="hidden flex-col mb-3 md:flex"
-                htmlFor="second-label"
+          <div className="grid md:grid-cols-1 md:gap-5">
+            <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-xl">
+              {t("tenant-input.title1")}
+            </h3>
+            <label className="flex flex-col mb-3" htmlFor="first-label">
+              <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
+                {t("tenant-input.column1.trade-profile")}
+              </span>
+              <select
+                className="*:font-thin py-2 border-b 3xl:text-lg"
+                id="first-label"
               >
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  {t("tenant-input.column1.desired-area")}
-                </span>
-                <input
-                  className="*:font-thin py-1 border-b"
-                  type="text"
-                  id="second-label"
-                />
-              </label>
-              <label
-                className="hidden flex-col mb-3 md:flex"
-                htmlFor="third-label"
-              >
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  {t("tenant-input.column1.company-name")}
-                </span>
-                <input
-                  className="*:font-thin py-1 border-b"
-                  type="text"
-                  id="third-label"
-                />
-              </label>
-            </div>
-            <div className="md:block hidden">
-              <h3 className="uppercase font-bold mb-2 text-sm 3xl:text-lg">
-                {t("tenant-input.title2")}
-              </h3>
-              <label className="flex flex-col mb-3" htmlFor="fourth-label">
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  {t("tenant-input.column2.contact")}
-                </span>
-                <input
-                  className="*:font-thin py-1 border-b"
-                  type="text"
-                  id="fourth-label"
-                />
-              </label>
-              <label className="flex flex-col mb-3" htmlFor="fifth-label">
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  {t("tenant-input.column2.mail")}
-                </span>
-                <input
-                  className="*:font-thin py-1 border-b"
-                  type="text"
-                  id="fifth-label"
-                />
-              </label>
-              <label className="flex flex-col mb-3" htmlFor="sixth-label">
-                <span className="text-[#858585] font-bold text-sm 3xl:text-lg">
-                  {t("tenant-input.column2.phone")}
-                </span>
-                <input
-                  className="*:font-thin py-1 border-b"
-                  type="text"
-                  id="sixth-label"
-                  placeholder="+998 __ ___ __ __"
-                />
-              </label>
-            </div>
+                {Object.entries(tenantTypes).map(([value, label]) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
           <div className="flex justify-center mt-10">
-            {isMobile ? (
-              <Link to={getHref("/tenant")}>
-                <SendButton />
-              </Link>
-            ) : (
-              <Link to="/">
-                <SendButton />
-              </Link>
-            )}
+            <Link to={getHref("/tenant")}>
+              <SendButton />
+            </Link>
           </div>
         </form>
       </div>

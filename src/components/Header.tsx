@@ -58,6 +58,7 @@ const Locales = () => {
             i18n.resolvedLanguage === locale ? "text-[#7878FF]" : ""
           }`}
           onClick={() => {
+            document.body.classList.remove("lock");
             i18n.changeLanguage(locale);
           }}
         >
@@ -135,7 +136,7 @@ const Header = ({
       {/* //! ======================================================= HEADER =======================================================*/}
 
       <header
-        className={`header backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 py-7 pb-0 ${
+        className={`header backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 pt-4 md:pt-7 ${
           BLACK_OR_WHITE ? "bg-transparent" : "bg-white"
         } ${className}`}
       >
@@ -298,6 +299,25 @@ const Modal = ({
     },
   ];
 
+  const additionalLinks = [
+    {
+      id: 1,
+      text: t("header.links.visitors-rules"),
+      href: getHref("/faq"),
+    },
+    {
+      id: 2,
+      text: t("header.links.parking-rules"),
+      href: getHref("/faq"),
+    },
+    {
+      id: 3,
+      text: t("header.links.advertising-rules"),
+      href: getHref("/faq"),
+    },
+    { id: 4, text: t("header.links.faq"), href: getHref("/faq") },
+  ];
+
   const closeMenu = () => {
     document.body.classList.remove("lock");
     setIsShowModal(false);
@@ -407,7 +427,11 @@ const Modal = ({
             </div>
             {/* ========================= ADDITIONAL-LINKS ============================ */}
             <div className="mt-5 flex flex-col gap-3 *:cursor-pointer">
-              <AdditionalLinks />
+              {additionalLinks.map((link) => (
+                <Link key={link.id} to={link.href} onClick={closeMenu}>
+                  {link.text}
+                </Link>
+              ))}
             </div>
           </div>
           {/* ========================= ADDITIONAL INFO  ============================ */}
