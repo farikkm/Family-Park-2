@@ -25,8 +25,7 @@ const handleEnter = (e: KeyboardEvent, input: HTMLInputElement) => {
     const searchText = input.value.trim();
     if (searchText) console.log("User input:", searchText);
     input.value = "";
-    input.classList.remove("md:w-48", "w-32", "opacity-100");
-    input.classList.add("w-0", "opacity-0");
+    removeStyle(input);
     input.blur();
   }
 };

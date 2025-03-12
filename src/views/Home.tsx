@@ -268,7 +268,7 @@ function Entartainments() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.entertainment.title")} />
-          <SeeAllButton category="entartainment" />
+          <SeeAllButton category="entertainment" />
         </div>
 
         {/* ===== Desktop ===== */}

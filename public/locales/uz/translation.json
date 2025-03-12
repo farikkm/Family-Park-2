@@ -121,6 +121,23 @@
     }
   },
 
+  "catalog": {
+    "title": "Katalog"
+  },
+
+  "shops": {
+    "category": "Do‘konlar"
+  },
+  "food": {
+    "category": "Oziq-ovqat"
+  },
+  "entertainment": {
+    "category": "Ko‘ngilochar"
+  },
+  "events": {
+    "category": "Tadbirlar"
+  },
+
   "buttons": {
     "see-all": "Hammasini ko'rish",
     "send": "Yuborish"

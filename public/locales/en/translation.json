@@ -120,6 +120,22 @@
     }
   },
 
+  "shops": {
+    "category": "Shops"
+  },
+  "food": {
+    "category": "Food"
+  },
+  "entertainment": {
+    "category": "Entertainment"
+  },
+  "events": {
+    "category": "Events"
+  },
+  "catalog": {
+    "title": "Catalog"
+  },
+
   "buttons": {
     "see-all": "View all",
     "send": "Send"
