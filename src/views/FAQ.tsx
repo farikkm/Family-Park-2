@@ -25,7 +25,7 @@ const FAQ = () => {
   }, []);
   return (
     <>
-      <StaticHeader icons="white" />
+      <StaticHeader />
 
       <div id="cinema" className="relative pt-30 px-5 md:px-30 mb-10">
         <div className="blue-gradient absolute left-0 top-0 w-full h-105 -z-1" />

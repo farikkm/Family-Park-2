@@ -16,6 +16,10 @@
   @apply shadow-[0_3px_10px_rgba(0,0,0,0.5)]
 }
 
+.slider-arrow-up {
+  @apply hidden bg-[#2C2D58] transition-transform duration-200 md:flex justify-center items-center fixed bottom-7 right-8 w-14 h-14 z-6 3xl:w-18 3xl:h-18 rounded-[50px] active:scale-110;
+}
+
 @theme {
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;

@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import Transitionable from "@/components/ui/Transitionable";
-import SearchInput from "@/components/header/SearchInput";
+import SearchInput from "@/components/header/components/SearchInput";
 import { useTranslation } from "react-i18next";
 import getHref from "@/utils/getHref";
 import isMobileUtil from "@/utils";

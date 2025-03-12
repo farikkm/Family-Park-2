@@ -1,10 +1,10 @@
-
+import StaticHeader from "@/components/header/StaticHeader";
 import Title from "@/components/ui/Title";
 
 const Events = () => {
   return (
     <>
-      <Header />
+      <StaticHeader />
       <div id="events" className="pt-30 px-5 md:px-30">
         <Title className="blue-gradient bg-clip-text text-transparent!" text="КОНЦЕРТЫ И СОБЫТИЯ"/>
         <div className="mt-5 max-w-full h-[218px] md:h-[700px] shadow-2xl">

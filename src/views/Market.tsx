@@ -9,6 +9,7 @@ import isMobileUtil from "@/utils";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
 import StaticHeader from "@/components/header/StaticHeader";
+import { SocialMediaIcons } from "@/components/SocialMediaIcons";
 
 const Market = () => {
   let isMobile = isMobileUtil()
@@ -56,12 +57,8 @@ const Market = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-5 flex items-center gap-5 *:w-8 *:h-8 3xl:*:w-10 3xl:*:h-10 *:cursor-pointer">
-              <img src="/icons/instagram.svg" alt="instagram-icon" />
-              <img src="/icons/telegram.svg" alt="telegram-icon" />
-              <img src="/icons/youtube.svg" alt="youtube-icon" />
-              <img src="/icons/facebook.svg" alt="facebook-icon" />
-              <img src="/icons/tiktok.svg" alt="tiktok-icon" />
+            <div className="mt-8 flex items-center gap-5 *:w-8 *:h-8 3xl:*:w-10 3xl:*:h-10 *:cursor-pointer">
+              <SocialMediaIcons color="normal" />
             </div>
           </div>
           <div>

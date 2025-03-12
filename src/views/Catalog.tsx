@@ -8,7 +8,7 @@ const Catalog = () => {
   return (
     <>
       <StaticHeader />
-      <div id="catalog" className="relative pt-30 px-5 mb-5">
+      <div id="catalog" className="relative pt-30 px-5 md:px-35 mb-5">
         <div className="absolute left-0 top-0 w-full h-90 -z-1 bg-gradient-to-br from-[#25254C] to-[#6A6DBD]" />
         <h1 className="text-white text-5xl md:text-7xl md:mt-7 font-black md:mb-1">КАТАЛОГ</h1>
         <span className="text-white text-3xl font-normal">Магазины</span>
@@ -26,3 +26,4 @@ const Catalog = () => {
 };
 
 export default Catalog;
+ 

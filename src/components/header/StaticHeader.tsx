@@ -1,29 +1,20 @@
 import { AnimatePresence } from "motion/react";
 import Transitionable from "../ui/Transitionable";
 import { Link } from "react-router-dom";
-import SearchInput from "./SearchInput";
+import SearchInput from "./components/SearchInput";
 import { useEffect, useRef, useState } from "react";
-import Locales from "./Locales";
-import Modal from "./Modal";
+import Locales from "./components/Locales";
+import Modal from "./components/Modal";
 import { SocialMediaIcons } from "../SocialMediaIcons";
+import {handleEnter, showInput} from "./animations";
 
-const StaticHeader = ({
-  className,
-}: {
-  icons?: string;
-  className?: string;
-}) => {
+const StaticHeader = () => {
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
 
   const openMenu = () => {
     document.body.classList.add("lock");
     setIsShowModal(true);
-  };
-
-  const closeMenu = () => {
-    document.body.classList.remove("lock");
-    setIsShowModal(false);
   };
 
   const openSearchInputRef = () => showInput(searchInputRef.current);
@@ -33,28 +24,14 @@ const StaticHeader = ({
     const input = searchInputRef.current;
     if (!input) return;
 
-    const handleEnter = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        const searchText = input.value.trim();
-        if (searchText) console.log("User input:", searchText);
-        input.value = "";
-        input.classList.remove("w-48", "opacity-100");
-        input.classList.add("w-0", "opacity-0");
-        input.blur();
-        closeMenu();
-      }
-    };
-
-    input.addEventListener("keydown", handleEnter);
-    return () => input.removeEventListener("keydown", handleEnter);
+    input.addEventListener("keydown", (e) => handleEnter(e, input));
+    return () => input.removeEventListener("keydown", (e) => handleEnter(e, input));
   }, [searchInputRef.current]);
 
   return (
     <>
       <header
-        className={`header backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 pt-4 md:pt-7 bg-transparent ${
-          className || ""
-        }`}
+        className={`header backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 pt-4 md:pt-7 bg-transparent`}
       >
         <div className="flex justify-between items-center">
           {/* ========================= LEFT-SIDE ============================ */}
@@ -67,11 +44,11 @@ const StaticHeader = ({
             </div>
             {/* ========================= SEARCH-INPUT ============================ */}
             <form id="header-search" className="flex items-center relative">
-              <Transitionable onClick={openSearchInputRef}>
-                <div className="flex items-center">
+              <Transitionable >
+                <div onClick={openSearchInputRef} className="flex items-center">
                   <img
                     className="h-[25px]"
-                    src="/icons/searchWhite.svg"
+                    src="/icons/header/searchWhite.svg"
                     alt="search-icon"
                   />
                 </div>
@@ -115,18 +92,5 @@ const StaticHeader = ({
     </>
   );
 };
-function showInput(elem: HTMLInputElement | null) {
-  if (!elem) return; // Проверка на null
-
-  if (elem.classList.contains("w-0")) {
-    elem.classList.remove("w-0", "opacity-0");
-    elem.classList.add("md:w-48", "w-32", "opacity-100");
-    elem.focus();
-  } else {
-    elem.classList.remove("md:w-48", "w-32", "opacity-100");
-    elem.classList.add("w-0", "opacity-0");
-    elem.blur();
-  }
-}
 
 export default StaticHeader;

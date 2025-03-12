@@ -9,7 +9,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import Button from "./ui/Button";
+
+// Components
 import isMobileUtil from "@/utils";
 import CatalogItem from "./catalog/CatalogItem";
 
@@ -95,9 +96,9 @@ const SliderDesktop = ({ sections = [] }: Props) => {
         </div>
       )}
 
-      <Button onClick={scrollToTop} className="hidden md:block fixed bottom-7 right-8 px-4! w-14 h-14 z-6 3xl:w-18 3xl:px-6! 3xl:h-18 3xl:rounded-[50px] active:scale-110" bg="blue">
-        <img src="/icons/navigation/btnArrowUp.png" alt="btn-arrow-up" />
-      </Button>
+      <div onClick={scrollToTop} className="slider-arrow-up">
+        <img src="/icons/navigation/accordionArrowDown.svg" alt="btn-arrow-up" className="rotate-180" />
+      </div>
     </>
   );
 };

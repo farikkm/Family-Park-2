@@ -18,7 +18,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
           color == "white"
             ? "border-b-white placeholder:text-white text-white"
             : ""
-        } outline-0 transition-all duration-300 ease-in-out focus:w-32 md:focus:w-48 focus:opacity-100 ${
+        } outline-0 transition-all duration-300 ease-in-out ${
           className || ""
         }`}
         placeholder={`${t("header.searchInput")}...`}

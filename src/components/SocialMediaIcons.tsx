@@ -48,6 +48,7 @@ const whiteSocialMediaIcons = [
     path: "/icons/social-media/white/instagram.svg",
     altVar: "instagram-icon",
     link: "https://www.instagram.com/",
+    style: ""
   },
   {
     id: 2,
@@ -55,6 +56,7 @@ const whiteSocialMediaIcons = [
     path: "/icons/social-media/white/telegram.svg",
     altVar: "telegram-icon",
     link: "https://www.telegram.com/",
+    style: ""
   },
   {
     id: 3,
@@ -62,6 +64,7 @@ const whiteSocialMediaIcons = [
     path: "/icons/social-media/white/youtube.svg",
     altVar: "youtube-icon",
     link: "https://www.youtube.com/",
+    style: "-mt-[2px]"
   },
   {
     id: 4,
@@ -69,6 +72,7 @@ const whiteSocialMediaIcons = [
     path: "/icons/social-media/white/facebook.svg",
     altVar: "facebook-icon",
     link: "https://www.facebook.com/",
+    style: "w-fit!"
   },
   {
     id: 5,
@@ -76,6 +80,7 @@ const whiteSocialMediaIcons = [
     path: "/icons/social-media/white/tiktok.svg",
     altVar: "tiktok-icon",
     link: "https://www.tiktok.com/",
+    style: ""
   },
 ];
 
@@ -84,7 +89,7 @@ const SocialMediaIcons = ({ color }: { color: string }) => {
     return (
       <>
         {whiteSocialMediaIcons.map((item) => (
-          <a key={item.id} href={item.link}>
+          <a key={item.id} href={item.link} className={`${item.style}`}>
             <img src={item.path} alt={item.altVar} />
           </a>
         ))}

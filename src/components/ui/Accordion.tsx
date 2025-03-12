@@ -28,7 +28,7 @@ const Accordion = ({ title, children, className, initialState }: Props) => {
             className={`w-full h-full transition-transform duration-300 ${
               isOpen ? "rotate-180" : "rotate-0"
             }`}
-            src="/icons/cinemaArrowDown.png"
+            src="/icons/navigation/accordionArrowDown.svg"
             alt="cinema-arrow-down"
           />
         </Button>

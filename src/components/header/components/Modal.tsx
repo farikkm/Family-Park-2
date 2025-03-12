@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "motion/react";
 import SearchInput from "./SearchInput";
 import Locales from "./Locales";
-import Transitionable from "../ui/Transitionable";
+import Transitionable from "@/components/ui/Transitionable";
 import { Link } from "react-router-dom";
-import { SocialMediaIcons } from "../SocialMediaIcons";
+import { SocialMediaIcons } from "@/components/SocialMediaIcons";
 
 const Modal = ({
   setIsShowModal,

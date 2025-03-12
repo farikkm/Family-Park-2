@@ -9,17 +9,17 @@ import { useTranslation } from "react-i18next";
 const vacancies = [
   {
     id: 1,
-    imgPath: "/icons/smile.png",
+    imgPath: "/icons/hr/smile.svg",
     text: "Ассистент графического дизайнера",
   },
   {
     id: 2,
-    imgPath: "/icons/smile.png",
+    imgPath: "/icons/hr/smile.svg",
     text: "Ассистент графического дизайнера",
   },
   {
     id: 3,
-    imgPath: "/icons/smile.png",
+    imgPath: "/icons/hr/smile.svg",
     text: "Ассистент графического дизайнера",
   },
 ];
@@ -54,7 +54,7 @@ const HR = () => {
   }
   return (
     <>
-      <StaticHeader icons="white" />
+      <StaticHeader />
       <div id="hr" className="relative pt-30 pb-10 px-5 md:px-30">
         <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
         <h1 className="text-white text-5xl md:text-7xl md:mt-5 md:mb-3 font-black mb-1">
@@ -107,7 +107,7 @@ const HR = () => {
                     key={vacancie.id}
                     className="flex gap-5 items-center border-b border-b-[#888888] pb-3"
                   >
-                    <div className="red-gradient p-4 rounded-4xl">
+                    <div className="red-gradient p-3 rounded-4xl">
                       <img src={vacancie.imgPath} alt="smile-icon" />
                     </div>
                     <span className="text-black">{vacancie.text}</span>
@@ -126,7 +126,7 @@ const HR = () => {
                     key={vacancie.id}
                     className="flex gap-5 items-center border-b border-b-[#888888] pb-3"
                   >
-                    <div className="red-gradient p-4 rounded-4xl">
+                    <div className="red-gradient p-3 rounded-4xl">
                       <img src={vacancie.imgPath} alt="smile-icon" />
                     </div>
                     <span className="text-black">{vacancie.text}</span>

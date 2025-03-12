@@ -18,7 +18,7 @@ const Transitionable: React.FC<TransitionableProps> = ({
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         exit={{ opacity: 0, scale: 0.8, rotate: 90 }}
         transition={{ duration: .2, ease: "easeInOut" }}
-        className={`cursor-pointer h-8 md:h-6 ${className || ""}`}
+        className={`cursor-pointer ${className || ""}`}
         {...props}
       >
         {children}
