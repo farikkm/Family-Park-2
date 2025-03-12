@@ -49,10 +49,10 @@ const TenantForm = () => {
     }));
   };
 
-  function send(e: React.FormEvent, info: tenantInfoProps) {
-    e.preventDefault();
-    console.log(info);
-  }
+  // function send(e: React.FormEvent, info: tenantInfoProps) {
+  //   e.preventDefault();
+  //   console.log(info);
+  // }
 
   return (
     <form

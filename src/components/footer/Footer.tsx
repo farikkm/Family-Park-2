@@ -1,7 +1,7 @@
 import isMobileUtil from "@/utils";
 import { useTranslation } from "react-i18next";
 import AdditionalLinks from "./AdditionalLinks";
-import { SocialMediaIconsRow } from "../SocialMediaIcons";
+import { SocialMediaIconsRow } from "../ui/SocialMediaIcons";
 
 function FooterMobile() {
   return (

@@ -9,7 +9,7 @@ import isMobileUtil from "@/utils";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
 import StaticHeader from "@/components/header/StaticHeader";
-import { SocialMediaIcons } from "@/components/SocialMediaIcons";
+import { SocialMediaIcons } from "@/components/ui/SocialMediaIcons";
 
 const Market = () => {
   let isMobile = isMobileUtil()

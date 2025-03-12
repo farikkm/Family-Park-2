@@ -5,7 +5,7 @@ import SearchInput from "./components/SearchInput";
 import { useEffect, useRef, useState } from "react";
 import Locales from "./components/Locales";
 import Modal from "./components/Modal";
-import { SocialMediaIcons } from "../SocialMediaIcons";
+import { SocialMediaIcons } from "../ui/SocialMediaIcons";
 import {handleEnter, showInput} from "./animations";
 
 const StaticHeader = () => {

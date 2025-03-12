@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "motion/react";
 import Transitionable from "@/components/ui/Transitionable";
 import SearchInput from "@/components/header/components/SearchInput";
-import { SocialMediaIcons } from "../SocialMediaIcons";
+import { SocialMediaIcons } from "../ui/SocialMediaIcons";
 import Modal from "./components/Modal";
 import Locales from "./components/Locales";
 import {handleEnter, showInput} from "./animations";

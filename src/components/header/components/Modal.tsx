@@ -6,7 +6,7 @@ import SearchInput from "./SearchInput";
 import Locales from "./Locales";
 import Transitionable from "@/components/ui/Transitionable";
 import { Link } from "react-router-dom";
-import { SocialMediaIcons } from "@/components/SocialMediaIcons";
+import { SocialMediaIcons } from "@/components/ui/SocialMediaIcons";
 
 const Modal = ({
   setIsShowModal,
