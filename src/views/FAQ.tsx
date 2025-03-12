@@ -1,9 +1,9 @@
-import Header from "@/components/Header";
+
+import StaticHeader from "@/components/header/StaticHeader";
 import Accordion from "@/components/ui/Accordion";
 import Subtitle from "@/components/ui/Subtitle";
 import Title from "@/components/ui/Title";
 import { useHttp } from "@/hooks/useHttp";
-import { getCurrentLng } from "@/utils/language";
 import { useEffect, useState, Suspense } from "react";
 
 import { useTranslation } from "react-i18next";
@@ -22,10 +22,10 @@ const FAQ = () => {
 
   useEffect(() => {
     request(`${apiBaseUrl}/additional/faq/`, "GET", null, { "Accept-Language": `${i18n.resolvedLanguage}` }).then(res => setQuestions(res))
-  }, [getCurrentLng]);
+  }, []);
   return (
     <>
-      <Header icons="white" />
+      <StaticHeader icons="white" />
 
       <div id="cinema" className="relative pt-30 px-5 md:px-30 mb-10">
         <div className="blue-gradient absolute left-0 top-0 w-full h-105 -z-1" />

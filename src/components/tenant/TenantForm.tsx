@@ -1,13 +1,59 @@
 import { useTranslation } from "react-i18next";
 import SendButton from "../ui/SendButton";
 import WeekSchedule from "./WorkingHours";
+import { useState } from "react";
+
+interface tenantInfoProps {
+  name: string;
+  tenant_type: string;
+  working_hours: [
+    {
+      working_day: string;
+      working_hours_open: string;
+      working_hours_close: string;
+    }
+  ];
+  phone_number: string;
+  key_word: string;
+  alias: string;
+  content: string;
+  map_t: string;
+}
+
+const tenantInfoModel: tenantInfoProps = {
+  name: "",
+  tenant_type: "",
+  working_hours: [
+    {
+      working_day: "",
+      working_hours_open: "",
+      working_hours_close: "",
+    },
+  ],
+  phone_number: "",
+  key_word: "",
+  alias: "",
+  content: "",
+  map_t: "",
+};
 
 const TenantForm = () => {
   const { t } = useTranslation();
+  const [tenantInfo, setTenantInfo] = useState(tenantInfoModel);
 
-  const tenantTypes = t("tenant.types", {
-    returnObjects: true,
-  }) as Record<string, string>;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    setTenantInfo((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  function send(e: React.FormEvent, info: tenantInfoProps) {
+    e.preventDefault();
+    console.log(info);
+  }
+
   return (
     <form
       id="tenant-input"
@@ -19,34 +65,29 @@ const TenantForm = () => {
           <h3 className="uppercase text-lg font-bold mb-2">
             {t("tenant-input.title1")}
           </h3>
-          <label className="flex flex-col mb-3" htmlFor="first-label">
+          <label className="flex flex-col mb-3">
             <span className="text-[#858585] font-bold">
               {t("tenant-input.column1.trade-profile")}
             </span>
-            <select
-              required
-              className="*:font-thin py-2 border-b"
-              id="first-label"
-            >
-              {Object.entries(tenantTypes).map(([value, label]) => (
+            <select required className="*:font-thin py-2 border-b">
+              {Object.entries(
+                t("tenant.types", {
+                  returnObjects: true,
+                })
+              ).map(([value, label]) => (
                 <option key={value} value={value}>
                   {label}
                 </option>
               ))}
             </select>
           </label>
-          <label className="flex flex-col mb-3" htmlFor="second-label">
+          <label className="flex flex-col mb-3">
             <span className="text-[#858585] font-bold">
               {t("tenant-input.column1.desired-area")}
             </span>
-            <input
-              required
-              className="*:font-thin py-1 border-b"
-              type="text"
-              id="second-label"
-            />
+            <input required className="*:font-thin py-1 border-b" type="text" />
           </label>
-          <label className="flex flex-col mb-3" htmlFor="third-label">
+          <label className="flex flex-col mb-3">
             <span className="text-[#858585] font-bold">
               {t("tenant-input.column1.company-name")}
             </span>
@@ -54,21 +95,12 @@ const TenantForm = () => {
               required
               className="*:font-thin py-1 border-b"
               type="text"
-              id="third-label"
+              onChange={handleChange}
+              value={tenantInfo.name}
+              name="name"
             />
           </label>
-          <label className="flex flex-col mb-3" htmlFor="fourth-label">
-            <span className="text-[#858585] font-bold">
-              {t("tenant-input.column1.short-description")}
-            </span>
-            <input
-              required
-              className="*:font-thin py-1 border-b"
-              type="text"
-              id="fourth-label"
-            />
-          </label>
-          <label className="flex flex-col mb-3" htmlFor="fifth-label">
+          <label className="flex flex-col mb-3">
             <span className="text-[#858585] font-bold">
               {t("tenant-input.column1.content")}
             </span>
@@ -76,7 +108,9 @@ const TenantForm = () => {
               required
               className="*:font-thin py-1 border-b"
               type="text"
-              id="fifth-label"
+              onChange={handleChange}
+              value={tenantInfo.content}
+              name="content"
             />
           </label>
           <WeekSchedule />
@@ -85,35 +119,17 @@ const TenantForm = () => {
           <h3 className="uppercase text-lg font-bold mb-2">
             {t("tenant-input.title2")}
           </h3>
-          <label className="flex flex-col mb-3" htmlFor="fourth-label">
-            <span className="text-[#858585] font-bold">
-              {t("tenant-input.column2.contact")}
-            </span>
-            <input
-              className="*:font-thin py-1 border-b"
-              type="text"
-              id="fourth-label"
-            />
-          </label>
-          <label className="flex flex-col mb-3" htmlFor="fifth-label">
-            <span className="text-[#858585] font-bold">
-              {t("tenant-input.column2.mail")}
-            </span>
-            <input
-              className="*:font-thin py-1 border-b"
-              type="text"
-              id="fifth-label"
-            />
-          </label>
-          <label className="flex flex-col mb-3" htmlFor="sixth-label">
+          <label className="flex flex-col mb-3">
             <span className="text-[#858585] font-bold">
               {t("tenant-input.column2.phone")}
             </span>
             <input
               className="*:font-thin py-1 border-b"
               type="text"
-              id="sixth-label"
               placeholder="+998 __ ___ __ __"
+              onChange={handleChange}
+              value={tenantInfo.phone_number}
+              name="phone_number"
             />
           </label>
         </div>

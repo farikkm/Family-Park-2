@@ -1,9 +1,10 @@
-import Header from "@/components/Header";
+import StaticHeader from "@/components/header/StaticHeader";
+
 
 const Map = () => {
   return (
     <>
-      <Header />
+      <StaticHeader />
       <div className="mt-25">
         <iframe
           style={{ background: "none", border: "none", width: "100%" }}

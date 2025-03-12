@@ -1,12 +1,13 @@
 import CatalogItem from "@/components/catalog/CatalogItem";
-import Header from "@/components/Header";
+
 
 import shopImg from "@/assets/images/shops/shop.png";
+import StaticHeader from "@/components/header/StaticHeader";
 
 const Catalog = () => {
   return (
     <>
-      <Header icons="white" />
+      <StaticHeader />
       <div id="catalog" className="relative pt-30 px-5 mb-5">
         <div className="absolute left-0 top-0 w-full h-90 -z-1 bg-gradient-to-br from-[#25254C] to-[#6A6DBD]" />
         <h1 className="text-white text-5xl md:text-7xl md:mt-7 font-black md:mb-1">КАТАЛОГ</h1>

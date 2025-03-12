@@ -87,16 +87,16 @@ const SliderDesktop = ({ sections = [] }: Props) => {
       {showScrollbar && (
         <div className="absolute right-0 top-0 flex flex-col justify-between items-center translate-y-[28.5%] h-[70vh] z-6">
           <button className="cursor-pointer !p-[7px]" onClick={scrollUp}>
-            <img src="/icons/arrowUp.svg" alt="scrollbar-arrowUp" />
+            <img src="/icons/navigation/arrowUp.svg" alt="scrollbar-arrowUp" />
           </button>
           <button className="cursor-pointer !p-[7px]" onClick={scrollDown}>
-            <img src="/icons/arrowDown.svg" alt="scrollbar-arrowDown" />
+            <img src="/icons/navigation/arrowDown.svg" alt="scrollbar-arrowDown" />
           </button>
         </div>
       )}
 
       <Button onClick={scrollToTop} className="hidden md:block fixed bottom-7 right-8 px-4! w-14 h-14 z-6 3xl:w-18 3xl:px-6! 3xl:h-18 3xl:rounded-[50px] active:scale-110" bg="blue">
-        <img src="/icons/btnArrowUp.png" alt="btn-arrow-up" />
+        <img src="/icons/navigation/btnArrowUp.png" alt="btn-arrow-up" />
       </Button>
     </>
   );

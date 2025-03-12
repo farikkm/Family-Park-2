@@ -1,4 +1,6 @@
-import Header from "@/components/Header";
+
+import StaticHeader from "@/components/header/StaticHeader";
+import FileUploader from "@/components/hr/FileUploader";
 import Accordion from "@/components/ui/Accordion";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useRef, useState } from "react";
@@ -22,43 +24,6 @@ const vacancies = [
   },
 ];
 
-const FileUploader = () => {
-  const { t } = useTranslation();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [fileName, setFileName] = useState<string>("");
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) setFileName(file.name);
-  };
-
-  return (
-    <div className="border-2 border-dashed border-black py-6 px-6 md:px-32 text-center">
-      <p className="text-gray-700">
-        {t("hr.modal.dragFile")}
-        {" "}
-        <span
-          className="text-blue-500 hover:underline cursor-pointer"
-          onClick={() => fileInputRef.current?.click()}
-        >
-          {t("hr.modal.loadFile")}
-        </span>
-        <br />
-        (doc, pdf, docx, rtf).
-      </p>
-      <input
-        type="file"
-        ref={fileInputRef}
-        className="hidden"
-        accept=".doc,.pdf,.docx,.rtf"
-        onChange={handleFileChange}
-      />
-      {fileName && (
-        <p className="mt-2 text-sm text-green-600">{t("hr.modal.selectedFile")} {fileName}</p>
-      )}
-    </div>
-  );
-};
 
 const HR = () => {
   const { t } = useTranslation();
@@ -89,7 +54,7 @@ const HR = () => {
   }
   return (
     <>
-      <Header icons="white" />
+      <StaticHeader icons="white" />
       <div id="hr" className="relative pt-30 pb-10 px-5 md:px-30">
         <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
         <h1 className="text-white text-5xl md:text-7xl md:mt-5 md:mb-3 font-black mb-1">

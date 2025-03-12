@@ -1,7 +1,7 @@
 import { SliderDesktop, SliderMobile } from "@/components/Slider";
 import Button from "@/components/ui/Button";
 import { Link } from "react-router-dom";
-import Header from "@/components/Header";
+
 import isMobileUtil from "@/utils";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
@@ -23,6 +23,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import SendButton from "@/components/ui/SendButton";
+import ResponsiveHeader from "@/components/header/ResponsiveHeader";
 
 // =================================== HOME PAGE =================================== //
 
@@ -48,7 +49,7 @@ const Home = () => {
 
   return (
     <>
-      <Header className="bg-transparent!" />
+      <ResponsiveHeader />
       <main id="home" className="home mt-20 md:mt-0">
         {sections && <SliderDesktop sections={sections} />}
       </main>
@@ -157,31 +158,33 @@ function Statistics() {
         </div>
       </div>
       {/* ========================= BOTTOM-ITEMS ======================== */}
-      <div
-        className="statistics-bottom my-8 md:my-9 grid grid-cols-2 max-w-[400px] 
+      <div className="px-2">
+        <div
+          className="statistics-bottom my-8 md:my-9 grid grid-cols-2 max-w-[400px] 
         md:max-w-[800px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-85 md:mt-15 mx-auto rounded-4xl 
         overflow-hidden *:text-white"
-      >
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className="relative p-3 pr-10 h-auto nth-[1]:bg-[#FD7824] nth-[2]:bg-[#CF3559] nth-[3]:bg-[#8A6ABD] nth-[4]:bg-[#186E85]"
-          >
-            <div className="flex flex-col gap-5">
-              <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
-                {item.title}
-              </h2>
-              <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
-                {item.text}
-              </p>
+        >
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="relative p-3 pr-10 h-auto nth-[1]:bg-[#FD7824] nth-[2]:bg-[#CF3559] nth-[3]:bg-[#8A6ABD] nth-[4]:bg-[#186E85]"
+            >
+              <div className="flex flex-col gap-5">
+                <h2 className="font-bold text-lg mt-1 ml-1 3xl:text-2xl">
+                  {item.title}
+                </h2>
+                <p className="min-w-[180px] text-xs md:text-[14px] md:max-w-[280px] 3xl:text-base">
+                  {item.text}
+                </p>
+              </div>
+              <img
+                className="absolute top-10 right-0"
+                src={`/icons/statistics/${index + 1}.svg`}
+                alt="features-statistics-img"
+              />
             </div>
-            <img
-              className="absolute top-10 right-0"
-              src={`/icons/statistics/${index + 1}.svg`}
-              alt="features-statistics-img"
-            />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -294,7 +297,7 @@ function EventsSection() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.events.title")} />
-          <SeeAllButton />
+          <SeeAllButton category="events" />
         </div>
 
         {/* ===== Desktop ===== */}

@@ -1,4 +1,5 @@
-import Header from "@/components/Header";
+
+import StaticHeader from "@/components/header/StaticHeader";
 import Accordion from "@/components/ui/Accordion";
 import Subtitle from "@/components/ui/Subtitle";
 import Title from "@/components/ui/Title";
@@ -21,7 +22,7 @@ const CinemaHallSession = () => {
 const Cinema = () => {
   return (
     <>
-      <Header icons="white" />
+      <StaticHeader icons="white" />
 
       <div id="cinema" className="relative pt-30 px-5 md:px-30 mb-10">
         <div className="blue-gradient absolute left-0 top-0 w-full h-105 -z-1" />

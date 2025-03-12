@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+
 import Title from "@/components/ui/Title";
 
 const Events = () => {

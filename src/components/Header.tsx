@@ -5,7 +5,7 @@ import Transitionable from "@/components/ui/Transitionable";
 import SearchInput from "@/components/header/SearchInput";
 import { useTranslation } from "react-i18next";
 import getHref from "@/utils/getHref";
-import AdditionalLinks from "./AdditionalLinks";
+import isMobileUtil from "@/utils";
 
 const locales = {
   ru: { title: "RU" },
@@ -81,7 +81,7 @@ const Header = ({
   const [iconState, setIconState] = useState(false);
   const { i18n } = useTranslation();
   const location = useLocation();
-  const BLACK_OR_WHITE = iconState || icons === "white";
+  const isMobile = isMobileUtil();
 
   const openMenu = () => {
     document.body.classList.add("lock");
@@ -96,19 +96,19 @@ const Header = ({
   const openSearchInputRef = () => showInput(searchInputRef.current);
 
   // ===== Белые иконки при переходе к определенный страницам ===== //
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const swiperIndex = Number(localStorage.getItem("swiperIndex")) || 0;
-      if (!(window.innerHeight < 700 || window.innerWidth < 768)) {
-        setIconState([1, 2, 3, 4, 5, 6, 7].includes(swiperIndex));
-      }
-    };
+  if (!isMobile) {
+    useEffect(() => {
+      const handleStorageChange = () => {
+        const swiperIndex = Number(localStorage.getItem("swiperIndex")) || 0;
+        setIconState([1, 2, 3, 4, 5, 6].includes(swiperIndex));
+      };
 
-    handleStorageChange();
+      handleStorageChange();
 
-    const interval = setInterval(handleStorageChange, 500);
-    return () => clearInterval(interval);
-  }, [location.pathname, i18n.language]);
+      const interval = setInterval(handleStorageChange, 500);
+      return () => clearInterval(interval);
+    }, [location.pathname, i18n.language]);
+  }
 
   // ===== Плавное открытие/закрытие поля input для поиска ===== //
   useEffect(() => {
@@ -137,8 +137,8 @@ const Header = ({
 
       <header
         className={`header backdrop-blur-xs fixed top-0 left-0 z-5 w-full px-10 pt-4 md:pt-7 ${
-          BLACK_OR_WHITE ? "bg-transparent" : "bg-white"
-        } ${className}`}
+          iconState && icons === "white" ? "bg-transparent" : "bg-white"
+        } ${className || ""}`}
       >
         <div className="flex justify-between items-center">
           {/* ========================= LEFT-SIDE ============================ */}
@@ -146,50 +146,48 @@ const Header = ({
             {/* ========================= LOCALES ============================ */}
             <div
               className={`hidden md:flex gap-2 items-center *:cursor-pointer ${
-                BLACK_OR_WHITE ? "text-white" : "text-black"
+                iconState && icons === "white" ? "text-white" : "text-black"
               }`}
             >
               <Locales />
             </div>
             {/* ========================= SEARCH-INPUT ============================ */}
-            <div>
-              <form id="header-search" className="flex items-center relative">
-                <Transitionable
-                  key={iconState.toString()}
-                  onClick={openSearchInputRef}
-                >
-                  {BLACK_OR_WHITE ? (
-                    <div className="flex items-center">
-                      <img
-                        className="h-[25px]"
-                        src="/icons/searchWhite.svg"
-                        alt="search-icon"
-                      />
-                    </div>
-                  ) : (
-                    <>
-                      <img
-                        className="h-full"
-                        src="/icons/search.svg"
-                        alt="search-icon"
-                      />
-                    </>
-                  )}
-                </Transitionable>
-
-                {BLACK_OR_WHITE ? (
-                  <SearchInput ref={searchInputRef} color="white" />
+            <form id="header-search" className="flex items-center relative">
+              <Transitionable
+                key={iconState.toString()}
+                onClick={openSearchInputRef}
+              >
+                {iconState && icons === "white" ? (
+                  <div className="flex items-center">
+                    <img
+                      className="h-[25px]"
+                      src="/icons/searchWhite.svg"
+                      alt="search-icon"
+                    />
+                  </div>
                 ) : (
-                  <SearchInput ref={searchInputRef} color="black" />
+                  <>
+                    <img
+                      className="h-full"
+                      src="/icons/search.svg"
+                      alt="search-icon"
+                    />
+                  </>
                 )}
-              </form>
-            </div>
+              </Transitionable>
+
+              {iconState && icons === "white" ? (
+                <SearchInput ref={searchInputRef} color="white" />
+              ) : (
+                <SearchInput ref={searchInputRef} color="black" />
+              )}
+            </form>
           </div>
           {/* ========================= HEADER-LOGO ============================ */}
           <AnimatePresence mode="wait">
             <Transitionable key={iconState.toString()} rotatable>
               <Link to="/">
-                {BLACK_OR_WHITE ? (
+                {iconState && icons === "white" ? (
                   <img
                     className="w-25"
                     src="/logo/headerLogoWhite.png"
@@ -209,7 +207,7 @@ const Header = ({
                 key={iconState.toString()}
                 className="hidden mt-3 md:flex items-center gap-5 *:w-8 *:h-8 *:cursor-pointer"
               >
-                {BLACK_OR_WHITE ? (
+                {iconState && icons === "white" ? (
                   <>
                     <img src="/icons/white/Vector.svg" alt="instagram-icon" />
                     <img src="/icons/white/Vector(1).svg" alt="telegram-icon" />
@@ -246,7 +244,7 @@ const Header = ({
               onClick={openMenu}
               className="mt-2 p-1"
             >
-              {BLACK_OR_WHITE ? (
+              {iconState && icons === "white" ? (
                 <img src="/icons/menuWhite.svg" alt="menu-icon" />
               ) : (
                 <img src="/icons/menu-icon.svg" alt="menu-icon" />
@@ -277,7 +275,7 @@ const Modal = ({
   const { t } = useTranslation();
 
   const links = [
-    { id: 1, text: t("header.links.concerts"), href: getHref("/catalog") },
+    { id: 1, text: t("header.links.concerts"), href: getHref("/catalog/events") },
     { id: 2, text: t("header.links.map"), href: getHref("/map") },
     { id: 3, text: t("header.links.shops"), href: getHref("/catalog/shops") },
     { id: 4, text: t("header.links.food"), href: getHref("/catalog/food") },

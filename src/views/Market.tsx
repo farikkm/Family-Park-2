@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import Header from "@/components/Header";
+
 
 import "swiper/css";
 
@@ -8,6 +8,7 @@ import shopImg2 from "@/assets/images/shops/shop2.png";
 import isMobileUtil from "@/utils";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
+import StaticHeader from "@/components/header/StaticHeader";
 
 const Market = () => {
   let isMobile = isMobileUtil()
@@ -16,7 +17,7 @@ const Market = () => {
 
   return (
     <>
-      <Header icons="white" />
+      <StaticHeader />
       <div id="market" className="relative pt-30 px-5 md:px-40">
         <Title text="Carrefour" />
         <Subtitle text="Магазины" />

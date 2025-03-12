@@ -1,6 +1,7 @@
 import isMobileUtil from "@/utils";
 import { useTranslation } from "react-i18next";
 import AdditionalLinks from "./AdditionalLinks";
+import { SocialMediaIconsRow } from "../SocialMediaIcons";
 
 function FooterMobile() {
   return (
@@ -9,7 +10,7 @@ function FooterMobile() {
         <span className="text-2xl font-bold">+998 94 440 44 40</span>
         <span className="text-2xl font-bold">familypark@gmail.com</span>
         <div className="mt-4 flex gap-3 items-center">
-          <img src="/icons/clock.svg" alt="" />
+          <img src="/icons/footer/clock.svg" alt="" />
           <span>Пн-Вс с 10:00 до 23:00 </span>
         </div>
       </div>
@@ -17,46 +18,7 @@ function FooterMobile() {
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-5">
             <h3 className="font-bold text-lg">Социальные сети</h3>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/instagram.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Instagram</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/telegram.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Telegram</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/tiktok.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Tik Tok</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/facebook.svg"
-                alt="instagram-icon"
-                className="h-6 w-6"
-              />
-              <span>Facebook</span>
-            </div>
-            <div className="flex gap-3 items-center">
-              <img
-                src="/icons/youtube.svg"
-                alt="instagram-icon"
-                className="w-6"
-              />
-              <span>Youtube</span>
-            </div>
+            <SocialMediaIconsRow />
           </div>
           <div className="flex flex-col gap-3">
             <h3 className="font-bold text-lg">Правила</h3>
@@ -96,46 +58,7 @@ function FooterDesktop() {
           <div className="flex justify-between items-start">
             <div className="flex flex-col gap-5">
               <h3 className="font-bold text-lg">Социальные сети</h3>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/instagram.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Instagram</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/telegram.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Telegram</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/tiktok.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Tik Tok</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/facebook.svg"
-                  alt="instagram-icon"
-                  className="h-6 w-6"
-                />
-                <span>Facebook</span>
-              </div>
-              <div className="flex gap-3 items-center">
-                <img
-                  src="/icons/youtube.svg"
-                  alt="instagram-icon"
-                  className="w-6"
-                />
-                <span>Youtube</span>
-              </div>
+              <SocialMediaIconsRow />
             </div>
           </div>
         </div>
