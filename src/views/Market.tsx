@@ -5,7 +5,7 @@ import "swiper/css";
 
 import shopImg from "@/assets/images/shops/shop.png";
 import shopImg2 from "@/assets/images/shops/shop2.png";
-import isMobileUtil from "@/utils";
+import isMobileUtil from "@/utils/isMobile";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
 import StaticHeader from "@/components/header/StaticHeader";

@@ -12,8 +12,8 @@ import FAQ from "./views/FAQ";
 import i18n from "./i18n";
 import { useState } from "react";
 import NotFound from "./views/NotFound";
-import LanguageGuard from "./LanguageGuard";
-import Wrapper from "./MainLayout";
+import LanguageGuard from "./components/app/LanguageGuard";
+import Wrapper from "./components/app/MainLayout";
 
 function App() {
   const [langKey, setLangKey] = useState(i18n.language);

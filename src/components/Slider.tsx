@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 // Components
-import isMobileUtil from "@/utils";
+import isMobileUtil from "@/utils/isMobile";
 import CatalogItem from "./catalog/CatalogItem";
 
 // Images

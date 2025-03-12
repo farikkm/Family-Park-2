@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import isMobileUtil from "@/utils";
+import isMobileUtil from "@/utils/isMobile";
 import Modal from "./components/Modal";
 import StaticHeader from "./StaticHeader";
 import StaticHeaderBlack from "./StaticHeaderBlack";

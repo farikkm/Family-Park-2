@@ -1,4 +1,4 @@
-import isMobileUtil from "@/utils";
+import isMobileUtil from "@/utils/isMobile";
 import { useTranslation } from "react-i18next";
 import AdditionalLinks from "./AdditionalLinks";
 import { SocialMediaIconsRow } from "../ui/SocialMediaIcons";
