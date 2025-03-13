@@ -97,10 +97,10 @@ function Hero() {
               alt="hero-logo"
               className="hidden md:inline-block mb-7 pointer-events-none"
             />
-            <span className="block 3xl:text-8xl 2xl:text-7xl text-[50px]/[50px] drop-shadow-2xl bg-gradient-to-br from-[#6A6DBD] to-[#25254C] text-transparent bg-clip-text">
+            <span className="block text-5xl md:text-6xl 3xl:text-8xl 2xl:text-7xl  drop-shadow-2xl bg-gradient-to-br from-[#6A6DBD] to-[#25254C] text-transparent bg-clip-text">
               {t("home.hero.title1")}
             </span>
-            <span className="bg-gradient-to-b 2xl:text-7xl 3xl:text-8xl text-[50px]/[50px] drop-shadow-2xl from-[#fa557b] to-[#bb2649] bg-clip-text text-transparent md:ml-[60px]">
+            <span className="bg-gradient-to-b text-5xl md:text-6xl 2xl:text-7xl 3xl:text-8xl  drop-shadow-2xl from-[#fa557b] to-[#bb2649] bg-clip-text text-transparent md:ml-[60px]">
               {t("home.hero.title2")}
             </span>
           </h2>

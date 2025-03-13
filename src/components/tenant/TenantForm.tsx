@@ -49,16 +49,17 @@ const TenantForm = () => {
     }));
   };
 
-  // function send(e: React.FormEvent, info: tenantInfoProps) {
-  //   e.preventDefault();
-  //   console.log(info);
-  // }
+  function send(e: React.FormEvent) {
+    e.preventDefault();
+    console.log(tenantInfo);
+  }
 
   return (
     <form
       id="tenant-input"
       className="w-full max-w-[800px] p-4 md:p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
       action="#"
+      onSubmit={send}
     >
       <div>
         <div>

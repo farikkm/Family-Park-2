@@ -56,7 +56,7 @@ const WeekSchedule = () => {
             </label>
             
             {!isClosed && (
-              <div className="flex gap-2 mt-2 sm:mt-0">
+              <div className="flex flex-col xs:flex-row gap-2 mt-2 sm:mt-0">
                 <input
                   type="time"
                   value={open}

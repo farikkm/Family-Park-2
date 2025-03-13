@@ -105,7 +105,7 @@ const HR = () => {
                 {vacancies.map((vacancie) => (
                   <div
                     key={vacancie.id}
-                    className="flex gap-5 items-center border-b border-b-[#888888] pb-3"
+                    className="flex gap-5 items-center border-b last:border-b-0 border-b-[#888888] pb-3"
                   >
                     <div className="red-gradient p-3 rounded-4xl">
                       <img src={vacancie.imgPath} alt="smile-icon" />
@@ -124,7 +124,7 @@ const HR = () => {
                 {vacancies.map((vacancie) => (
                   <div
                     key={vacancie.id}
-                    className="flex gap-5 items-center border-b border-b-[#888888] pb-3"
+                    className="flex gap-5 items-center border-b last:border-b-0 border-b-[#888888] pb-3"
                   >
                     <div className="red-gradient p-3 rounded-4xl">
                       <img src={vacancie.imgPath} alt="smile-icon" />

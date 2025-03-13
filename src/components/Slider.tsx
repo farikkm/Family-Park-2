@@ -2,7 +2,13 @@ import { useEffect, useRef, useState } from "react";
 // Core modules
 import { Swiper, SwiperSlide, SwiperRef } from "swiper/react";
 // Additional modules
-import { Navigation, Pagination, Scrollbar, Mousewheel, EffectCoverflow } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  Mousewheel,
+  EffectCoverflow,
+} from "swiper/modules";
 
 // Swiper styles
 import "swiper/css";
@@ -27,7 +33,7 @@ interface Props {
 const SliderDesktop = ({ sections = [] }: Props) => {
   const swiperRef = useRef<SwiperRef>(null);
   const [showScrollbar, setShowScrollbar] = useState<boolean>(true);
-  const isMobile = isMobileUtil()
+  const isMobile = isMobileUtil();
 
   // Листаем к странице после перезагрузки
   useEffect(() => {
@@ -42,7 +48,6 @@ const SliderDesktop = ({ sections = [] }: Props) => {
     if (isMobile) setShowScrollbar(false);
   }, [showScrollbar]);
 
-
   // Functions
   const scrollUp = () => {
     if (swiperRef.current) swiperRef.current.swiper.slidePrev();
@@ -54,7 +59,7 @@ const SliderDesktop = ({ sections = [] }: Props) => {
 
   const scrollToTop = () => {
     if (swiperRef.current) swiperRef.current.swiper.slideTo(0);
-  }
+  };
 
   return (
     <>
@@ -81,7 +86,12 @@ const SliderDesktop = ({ sections = [] }: Props) => {
         }}
       >
         {sections.map((section: any, index: number) => (
-          <SwiperSlide key={index} className={`flex items-center justify-center`}>{section}</SwiperSlide>
+          <SwiperSlide
+            key={index}
+            className={`flex items-center justify-center`}
+          >
+            {section}
+          </SwiperSlide>
         ))}
       </Swiper>
 
@@ -91,21 +101,40 @@ const SliderDesktop = ({ sections = [] }: Props) => {
             <img src="/icons/navigation/arrowUp.svg" alt="scrollbar-arrowUp" />
           </button>
           <button className="cursor-pointer !p-[7px]" onClick={scrollDown}>
-            <img src="/icons/navigation/arrowDown.svg" alt="scrollbar-arrowDown" />
+            <img
+              src="/icons/navigation/arrowDown.svg"
+              alt="scrollbar-arrowDown"
+            />
           </button>
         </div>
       )}
 
       <div onClick={scrollToTop} className="slider-arrow-up">
-        <img src="/icons/navigation/accordionArrowDown.svg" alt="btn-arrow-up" className="rotate-180" />
+        <img
+          src="/icons/navigation/accordionArrowDown.svg"
+          alt="btn-arrow-up"
+          className="rotate-180"
+        />
       </div>
     </>
   );
 };
 
+const sliderMobileItems = [
+  { img: shopImg, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg2, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg3, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg2, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg3, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg2, catalog: "Продукты", brand: "Carrefour" },
+  { img: shopImg3, catalog: "Продукты", brand: "Carrefour" },
+];
+
 const SliderMobile = () => {
   return (
-    <div className="hidden md:block relative md:mt-20 w-full max-w-6xl 3xl:max-w-[1500px] mx-auto">
+    <div className="hidden md:block relative md:mt-20 max-w-[1200px] w-full mx-auto">
       <Swiper
         modules={[Navigation, Pagination, EffectCoverflow]}
         navigation={{
@@ -113,55 +142,36 @@ const SliderMobile = () => {
           prevEl: ".swiper-button-prev",
         }}
         loop={true}
-        effect="coverflow"
         centeredSlides={true}
         slidesPerView={3}
-        spaceBetween={100}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 30,
-          depth: 0,
-          modifier: 1,
-          slideShadows: false,
+        spaceBetween={20}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+          },
+          991: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+          1250: {
+            slidesPerView: 3,
+            spaceBetween: 50
+          },
         }}
         className="w-full"
       >
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg3} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg2} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg2} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg3} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg2} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg3} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg2} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
-        <SwiperSlide className="w-full h-auto overflow-hidden rounded-3xl">
-          <CatalogItem img={shopImg3} catalog="Продукты" name="Carrefour" />
-        </SwiperSlide>
+        {sliderMobileItems.map((item, index) => (
+          <SwiperSlide
+            key={index}
+            className="w-full h-auto overflow-hidden rounded-3xl"
+          >
+            <CatalogItem
+              img={item.img}
+              catalog={item.catalog}
+              name={item.brand}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="swiper-button-prev absolute left-[-80px]! top-1/2 transform -translate-y-1/2 text-white! bg-black p-8 rounded-full z-10"></div>
       <div className="swiper-button-next right-[-80px]! top-1/2 transform -translate-y-1/2 text-white! bg-black p-8 rounded-full z-10"></div>
@@ -169,4 +179,4 @@ const SliderMobile = () => {
   );
 };
 
-export { SliderDesktop, SliderMobile }
+export { SliderDesktop, SliderMobile };

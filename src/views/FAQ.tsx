@@ -46,6 +46,26 @@ const FAQ = () => {
                 ))}
               </div>
             </Accordion>
+            <Accordion title="FAQ" className="mt-8!" initialState="open">
+              <div className="mt-5 flex flex-col gap-5 px-3">
+                {questions.map((question, index) => (
+                  <p key={index}>
+                    <strong>{ question.author_faq }: {" "}</strong>
+                    <span>{ question.question_faq }</span>
+                  </p>
+                ))}
+              </div>
+            </Accordion>
+            <Accordion title="FAQ" className="mt-8!" initialState="open">
+              <div className="mt-5 flex flex-col gap-5 px-3">
+                {questions.map((question, index) => (
+                  <p key={index}>
+                    <strong>{ question.author_faq }: {" "}</strong>
+                    <span>{ question.question_faq }</span>
+                  </p>
+                ))}
+              </div>
+            </Accordion>
           </div>
         </div>
       </div>
