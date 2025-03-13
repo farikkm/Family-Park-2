@@ -11,12 +11,13 @@ const CatalogItem = ({
   name: string;
 }) => {
   return (
-    <Link to={getHref("/market")}>
-      <div className="w-full py-3 px-5 bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl md:rounded-3xl md:p-5 text-black!">
-        <img className="rounded-4xl w-full h-full" src={img} alt="shop-img" />
-        <span className="block mt-1 text-xs 3xl:text-lg">{catalog}</span>
-        <h4 className="text-lg font-bold 3xl:text-2xl">{name}</h4>
-      </div>
+    <Link
+      className="gray-gradient p-5 pb-4 block rounded-3xl *:text-black"
+      to={getHref("/market")}
+    >
+      <img src={img} alt={name} className="w-full rounded-3xl" />
+      <span className="block mt-2 font-bold text-xl md:text-2xl">{name}</span>
+      <span className="text-base">{catalog}</span>
     </Link>
   );
 };

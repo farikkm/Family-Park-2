@@ -94,6 +94,7 @@ const LostItem = () => {
         </div>
         <div className="mt-5 md:mt-0 flex justify-center">
           <form
+            id="lost-item-input"
             onSubmit={(e) => send(e, lostItemInfo)}
             className="w-full max-w-[800px] p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
             action="#"
@@ -111,7 +112,6 @@ const LostItem = () => {
                     placeholder="Цыркач Виталий Владиленович"
                     className="*:font-thin py-1 border-b"
                     type="text"
-                    id="second-label"
                     name="name_contact_face"
                     value={lostItemInfo.name_contact_face}
                     onChange={handleChange}
@@ -125,7 +125,6 @@ const LostItem = () => {
                     placeholder="+998 -- --- -- -- "
                     className="*:font-thin py-1 border-b"
                     type="tel"
-                    id="second-label"
                     value={lostItemInfo.phone_number_contact_face}
                     name="phone_number_contact_face"
                     onChange={handleChange}
@@ -138,7 +137,6 @@ const LostItem = () => {
                   <input
                     className="*:font-thin py-1 border-b"
                     type="text"
-                    id="third-label"
                     value={lostItemInfo.what_lost}
                     name="what_lost"
                     maxLength={60}
@@ -157,7 +155,6 @@ const LostItem = () => {
                   <input
                     className="*:font-thin py-1 border-b"
                     type="text"
-                    id="fourth-label"
                     value={lostItemInfo.name_place}
                     name="name_place"
                     maxLength={100}
@@ -171,7 +168,6 @@ const LostItem = () => {
                   <input
                     className="*:font-thin py-1 border-b"
                     type="time"
-                    id="fifth-label"
                     value={lostItemInfo.time_to_lost}
                     name="time_to_lost"
                     onChange={handleChange}
@@ -183,7 +179,6 @@ const LostItem = () => {
                   </span>
                   <textarea
                     className="*:font-thin py-1 border-b"
-                    id="sixth-label"
                     value={lostItemInfo.comments_lost}
                     name="comments_lost"
                     maxLength={500}

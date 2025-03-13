@@ -28,24 +28,18 @@ import ResponsiveHeader from "@/components/header/ResponsiveHeader";
 // =================================== HOME PAGE =================================== //
 
 const Home = () => {
-  let sections;
-  const { t } = useTranslation();
-  let isMobile = isMobileUtil();
+  let sections = [
+    Hero,
+    Statistics,
+    Shops,
+    Foods,
+    Entartainments,
+    EventsSection,
+    Tenant,
+    Footer,
+  ];
 
-  if (isMobile) {
-    sections = [Hero, Statistics, Shops, Tenant, Footer];
-  } else {
-    sections = [
-      Hero,
-      Statistics,
-      Shops,
-      Foods,
-      Entartainments,
-      EventsSection,
-      Tenant,
-      Footer,
-    ];
-  }
+  const { t } = useTranslation();
 
   return (
     <>
@@ -97,10 +91,10 @@ function Hero() {
               alt="hero-logo"
               className="hidden md:inline-block mb-7 pointer-events-none"
             />
-            <span className="block text-5xl md:text-6xl 3xl:text-8xl 2xl:text-7xl  drop-shadow-2xl bg-gradient-to-br from-[#6A6DBD] to-[#25254C] text-transparent bg-clip-text">
+            <span className="block text-4xl xs:text-5xl md:text-6xl 3xl:text-8xl 2xl:text-7xl  drop-shadow-2xl bg-gradient-to-br from-[#6A6DBD] to-[#25254C] text-transparent bg-clip-text">
               {t("home.hero.title1")}
             </span>
-            <span className="bg-gradient-to-b text-5xl md:text-6xl 2xl:text-7xl 3xl:text-8xl  drop-shadow-2xl from-[#fa557b] to-[#bb2649] bg-clip-text text-transparent md:ml-[60px]">
+            <span className="bg-gradient-to-b text-4xl xs:text-5xl md:text-6xl 2xl:text-7xl 3xl:text-8xl  drop-shadow-2xl from-[#fa557b] to-[#bb2649] bg-clip-text text-transparent md:ml-[60px]">
               {t("home.hero.title2")}
             </span>
           </h2>
@@ -205,8 +199,8 @@ function Shops() {
       {/* Decor */}
       <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
       {/* Content */}
-      <div className="shops__content py-5 px-5 text-white">
-        <div className="md:flex items-center justify-between">
+      <div className="shops__content py-5 md:py-5 px-5 text-white">
+        <div className="md:flex flex-col lg:flex-row items-center justify-between">
           <Title text={t("home.shops.title")} />
           <SeeAllButton category="shops" />
         </div>
@@ -214,7 +208,7 @@ function Shops() {
         {/* ===== Desktop ===== */}
         {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
-        <CatalogItems items={items} className="mt-5" />
+        <CatalogItems items={items} />
       </div>
     </section>
   );
@@ -244,7 +238,7 @@ function Foods() {
         {/* ===== Desktop ===== */}
         {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
-        <CatalogItems items={items} className="mt-5" />
+        <CatalogItems items={items} />
       </div>
     </section>
   );
@@ -274,7 +268,7 @@ function Entartainments() {
         {/* ===== Desktop ===== */}
         {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
-        <CatalogItems items={items} className="mt-5" />
+        <CatalogItems items={items} />
       </div>
     </section>
   );
@@ -303,40 +297,11 @@ function EventsSection() {
         {/* ===== Desktop ===== */}
         {!isMobileUtil() && <SliderMobile />}
         {/* ===== Mobile ===== */}
-        <CatalogItems items={items} className="mt-5" />
+        <CatalogItems items={items} />
       </div>
     </section>
   );
 }
-
-// function Sales() {
-//   const { t } = useTranslation();
-
-//   const items = [
-//     { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-//     { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-//     { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-//     { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-//   ];
-//   return (
-//     <section id="sales" className="relative md:pt-30 md:px-35">
-//       {/* Decor */}
-//       <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
-//       {/* Content */}
-//       <div className="shops__content py-5 px-5 text-white">
-//         <div className="md:flex items-center justify-between">
-//           <Title text={t("home.sales.title")} />
-//           <SeeAllButton />
-//         </div>
-
-//         {/* ===== Desktop ===== */}
-//         {!isMobileUtil() && <SliderMobile />}
-//         {/* ===== Mobile ===== */}
-//         <CatalogItems items={items} className="mt-5" />
-//       </div>
-//     </section>
-//   );
-// }
 
 function Tenant() {
   const { t } = useTranslation();
@@ -354,6 +319,7 @@ function Tenant() {
       </div>
       <div className="mt-15 md:mt-10 md:max-w-4xl 3xl:max-w-5xl md:mx-auto">
         <form
+          id="home-tenant"
           className="p-10 mt-5 bg-gradient-to-br from-[#F1F1F1] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl"
           action="#"
         >

@@ -7,6 +7,9 @@
 .red-gradient {
   @apply bg-gradient-to-br from-[#FA557B] to-[#BB2649];
 }
+.gray-gradient {
+  @apply bg-gradient-to-br from-[#CECFEE] to-[#f0f0f0];
+}
 
 .see-all {
   @apply inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl 3xl:py-4 3xl:px-5 3xl:text-lg

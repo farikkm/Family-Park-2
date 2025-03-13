@@ -134,7 +134,7 @@ const sliderMobileItems = [
 
 const SliderMobile = () => {
   return (
-    <div className="hidden md:block relative md:mt-20 max-w-[1200px] w-full mx-auto">
+    <div className="hidden md:block relative mt-5 lg:mt-20 _container">
       <Swiper
         modules={[Navigation, Pagination, EffectCoverflow]}
         navigation={{
@@ -147,7 +147,7 @@ const SliderMobile = () => {
         spaceBetween={20}
         breakpoints={{
           320: {
-            slidesPerView: 1,
+            slidesPerView: 2,
           },
           991: {
             slidesPerView: 2,
@@ -158,12 +158,12 @@ const SliderMobile = () => {
             spaceBetween: 50
           },
         }}
-        className="w-full"
+        className=""
       >
         {sliderMobileItems.map((item, index) => (
           <SwiperSlide
             key={index}
-            className="w-full h-auto overflow-hidden rounded-3xl"
+            className="w-full rounded-3xl flex items-center justify-center"
           >
             <CatalogItem
               img={item.img}
