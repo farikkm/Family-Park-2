@@ -83,14 +83,23 @@
   "hr": {
     "title": "BIZ BILAN ISHLASHNI XOHLAYSIZMI?",
     "subtitle": "FAMILY PARK jamoasining bir qismi bo‘ling!",
-    "why_our_company": [
-      "Rasmiy ishga joylashish",
-      "Oq ish haqi (shaffof maosh)",
-      "Kasbiy va martaba o‘sishi",
-      "Zamonaviy va qulay ofis",
-      "Zamonaviy jihozlar",
-      "Xodimlar uchun chegirmalar"
-    ],
+    "why_our_company": {
+      "title": "Nega bizning kompaniya?",
+      "items": [
+        "Rasmiy ishga qabul qilish",
+        "Oq (rasmiy) ish haqi",
+        "Professional va martaba o‘sishi",
+        "Zamonaviy va qulay ofis",
+        "Zamonaviy jihozlar",
+        "Xodimlar uchun chegirmalar"
+      ]
+    },
+    "family_park_vacancies": {
+      "title": "Family Park bo‘sh ish o‘rinlari"
+    },
+    "tenants_vacancies": {
+      "title": "Family Park ijarachilari bo‘sh ish o‘rinlari"
+    },
     "modal": {
       "title": "Rezyume yuborish",
       "label1": "F.I.O",

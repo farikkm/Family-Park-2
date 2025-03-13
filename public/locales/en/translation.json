@@ -79,14 +79,23 @@
   "hr": {
     "title": "WANT TO WORK WITH US?",
     "subtitle": "Join the FAMILY PARK team!",
-    "why_our_company": [
-      "Official employment",
-      "Transparent (white) salary",
-      "Professional and career growth",
-      "Stylish and comfortable office",
-      "Modern equipment",
-      "Employee discounts"
-    ],
+    "why_our_company": {
+      "title": "Why Our Company?",
+      "items": [
+        "Official employment",
+        "Transparent (legal) salary",
+        "Professional and career development",
+        "Stylish and comfortable office",
+        "Modern equipment",
+        "Employee discounts"
+      ]
+    },
+    "family_park_vacancies": {
+      "title": "Family Park Vacancies"
+    },
+    "tenants_vacancies": {
+      "title": "Family Park Tenants' Vacancies"
+    },
     "modal": {
       "title": "Submit Resume",
       "label1": "Full Name",

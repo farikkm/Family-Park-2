@@ -8,7 +8,7 @@
   @apply bg-gradient-to-br from-[#FA557B] to-[#BB2649];
 }
 .gray-gradient {
-  @apply bg-gradient-to-br from-[#CECFEE] to-[#f0f0f0];
+  @apply bg-gradient-to-br from-[#CECFEE] to-[#f3f3f3];
 }
 
 .see-all {

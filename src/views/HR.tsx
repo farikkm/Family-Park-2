@@ -30,7 +30,7 @@ const HR = () => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
 
-  const whyOurCompanyItems = t("hr.why_our_company", {
+  const whyOurCompanyItems = t("hr.why_our_company.items", {
     returnObjects: true,
   }) as string[];
 
@@ -62,9 +62,9 @@ const HR = () => {
         <Subtitle text={t("hr.subtitle")} />
 
         {/* ===================== Почему наша компания? ===================== */}
-        <div className="mt-12 py-7 md:max-w-[800px] md:mx-auto bg-gradient-to-br from-[#CECFEE] to=[#FFF] backdrop-blur-xl light-shadow rounded-4xl">
+        <div className="mt-12 py-7 md:max-w-[800px] md:mx-auto gray-gradient backdrop-blur-xl light-shadow rounded-4xl">
           <h5 className="font-black text-center md:text-xl">
-            Почему наша компания?
+            { t("hr.why_our_company.title") }
           </h5>
           <div className="w-fit flex flex-col gap-10 justify-center mt-5 mx-auto px-5">
             {whyOurCompanyItems.map((text, index) => (
@@ -95,7 +95,7 @@ const HR = () => {
           <div className="max-w-[800px] w-full">
             <Accordion
               className="mt-0!"
-              title="Вакансии В family park"
+              title={t("hr.family_park_vacancies.title")}
               initialState="open"
             >
               <div className="mt-7 flex flex-col gap-5 px-5">
@@ -115,7 +115,7 @@ const HR = () => {
 
             <Accordion
               className="mt-6!"
-              title="Вакансии арендаторов family park"
+              title={t("hr.tenants_vacancies.title")}
             >
               <div className="mt-7 flex flex-col gap-5 px-5">
                 {vacancies.map((vacancie) => (
