@@ -3,8 +3,7 @@ import Title from "@/components/ui/Title";
 import { useTranslation } from "react-i18next";
 import Subtitle from "@/components/ui/Subtitle";
 import SendButton from "@/components/ui/SendButton";
-import { useHttp } from "@/hooks/useHttp";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import StaticHeader from "@/components/header/StaticHeader";
 
 const TIME_SHOW_MODAL = 2000
@@ -13,8 +12,7 @@ const LostItem = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { t, i18n } = useTranslation();
-  const { request } = useHttp();
+  const { t } = useTranslation();
   const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const [lostItemInfo, setLostItemInfo] = useState({
@@ -76,12 +74,6 @@ const LostItem = () => {
       }, TIME_SHOW_MODAL)
     }
   };
-
-  useEffect(() => {
-    request(`${apiBaseUrl}/settings/lost-found`, "GET", null, {
-      "Accept-Language": `${i18n.resolvedLanguage}`,
-    }).then((res) => console.log(res));
-  }, []);
 
   return (
     <>

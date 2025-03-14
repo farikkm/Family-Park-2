@@ -147,11 +147,16 @@
 
   "buttons": {
     "see-all": "View all",
-    "send": "Send"
+    "send": "Send",
+    "choose_file": "Choose file",
+    "file_chosen": "File chosen"
   },
   "tenant-input": {
     "title1": "Your Business:",
     "title2": "Your Contact Information:",
+    "working_hours": "Working hours",
+    "working_status_open": "Working",
+    "working_status_close": "Day off",
     "column1": {
       "trade-profile": "Trade Profile",
       "desired-area": "Desired Area",
@@ -159,7 +164,10 @@
 
       "working-days": "Working Days",
       "short-description": "Short description",
-      "content": "Full description"
+      "content": "Full description",
+      "alias": "Alias",
+      "key_word": "Keyword for search",
+      "logo": "Logo"
     },
     "column2": {
       "contact": "Contact Person Name",

@@ -149,18 +149,26 @@
 
   "buttons": {
     "see-all": "Hammasini ko'rish",
-    "send": "Yuborish"
+    "send": "Yuborish",
+    "choose_file": "Faylni tanlash",
+    "file_chosen": "Fayl tanlandi"
   },
   "tenant-input": {
     "title1": "Biznesingiz:",
     "title2": "Aloqa ma’lumotlaringiz:",
+    "working_hours": "Ish soatlari",
+    "working_status_open": "Ish kuni",
+    "working_status_close": "Dam olish kuni",
     "column1": {
       "trade-profile": "Savdo profili",
       "desired-area": "Istalgan maydon",
       "company-name": "Brend/Kompaniya nomi",
       "working-days": "Ish kunlari",
       "short-description": "Qisqa tavsif",
-      "content": "To‘liq tavsif"
+      "content": "To‘liq tavsif",
+      "alias": "Taxallus",
+      "key_word": "Qidirish uchun kalit so‘z",
+      "logo": "Logotip"
     },
     "column2": {
       "contact": "Bog‘lanish uchun shaxs",

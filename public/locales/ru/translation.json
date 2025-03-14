@@ -153,19 +153,27 @@
 
   "buttons": {
     "see-all": "Посмотреть все",
-    "send": "Отправить"
+    "send": "Отправить",
+    "choose_file": "Выбрать файл",
+    "file_chosen": "Файл выбран"
   },
 
   "tenant-input": {
     "title1": "Ваш бизнес:",
     "title2": "Ваши контактные данные:",
+    "working_hours": "Рабочие часы",
+    "working_status_open": "Рабочий",
+    "working_status_close": "Выходной",
     "column1": {
       "trade-profile": "Торговый профиль",
       "desired-area": "Желаемая площадь",
       "company-name": "Название бренда/компании",
       "working-days": "Рабочие дни",
       "short-description": "Короткое описание",
-      "content": "Полное описание"
+      "content": "Полное описание",
+      "alias": "Псевдоним",
+      "key_word": "Ключевое слово для поиска",
+      "logo": "Логотип"
     },
     "column2": {
       "contact": "Имя контактного лица",

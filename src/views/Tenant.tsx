@@ -8,29 +8,6 @@ import { useTranslation } from "react-i18next";
 
 const Tenant = () => {
   const { t } = useTranslation();
-  // const {request} = useHttp()
-  // const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-
-  // const tenantTypes = t("tenant.types", {
-  //   returnObjects: true,
-  // }) as Record<string, string>;
-
-  // useEffect(() => {
-  //   request(`${apiBaseUrl}/tenats/tenats`, "POST", {
-  //     name: "KFC",
-  //     tenant_type: "Food",
-  //     working_day: ["Monday", "Thursday", "Sunday"],
-  //     working_hours_open: "9:00",
-  //     working_hours_close: "18:00",
-  //     phone_number: "998 91 123 45 67",
-  //     key_word: "Kentuky",
-  //     short_descriptions: "The tastiest chicken",
-  //     alias: "KFC",
-  //     status: true,
-  //     content: "Kentucky Fried Chicken",
-  //     map_t: "100.1"
-  //   }).then(res => console.log(res))
-  // }, [])
 
   return (
     <>
