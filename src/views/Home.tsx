@@ -48,14 +48,10 @@ const Home = () => {
         {sections && <SliderDesktop sections={sections} />}
       </main>
       <div className="buttons hidden md:flex fixed bottom-7 right-27 z-6  gap-3 *:w-[150px] 3xl:*:w-[200px] *:text-left *:active:scale-110">
-        <Link to={getHref("lost-item")}>
-          <Button className="3xl:text-[15px]">{t("home.button1")}</Button>
-        </Link>
-        <Link to={getHref("/hr")}>
-          <Button bg="blue" className="3xl:text-[15px] px-2!">
-            {t("home.button2")}
-          </Button>
-        </Link>
+        <Button path={getHref("lost-item")}>{t("home.button1")}</Button>
+        <Button path={getHref("/hr")} bg="blue">
+          {t("home.button2")}
+        </Button>
       </div>
     </>
   );

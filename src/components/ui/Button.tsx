@@ -1,20 +1,23 @@
-import React, { ButtonHTMLAttributes } from "react";
+import React, { LinkHTMLAttributes } from "react";
+import { Link } from "react-router-dom";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface LinkProps extends LinkHTMLAttributes<HTMLAnchorElement> {
+  path: string
   bg?: string;
   className?: string;
   children: React.ReactNode;
 }
 
 
-const Button: React.FC<ButtonProps> = ({ bg = "red", className = "", children, ...props }) => {
+const Button: React.FC<LinkProps> = ({ path, bg = "red", className = "", children, ...props }) => {
     return (
-      <button
-        className={`button py-3 px-8 uppercase text-white text-[11px] rounded-4xl transition-transform duration-200 ${className} ${bg === 'red' ? 'bg-[#FA557B]' : 'bg-[#2C2D58]'}`}
+      <Link
+        to={path}
+        className={`w-[200px] h-[70px] 3xl:text-[15px] px-2 flex justify-center items-center uppercase text-white text-[11px] rounded-4xl transition-transform duration-200 ${className} ${bg === 'red' ? 'bg-[#FA557B]' : 'bg-[#2C2D58]'}`}
         {...props}
       >
-        {children}
-      </button>
+        <span className="text-center">{children}</span>
+      </Link>
     );
   };
   

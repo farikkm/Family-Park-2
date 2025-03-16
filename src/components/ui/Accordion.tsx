@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
+import IconButton from "./IconButton";
 
 interface Props {
   title?: string;
@@ -19,19 +20,17 @@ const Accordion = ({ title, children, className, initialState }: Props) => {
         <h2 className="text-3xl font-black uppercase drop-shadow-2xl blue-gradient text-transparent bg-clip-text">
           {title || ""}
         </h2>
-        <Button
-          className="px-2.5! py-3! min-h-10 min-w-10"
-          bg="blue"
+        <IconButton
           onClick={() => setIsOpen(!isOpen)}
         >
           <img
-            className={`w-full h-full transition-transform duration-300 ${
+            className={`transition-transform duration-300 ${
               isOpen ? "rotate-180" : "rotate-0"
             }`}
             src="/icons/navigation/accordionArrowDown.svg"
             alt="cinema-arrow-down"
           />
-        </Button>
+        </IconButton>
       </div>
       <div
         className={`accordion-content transition-[max-height] duration-500 ease-in-out ${
