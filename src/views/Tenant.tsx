@@ -13,7 +13,7 @@ const Tenant = () => {
     <>
       <StaticHeader />
       <div id="tenant" className="pb-20 pt-30 px-5 md:px-35 relative">
-        <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
+        <div className="red-gradient absolute left-0 top-0 w-full h-140 -z-1" />
         <div className="*:text-white">
           <Title text={t("tenant.title")} className="uppercase md:max-w-[800px]" />
           <Subtitle text={t("tenant.subtitle")} />
