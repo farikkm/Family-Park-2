@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 interface WorkingHoursProps {
-  working_days_times: { working_day: string; working_hours_open: string; working_hours_close: string }[];
+  working_hours: { working_day: string; working_hours_open: string; working_hours_close: string }[];
   onChange: (updatedHours: { working_day: string; working_hours_open: string; working_hours_close: string }[]) => void;
 }
 
-const WeekSchedule: React.FC<WorkingHoursProps> = ({ working_days_times, onChange }) => {
+const WeekSchedule: React.FC<WorkingHoursProps> = ({ working_hours, onChange }) => {
   const { t } = useTranslation();
 
   const initialSchedule = () =>
-  working_days_times.length > 0
-      ? working_days_times.reduce((acc, wh) => {
+  working_hours.length > 0
+      ? working_hours.reduce((acc, wh) => {
           acc[wh.working_day] = { open: wh.working_hours_open, close: wh.working_hours_close, isClosed: !wh.working_hours_open };
           return acc;
         }, {} as Record<string, { open: string; close: string; isClosed: boolean }>)
@@ -35,10 +35,10 @@ const WeekSchedule: React.FC<WorkingHoursProps> = ({ working_days_times, onChang
     }));
   
     // Проверяем, изменились ли данные перед вызовом onChange
-    if (JSON.stringify(updatedWorkingHours) !== JSON.stringify(working_days_times)) {
+    if (JSON.stringify(updatedWorkingHours) !== JSON.stringify(working_hours)) {
       onChange(updatedWorkingHours);
     }
-  }, [schedule, working_days_times, onChange]);
+  }, [schedule, working_hours, onChange]);
 
   const handleChange = (day: string, type: "open" | "close", value: string) => {
     setSchedule((prev) => ({

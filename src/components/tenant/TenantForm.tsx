@@ -12,7 +12,7 @@ interface WorkingHours {
 interface tenantInfoProps {
   name: string;
   tenant_type: string;
-  working_days_times: WorkingHours[];
+  working_hours: WorkingHours[];
   desired_area: string;
   phone_number: string;
   key_word: string;
@@ -71,7 +71,7 @@ const TenantForm: React.FC = () => {
   const tenantInfoModel: tenantInfoProps = {
     name: "",
     tenant_type: t("tenant.types.shop"),
-    working_days_times: [],
+    working_hours: [],
     phone_number: "",
     key_word: "",
     alias: "",
@@ -95,7 +95,7 @@ const TenantForm: React.FC = () => {
   const handleWorkingHoursChange = (updatedHours: WorkingHours[]) => {
     setTenantInfo((prev) => ({
       ...prev,
-      working_days_times: updatedHours,
+      working_hours: updatedHours,
     }));
   };
 
@@ -256,7 +256,7 @@ const TenantForm: React.FC = () => {
               value={tenantInfo.content}
             />
             <WeekSchedule
-              working_days_times={tenantInfo.working_days_times}
+              working_hours={tenantInfo.working_hours}
               onChange={handleWorkingHoursChange}
             />
           </div>
