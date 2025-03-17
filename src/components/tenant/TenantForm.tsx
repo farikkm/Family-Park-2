@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import SendButton from "../ui/SendButton";
 import WeekSchedule from "./WorkingHours";
 import { useState } from "react";
+import { useHttp } from "@/hooks/useHttp";
 
 interface WorkingHours {
   working_day: string;
@@ -60,14 +61,15 @@ const TenantInput = ({
 
 // ====================
 
-const TIME_SHOW_MODAL = 2000
+const TIME_SHOW_MODAL = 2000;
 
 const TenantForm: React.FC = () => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  
+  const { request } = useHttp();
 
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const tenantInfoModel: tenantInfoProps = {
     name: "",
     tenant_type: t("tenant.types.shop"),
@@ -116,37 +118,23 @@ const TenantForm: React.FC = () => {
   const send = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log(tenantInfo);
-
-    console.log("Данные перед отправкой:", JSON.stringify(tenantInfo, null, 2));
-
-    try {
-      const response = await fetch(`${apiBaseUrl}/tenats/tenats/`, {
-        method: "POST", // Или "PUT"
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(tenantInfo),
+    request("/tenats/tenats/", "POST", JSON.stringify(tenantInfo))
+      .then((res) => {
+        setTenantInfo(res);
+        setIsModalOpen(true);
+        setTimeout(() => {
+          setIsModalOpen(false); // Закрываем через 3 секунды
+        }, TIME_SHOW_MODAL);
+      })
+      .catch(() => {
+        setErrorMessage("Ошибка отправки заявки. Попробуйте снова.");
+        setTimeout(() => {
+          setErrorMessage("");
+        }, TIME_SHOW_MODAL);
+      })
+      .finally(() => {
+        setTenantInfo(tenantInfoModel);
       });
-      if (!response.ok) {
-        throw new Error(`Ошибка запроса: ${response.status}`);
-      }
-
-      console.log("Заявка успешно отправлена!");
-      setIsModalOpen(true); // Открываем модалку
-
-      setTimeout(() => {
-        setIsModalOpen(false); // Закрываем через 3 секунды
-      }, TIME_SHOW_MODAL);
-
-      setTenantInfo(tenantInfoModel);
-    } catch (error) {
-      console.error("Ошибка при отправке запроса:", error);
-      setErrorMessage("Ошибка отправки заявки. Попробуйте снова.");
-      setTimeout(() => {
-        setErrorMessage("");
-      }, TIME_SHOW_MODAL);
-    }
   };
 
   return (

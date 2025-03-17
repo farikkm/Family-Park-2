@@ -7,6 +7,7 @@ import Locales from "./Locales";
 import Transitionable from "@/components/ui/Transitionable";
 import { Link } from "react-router-dom";
 import { SocialMediaIcons } from "@/components/ui/SocialMediaIcons";
+import LINKS from "@/utils/links";
 
 const Modal = ({
   setIsShowModal,
@@ -19,14 +20,14 @@ const Modal = ({
   const { t } = useTranslation();
 
   const links = [
-    { id: 1, text: t("header.links.concerts"), href: getHref("/catalog/events") },
+    { id: 1, text: t("header.links.concerts"), href: getHref(LINKS.CATEGORY.EVENTS) },
     { id: 2, text: t("header.links.map"), href: getHref("/map") },
-    { id: 3, text: t("header.links.shops"), href: getHref("/catalog/shops") },
-    { id: 4, text: t("header.links.food"), href: getHref("/catalog/food") },
+    { id: 3, text: t("header.links.shops"), href: getHref(LINKS.CATEGORY.SHOPS) },
+    { id: 4, text: t("header.links.food"), href: getHref(LINKS.CATEGORY.FOOD) },
     {
       id: 5,
       text: t("header.links.entertainment"),
-      href: getHref("/catalog/entertainment"),
+      href: getHref(LINKS.CATEGORY.ENTERTAINMENT),
     },
     { id: 6, text: t("header.links.sales"), href: getHref("/catalog") },
     { id: 7, text: t("header.links.tenant"), href: getHref("/tenant") },

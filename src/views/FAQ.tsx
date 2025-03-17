@@ -14,14 +14,13 @@ interface QuestionType {
 }
 
 const FAQ = () => {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const { t, i18n } = useTranslation()
   const [questions, setQuestions] = useState<QuestionType[]>([])
 
   const {request} = useHttp()
 
   useEffect(() => {
-    request(`${apiBaseUrl}/additional/faq/`, "GET", null, { "Accept-Language": `${i18n.resolvedLanguage}` }).then(res => setQuestions(res))
+    request("/additional/faq/", "GET", null, { "Accept-Language": `${i18n.resolvedLanguage}` }).then(res => setQuestions(res))
   }, []);
   return (
     <>

@@ -24,6 +24,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import SendButton from "@/components/ui/SendButton";
 import ResponsiveHeader from "@/components/header/ResponsiveHeader";
+import LINKS from "@/utils/links";
 
 // =================================== HOME PAGE =================================== //
 
@@ -47,7 +48,7 @@ const Home = () => {
       <main id="home" className="home mt-20 md:mt-0">
         {sections && <SliderDesktop sections={sections} />}
       </main>
-      <div className="buttons hidden md:flex fixed bottom-7 right-27 z-6  gap-3 *:w-[150px] 3xl:*:w-[200px] *:text-left *:active:scale-110">
+      <div className="buttons hidden md:flex fixed bottom-7 right-27 z-6 gap-3">
         <Button path={getHref("lost-item")}>{t("home.button1")}</Button>
         <Button path={getHref("/hr")} bg="blue">
           {t("home.button2")}
@@ -198,7 +199,7 @@ function Shops() {
       <div className="shops__content py-5 md:py-5 px-5 text-white">
         <div className="md:flex flex-col lg:flex-row items-center justify-between">
           <Title text={t("home.shops.title")} />
-          <SeeAllButton category="shops" />
+          <SeeAllButton link={LINKS.CATEGORY.SHOPS} />
         </div>
 
         {/* ===== Desktop ===== */}
@@ -228,7 +229,7 @@ function Foods() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.food.title")} />
-          <SeeAllButton category="food" />
+          <SeeAllButton link={LINKS.CATEGORY.FOOD} />
         </div>
 
         {/* ===== Desktop ===== */}
@@ -258,7 +259,7 @@ function Entartainments() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.entertainment.title")} />
-          <SeeAllButton category="entertainment" />
+          <SeeAllButton link={LINKS.CATEGORY.ENTERTAINMENT} />
         </div>
 
         {/* ===== Desktop ===== */}
@@ -287,7 +288,7 @@ function EventsSection() {
       <div className="shops__content py-5 px-5 text-white">
         <div className="md:flex items-center justify-between">
           <Title text={t("home.events.title")} />
-          <SeeAllButton category="events" />
+          <SeeAllButton link={LINKS.CATEGORY.ENTERTAINMENT} />
         </div>
 
         {/* ===== Desktop ===== */}

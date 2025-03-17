@@ -4,12 +4,14 @@ export const useHttp = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
     const request = useCallback(
         async (url: string, method = "GET", body: any = null, headers: Record<string, string> = { "Content-Type": "application/json" }) => {
             setLoading(true);
 
             try {
-                const res = await fetch(url, { method, body, headers });
+                const res = await fetch(`${apiBaseUrl}${url}`, { method, body, headers });
 
                 if (!res.ok) {
                     throw new Error(`Could not fetch ${url}, status: ${res.status}`);
