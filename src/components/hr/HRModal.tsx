@@ -101,8 +101,12 @@ function HRModal() {
           setIsModalOpen(false); // Закрываем через 3 секунды
         }, TIME_SHOW_MODAL);
       })
-      .catch(() => {
-        setErrorMessage("Ошибка отправки заявки. Попробуйте снова.");
+      .catch((error) => {
+        if (error.file) {
+          setErrorMessage(error.file)
+        } else {
+          setErrorMessage("Ошибка отправки заявки. Попробуйте снова.");
+        }
         setTimeout(() => {
           setErrorMessage("");
         }, TIME_SHOW_MODAL);
@@ -138,6 +142,7 @@ function HRModal() {
               name="full_name"
               onChange={handleChange}
               maxLength={50}
+              value={workerInfo.full_name}
               placeholder="Цыркач Виталий Владиленович"
             />
           </label>

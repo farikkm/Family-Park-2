@@ -156,6 +156,12 @@
     "entertainment": "Ko‘ngilochar"
   },
 
+
+  "search": {
+    "title": "Qidiruv natijalari",
+    "no-items-found": "Hech narsa topilmadi"
+  },
+
   "buttons": {
     "see-all": "Hammasini ko'rish",
     "send": "Yuborish",

@@ -153,6 +153,10 @@
     "shop": "Shop",
     "entertainment": "Entertainment and services"
   },
+  "search": {
+    "title": "Search Results",
+    "no-items-found": "Nothing found"
+  },
 
   "buttons": {
     "see-all": "View all",

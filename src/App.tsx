@@ -14,6 +14,7 @@ import { useState } from "react";
 import NotFound from "./views/NotFound";
 import LanguageGuard from "./components/app/LanguageGuard";
 import Wrapper from "./components/app/MainLayout";
+import Search from "./views/Search";
 
 function App() {
   const [langKey, setLangKey] = useState(i18n.language);
@@ -31,6 +32,7 @@ function App() {
             element={<LanguageGuard setLangKey={setLangKey} />}
           >
             <Route path="" element={<Home />} />
+            <Route path={`search`} element={<Search />} />
             <Route path={`map`} element={<Map />} />
             <Route path={`catalog/:category`} element={<Catalog />} />
             <Route path={`market/:id`} element={<Market />} />

@@ -68,7 +68,7 @@ function FooterDesktop() {
         </div>
       </div>
       <img
-        className="w-300 h-30 transform scale-150 block mt-40"
+        className="w-300 h-30 transform scale-150 block mt-20"
         src="/logo/footerLogo.svg"
         alt=""
       />

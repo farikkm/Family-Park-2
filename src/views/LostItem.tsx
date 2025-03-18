@@ -57,6 +57,18 @@ const LostItem = () => {
     }));
   };
 
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+  
+    // Удаляем всё, кроме букв и пробелов
+    const cleanedValue = value.replace(/[^a-zA-Zа-яА-ЯёЁ\s]/g, "");
+  
+    setLostItemInfo((prev) => ({
+      ...prev,
+      name_contact_face: cleanedValue,
+    }));
+  };
+
   const send = async (e: React.FormEvent, info: any) => {
     e.preventDefault();
 
@@ -131,7 +143,8 @@ const LostItem = () => {
                       name="name_contact_face"
                       maxLength={50}
                       value={lostItemInfo.name_contact_face}
-                      onChange={handleChange}
+                      onChange={handleNameChange}
+                      required
                     />
                   </label>
                   <label className="flex flex-col mb-3" htmlFor="second-label">
@@ -146,6 +159,7 @@ const LostItem = () => {
                       name="phone_number_contact_face"
                       maxLength={17}
                       onChange={handlePhoneChange}
+                      required
                     />
                   </label>
                   <label className="flex flex-col mb-3" htmlFor="third-label">
@@ -159,6 +173,7 @@ const LostItem = () => {
                       name="what_lost"
                       maxLength={60}
                       onChange={handleChange}
+                      required
                     />
                   </label>
                 </div>
@@ -177,6 +192,7 @@ const LostItem = () => {
                       name="name_place"
                       maxLength={60}
                       onChange={handleChange}
+                      required
                     />
                   </label>
                   <label className="flex flex-col mb-3" htmlFor="fifth-label">
@@ -189,6 +205,7 @@ const LostItem = () => {
                       value={lostItemInfo.time_to_lost}
                       name="time_to_lost"
                       onChange={handleChange}
+                      required
                     />
                   </label>
                   <label className="flex flex-col mb-3" htmlFor="sixth-label">
@@ -201,6 +218,7 @@ const LostItem = () => {
                       name="comments_lost"
                       maxLength={300}
                       onChange={handleChange}
+                      required
                     />
                   </label>
                 </div>

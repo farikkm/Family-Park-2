@@ -2,7 +2,6 @@ import getHref from "@/utils/getHref";
 import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "motion/react";
-import SearchInput from "./SearchInput";
 import Locales from "./Locales";
 import Transitionable from "@/components/ui/Transitionable";
 import { Link } from "react-router-dom";
@@ -16,7 +15,6 @@ const Modal = ({
   setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const modal = useRef<HTMLDivElement | null>(null);
-  const searchInputRef = useRef<HTMLInputElement | null>(null);
   const { t } = useTranslation();
 
   const links = [
@@ -66,8 +64,6 @@ const Modal = ({
     setIsShowModal(false);
   };
 
-  const openSearchInputRef = () => showInput(searchInputRef.current);
-
   // Close menu when press the 'Exit' key
   useEffect(() => {
     const closeMenuOnEscape = (e: KeyboardEvent) => {
@@ -79,27 +75,6 @@ const Modal = ({
     window.addEventListener("keydown", (e) => closeMenuOnEscape(e));
     return () => window.removeEventListener("keydown", closeMenuOnEscape);
   }, []);
-
-  // Send searching info when press the 'Enter' key
-  useEffect(() => {
-    const input = searchInputRef.current;
-    if (!input) return;
-
-    const handleEnter = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        const searchText = input.value.trim();
-        if (searchText) console.log("User input:", searchText);
-        input.value = "";
-        input.classList.remove("w-48", "opacity-100");
-        input.classList.add("w-0", "opacity-0");
-        input.blur();
-        closeMenu();
-      }
-    };
-
-    input.addEventListener("keydown", handleEnter);
-    return () => input.removeEventListener("keydown", handleEnter);
-  }, [searchInputRef.current]);
 
   return (
     <AnimatePresence>
@@ -120,15 +95,6 @@ const Modal = ({
                 <Locales />
               </div>
               {/* ========================= SEARCH-INPUT ============================ */}
-              <form id="modal-search" className="flex items-center relative">
-                <img
-                  className="cursor-pointer h-8 md:h-6"
-                  src="/icons/header/search.svg"
-                  alt="search-icon"
-                  onClick={openSearchInputRef}
-                />
-                <SearchInput ref={searchInputRef} color="black" />
-              </form>
             </div>
             {/* ========================= HEADER-LOGO ============================ */}
             <button onClick={() => closeMenu()}>
@@ -205,19 +171,5 @@ const Modal = ({
     </AnimatePresence>
   );
 };
-
-function showInput(elem: HTMLInputElement | null) {
-  if (!elem) return; // Проверка на null
-
-  if (elem.classList.contains("w-0")) {
-    elem.classList.remove("w-0", "opacity-0");
-    elem.classList.add("md:w-48", "w-32", "opacity-100");
-    elem.focus();
-  } else {
-    elem.classList.remove("md:w-48", "w-32", "opacity-100");
-    elem.classList.add("w-0", "opacity-0");
-    elem.blur();
-  }
-}
 
 export default Modal;

@@ -85,15 +85,45 @@ const TenantForm: React.FC = () => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
+
     if (file) {
+      const allowedFormats = [
+        "image/png",
+        "image/jpeg",
+        "image/jpg",
+        "image/svg+xml",
+      ];
+      const maxSize = 5 * 1024 * 1024; // 5MB
+
+      if (!allowedFormats.includes(file.type)) {
+        alert("Разрешены только файлы PNG, JPEG, JPG и SVG.");
+        return;
+      }
+
+      if (file.size > maxSize) {
+        alert("Размер файла не должен превышать 5MB.");
+        return;
+      }
+
       const reader = new FileReader();
+
       reader.onloadend = () => {
         setTenantInfo((prev) => ({
           ...prev,
           logo: reader.result as string, // Устанавливаем base64-код изображения
         }));
       };
-      reader.readAsDataURL(file); // Читаем файл как base64
+
+      if (file.type === "image/svg+xml") {
+        // SVG передаём как объект URL (не base64)
+        const svgUrl = URL.createObjectURL(file);
+        setTenantInfo((prev) => ({
+          ...prev,
+          logo: svgUrl,
+        }));
+      } else {
+        reader.readAsDataURL(file); // Читаем файл как base64 (только для PNG, JPG)
+      }
     }
   };
 
