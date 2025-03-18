@@ -131,7 +131,8 @@
   },
 
   "catalog": {
-    "title": "Katalog"
+    "title": "Katalog",
+    "no_items": "Hech narsa topilmadi"
   },
 
   "shops": {
@@ -145,6 +146,14 @@
   },
   "events": {
     "category": "Tadbirlar"
+  },
+
+  "market": {
+    "schedule": "Ish vaqti",
+    "description": "Tavsif",
+    "food": "Oziq-ovqat",
+    "shop": "Do‘kon",
+    "entertainment": "Ko‘ngilochar"
   },
 
   "buttons": {

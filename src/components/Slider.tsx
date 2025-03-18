@@ -20,10 +20,7 @@ import "swiper/css/scrollbar";
 import isMobileUtil from "@/utils/isMobile";
 import CatalogItem from "./catalog/CatalogItem";
 
-// Images
-import shopImg from "@/assets/images/shops/shop.png";
-import shopImg2 from "@/assets/images/shops/shop4.svg";
-import shopImg3 from "@/assets/images/shops/shop2.png";
+import { CatalogItemsProps } from "@/types";
 
 interface Props {
   type?: string;
@@ -120,19 +117,7 @@ const SliderDesktop = ({ sections = [] }: Props) => {
   );
 };
 
-const sliderMobileItems = [
-  { img: shopImg, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg2, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg3, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg2, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg3, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg2, catalog: "Продукты", brand: "Carrefour" },
-  { img: shopImg3, catalog: "Продукты", brand: "Carrefour" },
-];
-
-const SliderMobile = () => {
+const SliderMobile = ({ items = [] }: { items: CatalogItemsProps[] }) => {
   return (
     <div className="hidden md:block relative mt-5 lg:mt-20 _container">
       <Swiper
@@ -141,7 +126,7 @@ const SliderMobile = () => {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        loop={true}
+        loop={items.length > 3}
         centeredSlides={true}
         slidesPerView={3}
         spaceBetween={20}
@@ -160,15 +145,16 @@ const SliderMobile = () => {
         }}
         className=""
       >
-        {sliderMobileItems.map((item, index) => (
+        {items.length > 0 && items.map((item, index) => (
           <SwiperSlide
             key={index}
             className="w-full rounded-3xl flex items-center justify-center"
           >
             <CatalogItem
-              img={item.img}
-              catalog={item.catalog}
-              name={item.brand}
+              id={item.id}
+              img={item.logo}
+              catalog={item.tenant_type}
+              name={item.name}
             />
           </SwiperSlide>
         ))}

@@ -1,29 +1,11 @@
 import StaticHeader from "@/components/header/StaticHeader";
 import HRModal from "@/components/hr/HRModal";
-import Accordion from "@/components/ui/Accordion";
+import Vacations from "@/components/hr/Vacations";
 import Subtitle from "@/components/ui/Subtitle";
 import Title from "@/components/ui/Title";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-
-const vacancies = [
-  {
-    id: 1,
-    imgPath: "/icons/hr/smile.svg",
-    text: "Ассистент графического дизайнера",
-  },
-  {
-    id: 2,
-    imgPath: "/icons/hr/smile.svg",
-    text: "Ассистент графического дизайнера",
-  },
-  {
-    id: 3,
-    imgPath: "/icons/hr/smile.svg",
-    text: "Ассистент графического дизайнера",
-  },
-];
 
 const HR = () => {
   const { t } = useTranslation();
@@ -47,10 +29,6 @@ const HR = () => {
   function closeModalByBackdrop(e: React.FormEvent) {
     const isClickOnBackdrop = e.target === modalRef.current;
     if (isClickOnBackdrop) closeModal();
-  }
-
-  function sendInfo() {
-    closeModal();
   }
 
   return (
@@ -93,44 +71,10 @@ const HR = () => {
         {/* ===================== Вакансии ===================== */}
         <div className="w-full flex justify-center">
           <div className="max-w-[800px] w-full">
-            <Accordion
-              className="mt-0!"
-              title={t("hr.family_park_vacancies.title")}
-              initialState="open"
-            >
-              <div className="mt-7 flex flex-col gap-5 px-5">
-                {vacancies.map((vacancie) => (
-                  <div
-                    key={vacancie.id}
-                    className="flex gap-5 items-center border-b last:border-b-0 border-b-[#888888] pb-3"
-                  >
-                    <div className="red-gradient p-3 rounded-4xl">
-                      <img src={vacancie.imgPath} alt="smile-icon" />
-                    </div>
-                    <span className="text-black">{vacancie.text}</span>
-                  </div>
-                ))}
-              </div>
-            </Accordion>
-
-            <Accordion
-              className="mt-6!"
-              title={t("hr.tenants_vacancies.title")}
-            >
-              <div className="mt-7 flex flex-col gap-5 px-5">
-                {vacancies.map((vacancie) => (
-                  <div
-                    key={vacancie.id}
-                    className="flex gap-5 items-center border-b last:border-b-0 border-b-[#888888] pb-3"
-                  >
-                    <div className="red-gradient p-3 rounded-4xl">
-                      <img src={vacancie.imgPath} alt="smile-icon" />
-                    </div>
-                    <span className="text-black">{vacancie.text}</span>
-                  </div>
-                ))}
-              </div>
-            </Accordion>
+            {/* Вакансии в FamilyPark */}
+            <Vacations category_vacations={2} />
+            {/* Вакансии арендаторов Family Park */}
+            <Vacations category_vacations={1}/>
           </div>
         </div>
       </div>
@@ -146,7 +90,7 @@ const HR = () => {
             onClick={closeModalByBackdrop}
             className="backdrop-blur-md bg-[rgba(26,26,26,0.5)] fixed left-0 top-0 w-screen h-screen flex items-center justify-center"
           >
-            <HRModal sendInfo={sendInfo} />
+            <HRModal />
           </motion.div>
         )}
       </AnimatePresence>

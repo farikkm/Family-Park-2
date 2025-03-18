@@ -5,15 +5,18 @@ const CatalogItem = ({
   img,
   catalog,
   name,
+  id
 }: {
   img: string;
   catalog: string;
   name: string;
+  shop_name?: string;
+  id: number
 }) => {
   return (
     <Link
       className="gray-gradient p-5 pb-4 block rounded-3xl *:text-black"
-      to={getHref("/market")}
+      to={getHref(`/market/${id}`)}
     >
       <div className="h-[150px] xs:h-[180px] sm:h-[250px] md:h-[300px] 2xl:h-[400px] 3xl:h-[450px] overflow-hidden rounded-3xl">
         <img

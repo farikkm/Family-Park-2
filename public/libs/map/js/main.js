@@ -107,7 +107,7 @@ export default class {
     }
 
     readJson() {
-        fetch('data.json')
+        fetch(`data.json`)
             .then(async (response) => {
                 this.objectsData = await response.json();
             })

@@ -28,11 +28,8 @@ const ResponsiveHeader = () => {
 
   return (
     <>
-      {/* //! ======================================================= HEADER =======================================================*/}
-
       {iconState ? <StaticHeader /> : <StaticHeaderBlack />}
 
-      {/* ======================================================= MODAL =======================================================*/}
       {isShowModal && (
         <Modal isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
       )}

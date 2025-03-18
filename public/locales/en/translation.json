@@ -56,7 +56,7 @@
         }
       }
     },
-    "shops": {
+    "shop": {
       "title": "Shops"
     },
     "food": {
@@ -142,7 +142,16 @@
     "category": "Events"
   },
   "catalog": {
-    "title": "Catalog"
+    "title": "Catalog",
+    "no_items": "Nothing found"
+  },
+
+  "market": {
+    "schedule": "Opening Hours",
+    "description": "Description",
+    "food": "Food",
+    "shop": "Shop",
+    "entertainment": "Entertainment and services"
   },
 
   "buttons": {

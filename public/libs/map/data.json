@@ -5,7 +5,7 @@
       "title": "ALIBI",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -15,7 +15,7 @@
       "title": "Mark Formelle",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -35,7 +35,7 @@
       "title": "Aureya",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "4"
@@ -55,7 +55,7 @@
       "title": "Uno sport",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "6"
@@ -65,7 +65,7 @@
       "title": "Urban toys",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -75,7 +75,7 @@
       "title": "Swiss Arabian",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -85,7 +85,7 @@
       "title": "Master Premium",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -95,7 +95,7 @@
       "title": "For home Le Milo",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -105,7 +105,7 @@
       "title": "BV Parfume",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -115,7 +115,7 @@
       "title": "Media park",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -125,7 +125,7 @@
       "title": "Goodzone",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -135,7 +135,7 @@
       "title": "Samsung",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -145,7 +145,7 @@
       "title": "Remont uz",
       "color": "ff00ff",
       "category": "Услуги",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -155,7 +155,7 @@
       "title": "Avax mobile",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -165,7 +165,7 @@
       "title": "Brono house",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -175,7 +175,7 @@
       "title": "Kitob Olami",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -185,7 +185,7 @@
       "title": "Craft Ego",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -195,7 +195,7 @@
       "title": "The buzz",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -205,7 +205,7 @@
       "title": "Ice Arena",
       "color": "ff00ff",
       "category": "Развлевательный центр",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -215,7 +215,7 @@
       "title": "Karting",
       "color": "ff00ff",
       "category": "Развлевательный центр",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -225,7 +225,7 @@
       "title": "Family Cinema",
       "color": "ff00ff",
       "category": "Развлевательный центр",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -235,7 +235,7 @@
       "title": "Eleven",
       "color": "ff00ff",
       "category": "Услуги",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -255,7 +255,7 @@
       "title": "Trast bank",
       "color": "ff00ff",
       "category": "Услуги",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -265,7 +265,7 @@
       "title": "TBC Bank",
       "color": "ff00ff",
       "category": "Услуги",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "7"
@@ -295,7 +295,7 @@
       "title": "Indenim",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -305,7 +305,7 @@
       "title": "LC Waikiki",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -315,7 +315,7 @@
       "title": "Vicenza",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -325,7 +325,7 @@
       "title": "La Yansaa",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -335,7 +335,7 @@
       "title": "Selfie",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -355,7 +355,7 @@
       "title": "Ideal",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -365,7 +365,7 @@
       "title": "Just",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -375,7 +375,7 @@
       "title": "Altinyildiz",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -385,7 +385,7 @@
       "title": "Terra Pro",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -395,7 +395,7 @@
       "title": "Kigili",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -405,7 +405,7 @@
       "title": "Hajime Teen",
       "color": "ff00ff",
       "category": "Test",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -415,7 +415,7 @@
       "title": "Pandora",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -425,7 +425,7 @@
       "title": "Vinceri",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -435,7 +435,7 @@
       "title": "Gold Lion",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -445,7 +445,7 @@
       "title": "N1Cases",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -455,7 +455,7 @@
       "title": "Avax Mobile",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -465,7 +465,7 @@
       "title": "Hajime Shoes",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -475,7 +475,7 @@
       "title": "Khan Store",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -485,7 +485,7 @@
       "title": "Barakat",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -495,7 +495,7 @@
       "title": "Elysee Parfume",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -505,7 +505,7 @@
       "title": "Hills",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -515,7 +515,7 @@
       "title": "Victoria`s Secret",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -525,7 +525,7 @@
       "title": "Eclipse",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -535,7 +535,7 @@
       "title": "Buduar",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -545,7 +545,7 @@
       "title": "Ice Arena",
       "color": "ff00ff",
       "category": "Развлевательный центр",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -555,7 +555,7 @@
       "title": "Glo",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -565,7 +565,7 @@
       "title": "IQOS",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -575,7 +575,7 @@
       "title": "Surprise",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -585,7 +585,7 @@
       "title": "Play arena",
       "color": "ff00ff",
       "category": "Развлевательный центр",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -595,7 +595,7 @@
       "title": "Family Bowling",
       "color": "ff00ff",
       "category": "Развлевательный центр",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -605,7 +605,7 @@
       "title": "Chicco",
       "color": "ff00ff",
       "category": "Магазин",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -615,7 +615,7 @@
       "title": "Mini Gift",
       "color": "ff00ff",
       "category": "Развлевательный центр",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -625,7 +625,7 @@
       "title": "Yapona Mama",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -635,7 +635,7 @@
       "title": "KFC",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -645,7 +645,7 @@
       "title": "T-Bone Pizza",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -655,7 +655,7 @@
       "title": "Bellissimo",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -665,7 +665,7 @@
       "title": "Neapolli pizza",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -675,7 +675,7 @@
       "title": "BBQ Burger",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -695,7 +695,7 @@
       "title": "Gosht",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -705,7 +705,7 @@
       "title": "Istanbul Turkish",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -725,7 +725,7 @@
       "title": "Burger & Co",
       "color": "ff00ff",
       "category": "Test",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -745,7 +745,7 @@
       "title": "Loft Burger",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -755,7 +755,7 @@
       "title": "Panorama",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -765,7 +765,7 @@
       "title": "Giotto",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -785,7 +785,7 @@
       "title": "Chocolate",
       "color": "ff00ff",
       "category": "Test",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -795,7 +795,7 @@
       "title": "Gustimo",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -805,7 +805,7 @@
       "title": "Milk Shake",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"
@@ -815,7 +815,7 @@
       "title": "Fruktoza",
       "color": "ff00ff",
       "category": "Еда",
-      "link": "/market",
+      "link": "/ru/catalog/shop",
       "work-item": "10:00 - 23:00",
       "logo": null,
       "id": "1"

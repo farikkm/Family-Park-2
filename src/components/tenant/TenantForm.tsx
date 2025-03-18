@@ -3,63 +3,20 @@ import SendButton from "../ui/SendButton";
 import WeekSchedule from "./WorkingHours";
 import { useState } from "react";
 import { useHttp } from "@/hooks/useHttp";
+import TenantInput from "./TenantInput";
+import { WorkingHours } from "@/types";
 
-interface WorkingHours {
-  working_day: string;
-  working_hours_open: string;
-  working_hours_close: string;
-}
-
-interface tenantInfoProps {
+interface TenantInfoProps {
   name: string;
   tenant_type: string;
   working_hours: WorkingHours[];
-  desired_area: string;
   phone_number: string;
   key_word: string;
   alias: string;
   content: string;
   logo: string;
+  desired_area: string;
 }
-
-// ====================
-
-interface TenantInputProps {
-  label: string;
-  name: string;
-  type?: string;
-  value: string;
-  placeholder?: string;
-  handleChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => void;
-}
-
-const TenantInput = ({
-  label,
-  name,
-  type = "text",
-  value,
-  placeholder = "",
-  handleChange,
-}: TenantInputProps) => {
-  return (
-    <label className="flex flex-col mb-3">
-      <span className="text-[#858585] font-bold">{label}</span>
-      <input
-        required
-        className="*:font-thin py-1 border-b"
-        type={type}
-        onChange={handleChange}
-        value={value}
-        placeholder={placeholder}
-        name={name}
-      />
-    </label>
-  );
-};
-
-// ====================
 
 const TIME_SHOW_MODAL = 2000;
 
@@ -67,14 +24,14 @@ const TenantForm: React.FC = () => {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  
+
   const { request } = useHttp();
 
-  const tenantInfoModel: tenantInfoProps = {
+  const tenantInfoModel: TenantInfoProps = {
     name: "",
-    tenant_type: t("tenant.types.shop"),
+    tenant_type: t("tenant.types.shop"), // option by default
     working_hours: [],
-    phone_number: "",
+    phone_number: "+998",
     key_word: "",
     alias: "",
     content: "",
@@ -82,16 +39,41 @@ const TenantForm: React.FC = () => {
     desired_area: "",
   };
   const [tenantInfo, setTenantInfo] =
-    useState<tenantInfoProps>(tenantInfoModel);
+    useState<TenantInfoProps>(tenantInfoModel);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
   ) => {
     const { value, name } = e.target;
+    console.log(value);
+
     setTenantInfo((prev) => ({
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value;
+
+    // Если пользователь удаляет "+998", не даем ему это сделать
+    if (!value.startsWith("+998")) {
+      value = "+998 ";
+    }
+
+    // Оставляем только цифры после "+998"
+    const digits = value.replace(/\D/g, "").substring(3); // Удаляем всё кроме цифр, начиная с 4-го символа
+
+    // Форматируем номер
+    let formatted = "+998 ";
+    if (digits.length > 0) formatted += digits.substring(0, 2); // Код оператора
+    if (digits.length > 2) formatted += " " + digits.substring(2, 5); // Первые 3 цифры
+    if (digits.length > 5) formatted += " " + digits.substring(5, 7); // Следующие 2 цифры
+    if (digits.length > 7) formatted += " " + digits.substring(7, 9); // Последние 2 цифры
+
+    setTenantInfo((prev) => ({ ...prev, phone_number: formatted }));
   };
 
   const handleWorkingHoursChange = (updatedHours: WorkingHours[]) => {
@@ -118,9 +100,10 @@ const TenantForm: React.FC = () => {
   const send = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    request("/tenats/tenats/", "POST", JSON.stringify(tenantInfo))
-      .then((res) => {
-        setTenantInfo(res);
+    console.log("Отправляемые данные:", tenantInfo);
+
+    request("/tenats/tenats/", "POST", tenantInfo)
+      .then(() => {
         setIsModalOpen(true);
         setTimeout(() => {
           setIsModalOpen(false); // Закрываем через 3 секунды
@@ -176,21 +159,21 @@ const TenantForm: React.FC = () => {
               label={t("tenant-input.column1.desired-area")}
               name="desired_area"
               handleChange={handleChange}
-              type="text"
+              maxLength={10}
               value={tenantInfo.desired_area}
             />
             <TenantInput
               label={t("tenant-input.column1.alias")}
               name="alias"
               handleChange={handleChange}
-              type="text"
+              maxLength={30}
               value={tenantInfo.alias}
             />
             <TenantInput
               label={t("tenant-input.column1.key_word")}
               name="key_word"
+              maxLength={30}
               handleChange={handleChange}
-              type="text"
               value={tenantInfo.key_word}
             />
 
@@ -232,17 +215,23 @@ const TenantForm: React.FC = () => {
               label={t("tenant-input.column1.company-name")}
               name="name"
               handleChange={handleChange}
-              type="text"
+              maxLength={30}
               value={tenantInfo.name}
             />
+            <label className="flex flex-col mb-3">
+              <span className="text-[#858585] font-bold">
+                {t("tenant-input.column1.content")}
+              </span>
+              <textarea
+                className="*:font-thin py-1 border-b"
+                name="content"
+                rows={6}
+                onChange={handleChange}
+                maxLength={300}
+                value={tenantInfo.content}
+              />
+            </label>
 
-            <TenantInput
-              label={t("tenant-input.column1.content")}
-              name="content"
-              handleChange={handleChange}
-              type="text"
-              value={tenantInfo.content}
-            />
             <WeekSchedule
               working_hours={tenantInfo.working_hours}
               onChange={handleWorkingHoursChange}
@@ -252,15 +241,21 @@ const TenantForm: React.FC = () => {
             <h3 className="uppercase text-lg font-bold mb-2">
               {t("tenant-input.title2")}
             </h3>
-
-            <TenantInput
-              label={t("tenant-input.column2.phone")}
-              name="phone_number"
-              handleChange={handleChange}
-              type="text"
-              value={tenantInfo.phone_number}
-              placeholder="+998 __ ___ __ __"
-            />
+            <label className="flex flex-col mb-3">
+              <span className="text-[#858585] font-bold">
+                {t("hr.modal.label2")}
+              </span>
+              <input
+                className="*:font-thin py-1 border-b"
+                type="text"
+                name="phone"
+                onChange={handlePhoneChange}
+                placeholder="+998 XX XXX XX XX"
+                maxLength={17}
+                value={tenantInfo.phone_number}
+                required
+              />
+            </label>
           </div>
           <div className="flex justify-center mt-10">
             <SendButton />

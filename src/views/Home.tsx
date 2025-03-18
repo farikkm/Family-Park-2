@@ -6,7 +6,7 @@ import isMobileUtil from "@/utils/isMobile";
 import Title from "@/components/ui/Title";
 import Subtitle from "@/components/ui/Subtitle";
 import { useTranslation } from "react-i18next";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import getHref from "@/utils/getHref";
 import SeeAllButton from "@/components/ui/SeeAllButton";
 import CatalogItems from "@/components/catalog/CatalogItems";
@@ -16,7 +16,6 @@ import Footer from "@/components/footer/Footer";
 import heroImg from "@/assets/images/hero.png";
 import heroImgDesktop from "@/assets/images/hero/img.png";
 import heroLogo from "@/assets/images/hero/logo.png";
-import shopImg from "@/assets/images/shops/shop.png";
 
 // Swiper
 import "swiper/css";
@@ -25,6 +24,19 @@ import "swiper/css/pagination";
 import SendButton from "@/components/ui/SendButton";
 import ResponsiveHeader from "@/components/header/ResponsiveHeader";
 import LINKS from "@/utils/links";
+import { CatalogItemsProps } from "@/types";
+import { useHttp } from "@/hooks/useHttp";
+import { ClipLoader } from "react-spinners";
+import filterByStatus from "@/utils/filterByStatus";
+
+const HOME_PAGE_CATEGORIES = {
+  SHOP: "shop",
+  FOOD: "food",
+  ENTERTAINMENT: "entertainment",
+  EVENTS: "events"
+};
+
+const TIME_SHOW_MODAL = 3000;
 
 // =================================== HOME PAGE =================================== //
 
@@ -69,7 +81,7 @@ function Hero() {
         id="hero"
         className="block md:flex md:gap-30 flex-row-reverse justify-between items-center md:px-20 md:pt-10"
       >
-        <div className="hero-img min-w-[100px] w-full h-65 md:h-150 3xl:h-190 overflow-hidden">
+        <div className="hero-img min-w-[100px] w-full h-65 md:h-130 3xl:h-190 overflow-hidden">
           <img
             className="block md:hidden w-full h-full object-cover"
             src={heroImg}
@@ -182,123 +194,288 @@ function Statistics() {
 }
 
 function Shops() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [catalogItems, setCatalogItems] = useState<CatalogItemsProps[]>([]);
 
-  const items = [
-    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-  ];
+  const { request, loading } = useHttp();
+
+  useEffect(() => {
+    request("/tenats/tenats/", "GET", null)
+      .then((res: CatalogItemsProps[]) => {
+        const filteredItems = res.filter(
+          (item) => item.tenant_type.toLowerCase() === HOME_PAGE_CATEGORIES.SHOP
+        );
+
+        setCatalogItems(filterByStatus(filteredItems));
+      })
+      .catch(() => {
+        setErrorMessage(
+          "Произошла непредвиденная ошибка. Перезагрузите страницу."
+        );
+        setTimeout(() => {
+          setErrorMessage("");
+        }, TIME_SHOW_MODAL);
+      });
+  }, [i18n.resolvedLanguage]);
 
   return (
-    <section id="shops" className="relative md:pt-30 md:px-35">
+    <section id="shops" className="relative md:pt-30">
       {/* Decor */}
       <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
       {/* Content */}
-      <div className="shops__content py-5 md:py-5 px-5 text-white">
-        <div className="md:flex flex-col lg:flex-row items-center justify-between">
-          <Title text={t("home.shops.title")} />
-          <SeeAllButton link={LINKS.CATEGORY.SHOPS} />
-        </div>
+      <div className="_container">
+        <div className="shops__content py-5 md:py-5 text-white">
+          <div className="md:flex flex-col lg:flex-row items-center justify-between">
+            <Title text={t("home.shop.title")} />
+            <SeeAllButton link={LINKS.CATEGORY.SHOPS} />
+          </div>
+          {loading ? (
+            <div className="flex justify-center items-center h-40">
+              <ClipLoader color="#ffffff" size={50} />
+            </div>
+          ) : catalogItems.length > 0 ? (
+            <>
+              {/* ===== Desktop ===== */}
+              {!isMobileUtil() && <SliderMobile items={catalogItems}/>}
+              {/* ===== Mobile ===== */}
+              <CatalogItems items={catalogItems} />
+            </>
+          ) : (
+            <p className="flex justify-center items-center my-15 font-bold text-2xl sm:text-3xl">Данные не найдены</p>
+          )}
 
-        {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <SliderMobile />}
-        {/* ===== Mobile ===== */}
-        <CatalogItems items={items} />
+          {errorMessage && (
+            <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
+              {errorMessage}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
 }
 
 function Foods() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [catalogItems, setCatalogItems] = useState<CatalogItemsProps[]>([]);
 
-  const items = [
-    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-  ];
+  const { request, loading } = useHttp();
+
+  useEffect(() => {
+    request("/tenats/tenats/", "GET", null)
+      .then((res: CatalogItemsProps[]) => {
+        const filteredItems = res.filter(
+          (item) => item.tenant_type.toLowerCase() === HOME_PAGE_CATEGORIES.FOOD
+        );
+
+        setCatalogItems(filterByStatus(filteredItems));
+      })
+      .catch(() => {
+        setErrorMessage(
+          "Произошла непредвиденная ошибка. Перезагрузите страницу."
+        );
+        setTimeout(() => {
+          setErrorMessage("");
+        }, TIME_SHOW_MODAL);
+      });
+  }, [i18n.resolvedLanguage]);
 
   return (
-    <section id="foods" className="relative md:pt-30 md:px-35">
+    <section id="food" className="relative md:pt-30">
       {/* Decor */}
       <div className="red-gradient absolute left-0 top-0 w-full h-90 -z-1" />
       {/* Content */}
-      <div className="shops__content py-5 px-5 text-white">
-        <div className="md:flex items-center justify-between">
-          <Title text={t("home.food.title")} />
-          <SeeAllButton link={LINKS.CATEGORY.FOOD} />
-        </div>
+      <div className="_container">
+        <div className="shops__content py-5 md:py-5 text-white">
+          <div className="md:flex flex-col lg:flex-row items-center justify-between">
+            <Title text={t("home.food.title")} />
+            <SeeAllButton link={LINKS.CATEGORY.FOOD} />
+          </div>
+          {loading ? (
+            <div className="flex justify-center items-center h-40">
+              <ClipLoader color="#ffffff" size={50} />
+            </div>
+          ) : catalogItems.length > 0 ? (
+            <>
+              {/* ===== Desktop ===== */}
+              {!isMobileUtil() && <SliderMobile items={catalogItems}/>}
+              {/* ===== Mobile ===== */}
+              <CatalogItems items={catalogItems} />
+            </>
+          ) : (
+            <p className="flex justify-center items-center my-15 font-bold text-2xl sm:text-3xl">Данные не найдены</p>
+          )}
 
-        {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <SliderMobile />}
-        {/* ===== Mobile ===== */}
-        <CatalogItems items={items} />
+          {errorMessage && (
+            <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
+              {errorMessage}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
 }
 
 function Entartainments() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [catalogItems, setCatalogItems] = useState<CatalogItemsProps[]>([]);
 
-  const items = [
-    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-  ];
+  const { request, loading } = useHttp();
+
+  useEffect(() => {
+    request("/tenats/tenats/", "GET", null)
+      .then((res: CatalogItemsProps[]) => {
+        const filteredItems = res.filter(
+          (item) => item.tenant_type.toLowerCase() === HOME_PAGE_CATEGORIES.ENTERTAINMENT
+        );
+
+        setCatalogItems(filterByStatus(filteredItems));
+      })
+      .catch(() => {
+        setErrorMessage(
+          "Произошла непредвиденная ошибка. Перезагрузите страницу."
+        );
+        setTimeout(() => {
+          setErrorMessage("");
+        }, TIME_SHOW_MODAL);
+      });
+  }, [i18n.resolvedLanguage]);
 
   return (
-    <section id="entartainments" className="relative md:pt-30 md:px-35">
+    <section id="entartainments" className="relative md:pt-30">
       {/* Decor */}
       <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
       {/* Content */}
-      <div className="shops__content py-5 px-5 text-white">
-        <div className="md:flex items-center justify-between">
-          <Title text={t("home.entertainment.title")} />
-          <SeeAllButton link={LINKS.CATEGORY.ENTERTAINMENT} />
-        </div>
+      <div className="_container">
+        <div className="shops__content py-5 md:py-5 text-white">
+          <div className="md:flex flex-col lg:flex-row items-center justify-between">
+            <Title text={t("home.entertainment.title")} />
+            <SeeAllButton link={LINKS.CATEGORY.ENTERTAINMENT} />
+          </div>
+          {loading ? (
+            <div className="flex justify-center items-center h-40">
+              <ClipLoader color="#ffffff" size={50} />
+            </div>
+          ) : catalogItems.length > 0 ? (
+            <>
+              {/* ===== Desktop ===== */}
+              {!isMobileUtil() && <SliderMobile items={catalogItems}/>}
+              {/* ===== Mobile ===== */}
+              <CatalogItems items={catalogItems} />
+            </>
+          ) : (
+            <p className="flex justify-center items-center my-15 font-bold text-2xl sm:text-3xl">Данные не найдены</p>
+          )}
 
-        {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <SliderMobile />}
-        {/* ===== Mobile ===== */}
-        <CatalogItems items={items} />
+          {errorMessage && (
+            <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
+              {errorMessage}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
 }
 
 function EventsSection() {
-  const { t } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const [errorMessage, setErrorMessage] = useState("");
+  const [catalogItems, setCatalogItems] = useState<CatalogItemsProps[]>([]);
 
-  const items = [
-    { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-    { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
-  ];
+  const { request, loading } = useHttp();
+
+  useEffect(() => {
+    request("/tenats/tenats/", "GET", null)
+      .then((res: CatalogItemsProps[]) => {
+        const filteredItems = res.filter(
+          (item) => item.tenant_type.toLowerCase() === HOME_PAGE_CATEGORIES.EVENTS
+        );
+
+        setCatalogItems(filterByStatus(filteredItems));
+      })
+      .catch(() => {
+        setErrorMessage(
+          "Произошла непредвиденная ошибка. Перезагрузите страницу."
+        );
+        setTimeout(() => {
+          setErrorMessage("");
+        }, TIME_SHOW_MODAL);
+      });
+  }, [i18n.resolvedLanguage]);
+
   return (
-    <section id="events" className="relative md:pt-30 md:px-35">
+    <section id="entartainments" className="relative md:pt-30">
       {/* Decor */}
-      <div className="red-gradient absolute left-0 top-0 w-full h-90 -z-1" />
+      <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
       {/* Content */}
-      <div className="shops__content py-5 px-5 text-white">
-        <div className="md:flex items-center justify-between">
-          <Title text={t("home.events.title")} />
-          <SeeAllButton link={LINKS.CATEGORY.ENTERTAINMENT} />
-        </div>
+      <div className="_container">
+        <div className="shops__content py-5 md:py-5 text-white">
+          <div className="md:flex flex-col lg:flex-row items-center justify-between">
+            <Title text={t("home.events.title")} />
+            <SeeAllButton link={LINKS.CATEGORY.EVENTS} />
+          </div>
+          {loading ? (
+            <div className="flex justify-center items-center h-40">
+              <ClipLoader color="#ffffff" size={50} />
+            </div>
+          ) : catalogItems.length > 0 ? (
+            <>
+              {/* ===== Desktop ===== */}
+              {!isMobileUtil() && <SliderMobile items={catalogItems}/>}
+              {/* ===== Mobile ===== */}
+              <CatalogItems items={catalogItems} />
+            </>
+          ) : (
+            <p className="flex justify-center items-center my-15 font-bold text-2xl sm:text-3xl">Данные не найдены</p>
+          )}
 
-        {/* ===== Desktop ===== */}
-        {!isMobileUtil() && <SliderMobile />}
-        {/* ===== Mobile ===== */}
-        <CatalogItems items={items} />
+          {errorMessage && (
+            <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
+              {errorMessage}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );
 }
+
+
+
+
+// function EventsSection() {
+//   const { t } = useTranslation();
+
+//   const items = [
+//     { id: 1, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//     { id: 2, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//     { id: 3, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//     { id: 4, img: shopImg, catalogVar: "Продукты", nameVar: "Carrefour" },
+//   ];
+//   return (
+//     <section id="events" className="relative md:pt-30 md:px-35">
+//       {/* Decor */}
+//       <div className="red-gradient absolute left-0 top-0 w-full h-90 -z-1" />
+//       {/* Content */}
+//       <div className="shops__content py-5 px-5 text-white">
+//         <div className="md:flex items-center justify-between">
+//           <Title text={t("home.events.title")} />
+//           <SeeAllButton link={LINKS.CATEGORY.ENTERTAINMENT} />
+//         </div>
+
+//         {/* ===== Desktop ===== */}
+//         {!isMobileUtil() && <SliderMobile />}
+//         {/* ===== Mobile ===== */}
+//         <CatalogItems items={items} />
+//       </div>
+//     </section>
+//   );
+// }
 
 function Tenant() {
   const { t } = useTranslation();

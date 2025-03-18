@@ -55,7 +55,7 @@
         }
       }
     },
-    "shops": {
+    "shop": {
       "title": "Магазины"
     },
     "food": {
@@ -133,7 +133,16 @@
   },
 
   "catalog": {
-    "title": "Каталог"
+    "title": "Каталог",
+    "no_items": "Ничего не найдено"
+  },
+
+  "market": {
+    "schedule": "Режим работы",
+    "description": "Описание",
+    "food": "Еда",
+    "shop": "Магазин",
+    "entertainment": "Развлечения"
   },
 
   "lost-item": {
