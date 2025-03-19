@@ -43,17 +43,17 @@ const Modal = ({
     {
       id: 1,
       text: t("header.links.visitors-rules"),
-      href: getHref("/faq"),
+      href: getHref("/coming_soon"),
     },
     {
       id: 2,
       text: t("header.links.parking-rules"),
-      href: getHref("/faq"),
+      href: getHref("/coming_soon"),
     },
     {
       id: 3,
       text: t("header.links.advertising-rules"),
-      href: getHref("/faq"),
+      href: getHref("/coming_soon"),
     },
     { id: 4, text: t("header.links.faq"), href: getHref("/faq") },
   ];

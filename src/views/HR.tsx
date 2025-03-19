@@ -35,16 +35,16 @@ const HR = () => {
     <>
       <StaticHeader />
       <div id="hr" className="relative pt-30 pb-10 px-5 md:px-30">
-        <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
+        <div className="blue-gradient absolute left-0 top-0 w-full h-110 -z-1" />
         <Title text={t("hr.title")} />
         <Subtitle text={t("hr.subtitle")} />
 
         {/* ===================== Почему наша компания? ===================== */}
-        <div className="mt-12 py-7 md:max-w-[800px] md:mx-auto gray-gradient backdrop-blur-xl light-shadow rounded-4xl">
+        <div className="mt-12 py-7 md:py-12 max-w-[800px] md:max-w-[1200px] md:mx-auto gray-gradient backdrop-blur-xl light-shadow rounded-4xl">
           <h5 className="font-black text-center md:text-xl">
             { t("hr.why_our_company.title") }
           </h5>
-          <div className="w-fit flex flex-col gap-10 justify-center mt-5 mx-auto px-5">
+          <div className="w-fit md:grid md:grid-cols-2 lg:grid-cols-3 flex flex-col gap-10 justify-center mt-5 mx-auto px-5 md:px-12 md:mt-10">
             {whyOurCompanyItems.map((text, index) => (
               <div key={index} className="flex items-center gap-4">
                 <button className="block light-shadow py-2 px-4  min-w-[52px] rounded-[25px] text-3xl font-black text-white bg-gradient-to-br from-[#25254C] to-[#6A6DBD]">

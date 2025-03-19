@@ -15,6 +15,7 @@ import NotFound from "./views/NotFound";
 import LanguageGuard from "./components/app/LanguageGuard";
 import Wrapper from "./components/app/MainLayout";
 import Search from "./views/Search";
+import ComingSoon from "./views/ComingSoon";
 
 function App() {
   const [langKey, setLangKey] = useState(i18n.language);
@@ -42,6 +43,7 @@ function App() {
             <Route path={`tenant`} element={<Tenant />} />
             <Route path={`lost-item`} element={<LostItem />} />
             <Route path={`faq`} element={<FAQ />} />
+            <Route path={`coming_soon`} element={<ComingSoon />} />
           </Route>
           {/* Если неверный путь */}
           <Route path="/:lng/*" element={<NotFound />} />
