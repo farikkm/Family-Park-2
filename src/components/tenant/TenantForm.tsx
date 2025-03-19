@@ -25,7 +25,7 @@ const TenantForm: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { request } = useHttp();
+  const { request, loading } = useHttp();
 
   const tenantInfoModel: TenantInfoProps = {
     name: "",
@@ -135,6 +135,7 @@ const TenantForm: React.FC = () => {
     request("/tenats/tenats/", "POST", tenantInfo)
       .then(() => {
         setIsModalOpen(true);
+        setTenantInfo(tenantInfoModel);
         setTimeout(() => {
           setIsModalOpen(false); // Закрываем через 3 секунды
         }, TIME_SHOW_MODAL);
@@ -145,9 +146,6 @@ const TenantForm: React.FC = () => {
           setErrorMessage("");
         }, TIME_SHOW_MODAL);
       })
-      .finally(() => {
-        setTenantInfo(tenantInfoModel);
-      });
   };
 
   return (
@@ -288,7 +286,7 @@ const TenantForm: React.FC = () => {
             </label>
           </div>
           <div className="flex justify-center mt-10">
-            <SendButton />
+            <SendButton disabled={loading}/>
           </div>
         </div>
       </form>

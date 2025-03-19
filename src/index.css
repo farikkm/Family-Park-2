@@ -24,7 +24,7 @@
 }
 
 ._container {
-  @apply mx-auto container px-4;
+  @apply mx-auto container px-4 3xl:px-20;
 }
 
 @theme {
@@ -244,7 +244,6 @@ input:focus {
     padding-bottom: 0;
   }
 }
-
 /* ======================================================= HERO =======================================================*/
 #hero {
   background: url("./assets/images/background.png") no-repeat center

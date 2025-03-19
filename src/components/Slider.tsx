@@ -8,6 +8,7 @@ import {
   Scrollbar,
   Mousewheel,
   EffectCoverflow,
+  Autoplay,
 } from "swiper/modules";
 
 // Swiper styles
@@ -120,47 +121,53 @@ const SliderDesktop = ({ sections = [] }: Props) => {
 const SliderMobile = ({ items = [] }: { items: CatalogItemsProps[] }) => {
   return (
     <div className="hidden md:block relative mt-5 lg:mt-20 _container">
-      <Swiper
-        modules={[Navigation, Pagination, EffectCoverflow]}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
-        loop={items.length > 3}
-        centeredSlides={true}
-        slidesPerView={3}
-        spaceBetween={20}
-        breakpoints={{
-          320: {
-            slidesPerView: 2,
-          },
-          991: {
-            slidesPerView: 2,
-            spaceBetween: 30
-          },
-          1250: {
-            slidesPerView: 3,
-            spaceBetween: 50
-          },
-        }}
-        className=""
-      >
-        {items.length > 0 && items.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            className="w-full rounded-3xl flex items-center justify-center"
+      {items.length > 0 && (
+        <>
+          <Swiper
+            modules={[Navigation, Pagination, EffectCoverflow, Autoplay]}
+            navigation={false}
+            autoplay={{
+              delay: 1000,
+              disableOnInteraction: true,
+            }}
+            loop={true}
+            speed={1000} // Плавная прокрутка (1 секунда)
+            effect="slide"
+            centeredSlides={true}
+            slidesPerView={3}
+            spaceBetween={20}
+            breakpoints={{
+              320: {
+                slidesPerView: 2,
+              },
+              991: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              1250: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+            }}
           >
-            <CatalogItem
-              id={item.id}
-              img={item.logo}
-              catalog={item.tenant_type}
-              name={item.name}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <div className="swiper-button-prev absolute left-[-80px]! top-1/2 transform -translate-y-1/2 text-white! bg-black p-8 rounded-full z-10"></div>
-      <div className="swiper-button-next right-[-80px]! top-1/2 transform -translate-y-1/2 text-white! bg-black p-8 rounded-full z-10"></div>
+            <>
+              {items.map((item, index) => (
+                <SwiperSlide
+                  key={index}
+                  className="w-full rounded-3xl flex items-center justify-center"
+                >
+                  <CatalogItem
+                    id={item.id}
+                    img={item.logo}
+                    catalog={item.tenant_type}
+                    name={item.name}
+                  />
+                </SwiperSlide>
+              ))}
+            </>
+          </Swiper>
+        </>
+      )}
     </div>
   );
 };

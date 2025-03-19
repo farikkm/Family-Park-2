@@ -58,9 +58,9 @@ const Market = () => {
         "Accept-Language": `${i18n.resolvedLanguage}`,
       }).then((res: CatalogItemsProps[]) => {
         const filteredItems = res.filter(
-          (item) =>
-            item.tenant_type.toLowerCase() ===
-            marketItem.tenant_type.toLowerCase()
+          (item) => {
+            return item.tenant_type.toLowerCase() === marketItem.tenant_type.toLowerCase()
+          }
         );
         setOtherItems(filteredItems);
       });
@@ -162,7 +162,7 @@ const Market = () => {
                       }}
                       className="h-[300px]"
                     >
-                      {otherItems.map((item, index) => (
+                      {otherItems.filter(item => item.name.toLowerCase() !== marketItem.name.toLowerCase()).map((item, index) => (
                         <SwiperSlide
                           key={index}
                           className="h-full  rounded-4xl flex items-center justify-center"

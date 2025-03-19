@@ -18,4 +18,19 @@ interface CatalogItemsProps {
   status?: boolean;
 }
 
-export type { WorkingHours, CatalogItemsProps }
+interface EventsType {
+  id: number;
+  event_data: string;
+  media: string;
+  time_events_start: string;
+  time_events_end: string;
+  title: string;
+  location: string;
+  subtitles: string;
+  context: string;
+  url_events: string;
+  image_events: string;
+  status_event: boolean;
+}
+
+export type { WorkingHours, CatalogItemsProps, EventsType }

@@ -18,7 +18,7 @@ const Modal = ({
   const { t } = useTranslation();
 
   const links = [
-    { id: 1, text: t("header.links.concerts"), href: getHref(LINKS.CATEGORY.EVENTS) },
+    { id: 1, text: t("header.links.concerts"), href: getHref("/events") },
     { id: 2, text: t("header.links.map"), href: getHref("/map") },
     { id: 3, text: t("header.links.shops"), href: getHref(LINKS.CATEGORY.SHOPS) },
     { id: 4, text: t("header.links.food"), href: getHref(LINKS.CATEGORY.FOOD) },
@@ -27,7 +27,6 @@ const Modal = ({
       text: t("header.links.entertainment"),
       href: getHref(LINKS.CATEGORY.ENTERTAINMENT),
     },
-    { id: 6, text: t("header.links.sales"), href: getHref("/catalog") },
     { id: 7, text: t("header.links.tenant"), href: getHref("/tenant") },
   ];
 

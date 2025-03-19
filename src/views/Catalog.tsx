@@ -22,15 +22,11 @@ const Catalog = () => {
   useEffect(() => {
     request("/tenats/tenats/", "GET", null)
       .then((res: CatalogItemsProps[]) => {
-        console.log("🚀 Данные из API:", res); // Отладка, чтобы проверить, что приходит
-
         const filteredItems = res.filter(
           (item) => item.tenant_type.toLowerCase() === category?.toLowerCase()
         );
 
-        console.log("✅ Отфильтрованные данные:", filteredItems); // Проверка, что остаётся после фильтра
-
-        setCatalogItems(filteredItems); // Здесь должно быть filteredItems, а не res
+        setCatalogItems(filteredItems);
       })
       .catch(() => {
         setErrorMessage(

@@ -15,10 +15,10 @@ const CatalogItem = ({
 }) => {
   return (
     <Link
-      className="gray-gradient p-5 pb-4 block rounded-3xl *:text-black"
+      className="gray-gradient max-w-[380px] w-full md:p-5 p-3 pb-4 block rounded-3xl *:text-black"
       to={getHref(`/market/${id}`)}
     >
-      <div className="h-[150px] xs:h-[180px] sm:h-[250px] md:h-[300px] 2xl:h-[400px] 3xl:h-[450px] overflow-hidden rounded-3xl">
+      <div className=" h-[150px] xs:h-[170px] sm:h-[220px] md:h-[280px] 2xl:h-[300px] 3xl:h-[350px] overflow-hidden rounded-3xl">
         <img
           src={img}
           alt={name}
@@ -26,7 +26,7 @@ const CatalogItem = ({
         />
       </div>
 
-      <span className="block mt-2 font-bold text-lg sm:text-xl md:text-2xl">
+      <span className="block mt-2 font-bold text-lg sm:text-xl md:text-2xl truncate overflow-hidden whitespace-nowrap">
         {name ? name : "Название заведения"}
       </span>
       <span className="text-base">
