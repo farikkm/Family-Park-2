@@ -170,8 +170,8 @@ function Statistics() {
       {/* ========================= BOTTOM-ITEMS ======================== */}
       <div className="px-2">
         <div
-          className="statistics-bottom my-8 md:my-9 grid grid-cols-2 max-w-[400px] 
-        md:max-w-[800px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-85 mx-auto rounded-4xl 
+          className="statistics-bottom my-5 grid grid-cols-2 md:grid-cols-4 max-w-[400px] 
+        md:max-w-[1100px] 3xl:max-w-[1100px] 3xl:md:h-100 md:h-55 mx-auto rounded-4xl 
         overflow-hidden *:text-white"
         >
           {items.map((item, index) => (
