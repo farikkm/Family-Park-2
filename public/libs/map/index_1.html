@@ -84,7 +84,7 @@
                   </clipPath>
                 </defs>
               </svg>
-              <h4>Перемещение по карте</h4>
+              <h4></h4>
             </div>
             <div id="zoom_help">
               <svg
@@ -118,15 +118,43 @@
                   </clipPath>
                 </defs>
               </svg>
-              <h4>Масштаб карты</h4>
+              <h4></h4>
             </div>
           </div>
         </div>
-        <div id="map" style="display: grid; grid-template-columns: repeat(12, 1fr);"></div>
+        <div
+          id="map"
+          style="display: grid; grid-template-columns: repeat(12, 1fr)"
+        ></div>
       </div>
     </div>
     <script type="module">
       import App from "./js/main.js";
+
+      const translations = {
+        ru: {
+          movement: "Перемещение по карте",
+          zoom: "Масштаб карты",
+        },
+        en: {
+          movement: "Move on the map",
+          zoom: "Map scale",
+        },
+        uz: {
+          movement: "Xaritada harakatlanish",
+          zoom: "Xarita masshtabi",
+        },
+      };
+
+      function updateText() {
+        let lang = localStorage.getItem("i18nextLng") || "ru";
+        let t = translations[lang] || translations["ru"];
+
+        document.querySelector("#movement_help h4").textContent = t.movement;
+        document.querySelector("#zoom_help h4").textContent = t.zoom;
+      }
+
+      updateText();
 
       let mainApp = new App();
     </script>
