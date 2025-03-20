@@ -4,7 +4,7 @@ const socialMediaIcons = [
     name: "Instagram",
     path: "/icons/social-media/normal/instagram.svg",
     altVar: "instagram-icon",
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/family_park.uz?igsh=MTcxeW9hOWlhczd0Nw==",
     style: ""
   },
   {
@@ -12,7 +12,7 @@ const socialMediaIcons = [
     name: "Telegram",
     path: "/icons/social-media/normal/telegram.svg",
     altVar: "telegram-icon",
-    link: "https://www.telegram.com/",
+    link: "https://t.me/FAMILYPARK_by_MG",
     style: ""
   },
   {
@@ -20,7 +20,7 @@ const socialMediaIcons = [
     name: "Youtube",
     path: "/icons/social-media/normal/youtube.svg",
     altVar: "youtube-icon",
-    link: "https://www.youtube.com/",
+    link: "https://www.youtube.com/@family_park_uz",
     style: "flex justify-center items-center"
   },
   {
@@ -47,7 +47,7 @@ const whiteSocialMediaIcons = [
     name: "Instagram",
     path: "/icons/social-media/white/instagram.svg",
     altVar: "instagram-icon",
-    link: "https://www.instagram.com/",
+    link: "https://www.instagram.com/family_park.uz?igsh=MTcxeW9hOWlhczd0Nw==",
     style: ""
   },
   {
@@ -55,7 +55,7 @@ const whiteSocialMediaIcons = [
     name: "Telegram",
     path: "/icons/social-media/white/telegram.svg",
     altVar: "telegram-icon",
-    link: "https://www.telegram.com/",
+    link: "https://t.me/FAMILYPARK_by_MG",
     style: ""
   },
   {
@@ -63,7 +63,7 @@ const whiteSocialMediaIcons = [
     name: "Youtube",
     path: "/icons/social-media/white/youtube.svg",
     altVar: "youtube-icon",
-    link: "https://www.youtube.com/",
+    link: "https://www.youtube.com/@family_park_uz",
     style: "-mt-[2px]"
   },
   {

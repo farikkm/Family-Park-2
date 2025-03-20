@@ -38,20 +38,24 @@
       },
       "bottom": {
         "item1": {
-          "title": "Ko'ngilochar maskanlar",
-          "text": "Muz maydoni, karting, bouling va do‘stlaringiz va oilangiz bilan maroqli vaqt o‘tkazishingiz mumkin bo‘lgan kinoteatr."
+          "title": "Ko‘ngilochar maskanlar",
+          "text": "Muz maydoni, karting, bouling va kino teatr – do‘stlaringiz va oilangiz bilan maroqli vaqt o‘tkazish uchun ajoyib joylar",
+          "link": "catalog/entertainment"
         },
         "item2": {
-          "title": "Ovqatlanish",
-          "text": "Kafelar va restoranlar – dam olish va yangi mahsulotlardan tayyorlangan taomlardan bahramand bo‘lish uchun eng yaxshi joy."
+          "title": "Ovqat",
+          "text": "Kafelar va restoranlar, bu yerda dam olib, yangi mahsulotlardan tayyorlangan taomlardan bahramand bo‘lishingiz mumkin.",
+          "link": "catalog/food"
         },
         "item3": {
-          "title": "Savdo",
-          "text": "Har doim zamonaviy bo‘lishni xohlaysizmi? Mashhur jahon brendlari sizga mavsum uchun eng zo‘r uslubni tanlashda yordam beradi!"
+          "title": "Shopping",
+          "text": "Har doim zamonaviy bo‘lishni xohlaysizmi? Dunyoning yetakchi brendlari siz uchun mavsumga mos obraz yaratishga yordam beradi!",
+          "link": "catalog/shop"
         },
         "item4": {
-          "title": "Xizmatlar",
-          "text": "Sayohat chiptalarini olmoqchimisiz? Kiyim tikdirmoqchimisiz? Family Parkda hamma narsani topishingiz mumkin!"
+          "title": "Tadbirlar",
+          "text": "Barcha tadbirlardan xabardor bo‘lishni xohlaysizmi? Family Park sizga unutilmas xotiralar qoldiradi!",
+          "link": "events"
         }
       }
     },
@@ -162,7 +166,6 @@
     "try_another_shop": "Boshqa do‘konni tanlashga harakat qiling.",
     "get_back": "Orqaga qaytish"
   },
-
 
   "search": {
     "title": "Qidiruv natijalari",

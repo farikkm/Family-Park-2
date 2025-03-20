@@ -40,19 +40,23 @@
       "bottom": {
         "item1": {
           "title": "Entertainment",
-          "text": "Ice rink, go-karting, bowling, and a cinema where you can have fun with friends and family."
+          "text": "Ice rink, go-karting, bowling, and a cinema where you can have fun with friends and family",
+          "link": "catalog/entertainment"
         },
         "item2": {
           "title": "Food",
-          "text": "Cafés and restaurants where you can relax and enjoy dishes made from fresh ingredients."
+          "text": "Cafés and restaurants where you can relax and enjoy dishes made from fresh ingredients.",
+          "link": "catalog/food"
         },
         "item3": {
           "title": "Shopping",
-          "text": "Want to stay stylish? Major global brands will help you pick the perfect look for the season!"
+          "text": "Want to stay stylish? Top global brands will help you find the perfect look for the season!",
+          "link": "catalog/shop"
         },
         "item4": {
-          "title": "Services",
-          "text": "Need travel tickets? Want to tailor your clothes? You can find anything at Family Park!"
+          "title": "Events",
+          "text": "Want to stay updated on all events? Family Park will leave you with unforgettable memories!",
+          "link": "events"
         }
       }
     },
