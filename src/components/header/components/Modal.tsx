@@ -35,7 +35,7 @@ const Modal = ({
   const [errorMessage, setErrorMessage] = useState("");
 
   const modal = useRef<HTMLDivElement | null>(null);
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
 
   const { request } = useHttp();
 
@@ -157,15 +157,6 @@ const Modal = ({
                 </div>
                 {/* ========================= ADDITIONAL-LINKS ============================ */}
                 <div className="mt-5 flex flex-col gap-3 *:cursor-pointer">
-                  {/* {rules.map((rule) => (
-                    <Link key={rule.id} to={rule.slug} onClick={closeMenu}>
-                      {i18n.language === "ru"
-                        ? rule.title_ru
-                        : i18n.language === "uz"
-                        ? rule.title_uz
-                        : rule.title_en}
-                    </Link>
-                  ))} */}
                   <ModalRules closeMenu={closeMenu} rules={rules} />
                 </div>
               </div>
