@@ -33,4 +33,17 @@ interface EventsType {
   status_event: boolean;
 }
 
-export type { WorkingHours, CatalogItemsProps, EventsType }
+interface RulesType {
+  id: number;
+  title: string;
+  title_ru: string;
+  title_en: string;
+  title_uz: string;
+  description: string;
+  description_ru: string;
+  description_en: string;
+  description_uz: string;
+  slug: string;
+}
+
+export type { WorkingHours, CatalogItemsProps, EventsType, RulesType }
