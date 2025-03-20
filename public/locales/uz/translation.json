@@ -135,7 +135,7 @@
     "no_items": "Hech narsa topilmadi"
   },
 
-  "shops": {
+  "shop": {
     "category": "Do‘konlar"
   },
   "food": {
@@ -154,7 +154,13 @@
     "description": "Tavsif",
     "food": "Oziq-ovqat",
     "shop": "Do‘kon",
-    "entertainment": "Ko‘ngilochar"
+    "entertainment": "Ko‘ngilochar",
+    "shops_you_may_like": "Sizni qiziqtirishi mumkin:",
+    "no_shops_you_may_like": "Qiziqadigan joy topilmadimi?",
+    "see_other_catalogs": "Boshqa kataloglarni ko‘rish",
+    "shop_not_found": "Do‘kon topilmadi",
+    "try_another_shop": "Boshqa do‘konni tanlashga harakat qiling.",
+    "get_back": "Orqaga qaytish"
   },
 
 

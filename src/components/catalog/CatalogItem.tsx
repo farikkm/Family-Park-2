@@ -1,4 +1,5 @@
 import getHref from "@/utils/getHref";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 const CatalogItem = ({
@@ -13,6 +14,9 @@ const CatalogItem = ({
   shop_name?: string;
   id: number
 }) => {
+
+  const { t } = useTranslation();
+
   return (
     <Link
       className="gray-gradient max-w-[380px] w-full md:p-5 p-3 pb-4 block rounded-3xl *:text-black"
@@ -30,7 +34,7 @@ const CatalogItem = ({
         {name ? name : "Название заведения"}
       </span>
       <span className="text-base">
-        {catalog ? catalog : "Категория заведения"}
+        {catalog ? t(`${catalog.toLowerCase()}.category`) : "Категория заведения"}
       </span>
     </Link>
   );

@@ -152,7 +152,13 @@
     "description": "Description",
     "food": "Food",
     "shop": "Shop",
-    "entertainment": "Entertainment and services"
+    "entertainment": "Entertainment and services",
+    "shops_you_may_like": "You may also like:",
+    "no_shops_you_may_like": "No places of interest?",
+    "see_other_catalogs": "See other catalogs",
+    "shop_not_found": "Shop not found",
+    "try_another_shop": "Try selecting another shop.",
+    "get_back": "Go back"
   },
   "search": {
     "title": "Search Results",

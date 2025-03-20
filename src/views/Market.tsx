@@ -40,7 +40,7 @@ const Market = () => {
       })
         .then((res: CatalogItemsProps) => {
           console.log(res);
-          
+
           setMarketItem(res);
         })
         .catch(() => {
@@ -50,18 +50,19 @@ const Market = () => {
           }, TIME_SHOW_MODAL);
         });
     }
-  }, [id, i18n.resolvedLanguage]); 
+  }, [id, i18n.resolvedLanguage]);
 
   useEffect(() => {
     if (marketItem) {
       request("/tenats/tenats/", "GET", null, {
         "Accept-Language": `${i18n.resolvedLanguage}`,
       }).then((res: CatalogItemsProps[]) => {
-        const filteredItems = res.filter(
-          (item) => {
-            return item.tenant_type.toLowerCase() === marketItem.tenant_type.toLowerCase()
-          }
-        );
+        const filteredItems = res.filter((item) => {
+          return (
+            item.tenant_type.toLowerCase() ===
+            marketItem.tenant_type.toLowerCase()
+          );
+        });
         setOtherItems(filteredItems);
       });
     }
@@ -138,7 +139,7 @@ const Market = () => {
               </div>
               <div className="mt-6 md:mt-20">
                 <h4 className="text-xl font-bold">
-                  Также вас может заинтересовать:
+                  {t("market.shops_you_may_like")}
                 </h4>
                 {loading ? (
                   <div className="flex justify-center items-center h-40">
@@ -162,29 +163,35 @@ const Market = () => {
                       }}
                       className="h-[300px]"
                     >
-                      {otherItems.filter(item => item.name.toLowerCase() !== marketItem.name.toLowerCase()).map((item, index) => (
-                        <SwiperSlide
-                          key={index}
-                          className="h-full  rounded-4xl flex items-center justify-center"
-                        >
-                          <Link to={`/${lng}/market/${item.id}`}>
-                            <img
-                              className="h-full border border-slate-400 w-auto object-cover rounded-4xl"
-                              src={item.logo}
-                              alt="item-img"
-                            />
-                          </Link>
-                        </SwiperSlide>
-                      ))}
+                      {otherItems
+                        .filter(
+                          (item) =>
+                            item.name.toLowerCase() !==
+                            marketItem.name.toLowerCase()
+                        )
+                        .map((item, index) => (
+                          <SwiperSlide
+                            key={index}
+                            className="h-full  rounded-4xl flex items-center justify-center"
+                          >
+                            <Link to={`/${lng}/market/${item.id}`}>
+                              <img
+                                className="h-full border border-slate-400 w-auto object-cover rounded-4xl"
+                                src={item.logo}
+                                alt="item-img"
+                              />
+                            </Link>
+                          </SwiperSlide>
+                        ))}
                     </Swiper>
                   </div>
                 ) : (
                   <div className="my-8 flex flex-col space-y-2 justify-center items-center">
                     <p className="text-lg font-bold">
-                      Нет интересующего вас заведения?
+                      {t("market.no_shops_you_may_like")}
                     </p>
                     <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                      Посмотреть другие каталоги
+                      {t("market.see_other_catalogs")}
                     </button>
                   </div>
                 )}
@@ -199,15 +206,17 @@ const Market = () => {
             alt="Not Found"
             className="w-40 h-40 opacity-50 animate-pulse"
           />
-          <h2 className="text-3xl font-bold mt-5">Магазин не найден</h2>
+          <h2 className="text-3xl font-bold mt-5">
+            {t("market.shop_not_found")}
+          </h2>
           <p className="text-lg text-gray-500 mt-2">
-            Попробуйте выбрать другой магазин.
+            {t("market.try_another_shop")}
           </p>
           <button
             onClick={() => navigate(-1)}
             className="mt-5 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
           >
-            Вернуться назад
+            {t("market.get_back")}
           </button>
         </div>
       )}
