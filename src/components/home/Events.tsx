@@ -98,7 +98,7 @@ function EventsSection() {
                         >
                           <Link
                             className="gray-gradient max-w-[380px] w-full p-5 pb-4 block rounded-3xl *:text-black"
-                            to={getHref(`/events/`)}
+                            to={eventLink}
                           >
                             <div className=" h-[150px] xs:h-[170px] sm:h-[220px] md:h-[280px] 2xl:h-[300px] 3xl:h-[350px] overflow-hidden rounded-3xl">
                               <img
