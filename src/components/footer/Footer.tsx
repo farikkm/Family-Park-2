@@ -1,6 +1,5 @@
 import isMobileUtil from "@/utils/isMobile";
 import { useTranslation } from "react-i18next";
-import AdditionalLinks from "./AdditionalLinks";
 import { SocialMediaIconsRow } from "../ui/SocialMediaIcons";
 import { useEffect, useState } from "react";
 import { useHttp } from "@/hooks/useHttp";
