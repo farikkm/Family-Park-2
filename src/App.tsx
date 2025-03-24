@@ -17,6 +17,7 @@ import Wrapper from "./components/app/MainLayout";
 import Search from "./views/Search";
 import ComingSoon from "./views/ComingSoon";
 import Rules from "./views/Rules";
+import Event from "./views/Event";
 
 function App() {
   const [langKey, setLangKey] = useState(i18n.language);
@@ -39,6 +40,7 @@ function App() {
             <Route path={`catalog/:category`} element={<Catalog />} />
             <Route path={`market/:id`} element={<Market />} />
             <Route path={`events`} element={<Events />} />
+            <Route path={`event/:id`} element={<Event />} />
             <Route path={`cinema`} element={<Cinema />} />
             <Route path={`hr`} element={<HR />} />
             <Route path={`tenant`} element={<Tenant />} />

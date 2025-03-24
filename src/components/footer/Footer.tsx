@@ -50,20 +50,20 @@ function FooterDesktop() {
           <span className="text-2xl font-bold">+998 94 440 44 40</span>
           <span className="text-2xl font-bold">familypark@gmail.com</span>
           <div className="mt-4 flex gap-3 items-center">
-            <img src="/icons/clock.svg" alt="" />
-            <span>Пн-Вс с 10:00 до 23:00 </span>
+            <img src="/icons/footer/clock.svg" alt="" />
+            <span>{t("footer.working_hours")}</span>
           </div>
         </div>
         <div className="ml-20">
           <div className="flex justify-between items-start">
             <div className="flex flex-col gap-5">
-              <h3 className="font-bold text-lg">Социальные сети</h3>
+              <h3 className="font-bold text-lg">{t("footer.social_media")}</h3>
               <SocialMediaIconsRow />
             </div>
           </div>
         </div>
         <div className="flex flex-col gap-3">
-          <h3 className="font-bold text-lg">Правила</h3>
+          <h3 className="font-bold text-lg">{t("footer.terms")}</h3>
           <AdditionalLinks />
         </div>
       </div>

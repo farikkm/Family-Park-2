@@ -1,5 +1,5 @@
 import isMobileUtil from "@/utils/isMobile";
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,23 +7,30 @@ import Title from "../ui/Title";
 import SeeAllButton from "../ui/SeeAllButton";
 import { useEffect, useState } from "react";
 import { useHttp } from "@/hooks/useHttp";
-import getHref from "@/utils/getHref";
 import { useTranslation } from "react-i18next";
 import { EventsType } from "@/types";
 
 const TIME_SHOW_MODAL = 3000;
 
+const getHref = (path: string, location: ReturnType<typeof useLocation>) => {
+  return `${location.pathname}${path}`;
+};
+
 function EventsSection() {
+  const location = useLocation();
   const { i18n, t } = useTranslation();
+  const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState("");
   const [catalogItems, setCatalogItems] = useState<EventsType[]>([]);
 
-  const eventLink = getHref(`/events/`);
+  const goToEventPage = (id: number) => {
+    navigate(getHref(`event/${id}`, location), { state: {id} });
+  }
 
   const { request, loading } = useHttp();
 
   useEffect(() => {
-    request("/settings/events-list/", "GET", null)
+    request("/settings/events-list/", "GET", null, { "Accept-Language": `${i18n.resolvedLanguage}` })
       .then((res: EventsType[]) => {
         setCatalogItems(res);
       })
@@ -96,9 +103,9 @@ function EventsSection() {
                           key={index}
                           className="w-full rounded-3xl flex items-center justify-center"
                         >
-                          <Link
+                          <div
                             className="gray-gradient max-w-[380px] w-full p-5 pb-4 block rounded-3xl *:text-black"
-                            to={eventLink}
+                            onClick={() => goToEventPage(item.id)}
                           >
                             <div className=" h-[150px] xs:h-[170px] sm:h-[220px] md:h-[280px] 2xl:h-[300px] 3xl:h-[350px] overflow-hidden rounded-3xl">
                               <img
@@ -114,22 +121,22 @@ function EventsSection() {
                             <span className="text-base">
                               {item.media ? item.media : "Категория заведения"}
                             </span>
-                          </Link>
+                          </div>
                         </SwiperSlide>
                       ))}
                     </>
                   </Swiper>
                 </>
               )}
+
               {/* ===== Mobile ===== */}
-              {/* <CatalogItems items={catalogItems} /> */}
               <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 mt-14 *:text-[#25254C] *:max-w-[200px] md:hidden">
                 {catalogItems.length > 0 &&
                   catalogItems.slice(0, 2).map((event) => (
-                    <Link
+                    <div
                       key={event.id}
                       className="gray-gradient max-w-[380px] w-full md:p-5 p-3 pb-4 block rounded-3xl *:text-black"
-                      to={eventLink}
+                      onClick={() => goToEventPage(event.id)}
                     >
                       <div className=" h-[150px] xs:h-[170px] sm:h-[220px] md:h-[280px] 2xl:h-[300px] 3xl:h-[350px] overflow-hidden rounded-3xl">
                         <img
@@ -145,7 +152,7 @@ function EventsSection() {
                       <span className="text-base">
                         {event.media ? event.media : "Категория заведения"}
                       </span>
-                    </Link>
+                    </div>
                   ))}
               </div>
             </>

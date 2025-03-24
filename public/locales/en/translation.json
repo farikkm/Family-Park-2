@@ -18,7 +18,10 @@
     }
   },
   "footer": {
-    "title": "Thematic entertainment center in the city of Samarkand"
+    "title": "Thematic entertainment center in the city of Samarkand",
+    "working_hours": "Mon-Sun from 10:00 AM to 11:00 PM",
+    "social_media": "Social Media",
+    "terms": "Terms and Conditions"
   },
   "home": {
     "button1": "Missing items",

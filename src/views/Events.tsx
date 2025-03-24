@@ -30,9 +30,23 @@ const Events = () => {
       : "";
   };
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString: string, locale: "ru" | "en" | "uz") => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat("ru-RU", {
+  
+    const locales: Record<string, string> = {
+      ru: "ru-RU",
+      en: "en-US",
+    };
+  
+    if (locale === "uz") {
+      const monthsUz = [
+        "yanvar", "fevral", "mart", "aprel", "may", "iyun",
+        "iyul", "avgust", "sentabr", "oktabr", "noyabr", "dekabr"
+      ];
+      return `${date.getDate()} ${monthsUz[date.getMonth()]} ${date.getFullYear()}`;
+    }
+  
+    return new Intl.DateTimeFormat(locales[locale] || "en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
@@ -121,7 +135,7 @@ const Events = () => {
 
                       <div className="flex justify-between items-center mt-4">
                         <h3 className="red-gradient mt-3 text-2xl md:text-4xl font-bold uppercase drop-shadow-2xl bg-clip-text text-transparent">
-                          {formatDate(event.event_data)}
+                          {formatDate(event.event_data, i18n.language as "ru" | "en" | "uz")}
                         </h3>
                         <div className="flex gap-1">
                             <strong className="red-gradient bg-clip-text text-transparent text-3xl">{event.time_events_start}</strong>
