@@ -172,11 +172,11 @@ const Market = () => {
                         .map((item, index) => (
                           <SwiperSlide
                             key={index}
-                            className="h-full  rounded-4xl flex items-center justify-center"
+                            className="h-full rounded-4xl flex items-center justify-center"
                           >
                             <Link to={`/${lng}/market/${item.id}`}>
                               <img
-                                className="h-full border border-slate-400 w-auto object-cover rounded-4xl"
+                                className="h-full border border-slate-400 max-w-[300px] w-full object-cover rounded-4xl"
                                 src={item.logo}
                                 alt="item-img"
                               />

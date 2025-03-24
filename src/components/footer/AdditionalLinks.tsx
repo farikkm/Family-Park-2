@@ -1,6 +1,7 @@
 import getHref from "@/utils/getHref";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import ModalRules from "../header/components/ModalRules";
 
 const AdditionalLinks = () => {
   const { t } = useTranslation();
@@ -24,11 +25,7 @@ const AdditionalLinks = () => {
   ];
   return (
     <>
-      {additionalLinks.map((link) => (
-        <Link key={link.id} to={link.href}>
-          {link.text}
-        </Link>
-      ))}
+      {""}
     </>
   );
 };

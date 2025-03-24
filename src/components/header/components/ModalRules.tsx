@@ -25,11 +25,11 @@ const getHref = (path: string, lng: string) => {
   return `/${lng}/${segments.join("/")}`;
 };
 
-const ModalRules = ({ rules, closeMenu }: { rules: RulesType[], closeMenu: () => void }) => {
+const ModalRules = ({ rules, closeMenu }: { rules: RulesType[], closeMenu?: () => void }) => {
   const { i18n } = useTranslation();
 
   return (
-    <div className="mt-5 flex flex-col gap-3 *:cursor-pointer">
+    <div className="flex flex-col gap-3 *:cursor-pointer">
       {rules.map((rule) => (
         <Link
           key={rule.id}
