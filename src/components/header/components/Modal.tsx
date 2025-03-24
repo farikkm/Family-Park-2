@@ -172,10 +172,10 @@ const Modal = ({
                   <img src="/icons/header/phone.svg" alt="phone-icon" />
                   <span className="text-3xl font-bold">+998 94 440 44 40</span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 max-w-[470px]">
                   <img src="/icons/header/location.svg" alt="location-icon" />
                   <span className="text-3xl font-bold">
-                    Узбекистан, г.Самарканд <br /> ул. Нарпайская 76а
+                    {t("header.location")}
                   </span>
                 </div>
                 {/* ========================= ICONS ============================ */}

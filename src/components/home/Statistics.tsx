@@ -50,7 +50,7 @@ function Statistics() {
       <div className="px-2">
         <div
           className="statistics-bottom my-5 grid grid-cols-2 md:grid-cols-4 max-w-[400px] 
-        md:max-w-[1100px] 3xl:max-w-[1100px] md:h-65 mx-auto rounded-4xl 
+        md:max-w-[1100px] 3xl:max-w-[1100px] md:h-55 mx-auto rounded-4xl 
         overflow-hidden *:text-white"
         >
           {items.map((item, index) => (
