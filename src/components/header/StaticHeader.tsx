@@ -63,7 +63,7 @@ const StaticHeader = () => {
               <Link to="/">
                 <img
                   className="w-25"
-                  src="/logo/headerLogoWhite.png"
+                  src="/logo/whiteLogo.png"
                   alt="header-logo"
                 />
               </Link>

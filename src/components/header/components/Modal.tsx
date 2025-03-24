@@ -120,7 +120,7 @@ const Modal = ({
                 {/* ========================= HEADER-LOGO ============================ */}
                 <button onClick={() => closeMenu()}>
                   <Transitionable rotatable>
-                    <img src="/logo/headerLogo.png" alt="header-logo" />
+                    <img src="/logo/logo.svg" alt="header-logo" />
                   </Transitionable>
                 </button>
                 {/* ========================= CLOSE-ICON ============================ */}

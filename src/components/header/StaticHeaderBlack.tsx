@@ -61,7 +61,7 @@ const StaticHeaderBlack = () => {
           <AnimatePresence mode="wait">
             <Transitionable rotatable>
               <Link to="/">
-                <img src="/logo/headerLogo.png" alt="header-logo" />
+                <img src="/logo/logo.svg" alt="header-logo" />
               </Link>
             </Transitionable>
           </AnimatePresence>
