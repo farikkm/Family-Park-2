@@ -49,7 +49,7 @@ function EventsSection() {
   }, [i18n.resolvedLanguage, isVisible]);
 
   return (
-    <section id="entartainments" ref={elementRef} className="relative md:pt-30">
+    <section id="events" ref={elementRef} className="relative md:pt-30">
       {/* Decor */}
       <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
       {/* Content */}

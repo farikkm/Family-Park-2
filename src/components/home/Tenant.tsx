@@ -18,7 +18,7 @@ function Tenant() {
     <div id="tenant" className="pb-20 pt-5 px-5 relative md:pt-30 md:px-35">
       <div className="red-gradient absolute left-0 top-0 w-full h-120 -z-1" />
       <div className="*:text-white">
-        <Title className="uppercase!" text={t("home.tenant.title")} />
+        <Title className="uppercase! max-xl:text-5xl!" text={t("home.tenant.title")} />
         <Subtitle text={t("home.tenant.subtitle")} />
       </div>
       <div className="mt-15 md:mt-10 md:max-w-4xl 3xl:max-w-5xl md:mx-auto">

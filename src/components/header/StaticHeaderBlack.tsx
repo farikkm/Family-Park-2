@@ -69,7 +69,7 @@ const StaticHeaderBlack = () => {
           <div className="flex items-center gap-24">
             {/* ========================= SOCIAL-MEDIA ============================ */}
             <AnimatePresence mode="wait">
-              <Transitionable className="hidden mt-3 md:flex items-center gap-5 *:w-8 *:h-8 *:cursor-pointer">
+              <Transitionable className="hidden mt-3 md:flex items-center gap-4 *:w-8 *:h-8 *:cursor-pointer">
                 <SocialMediaIcons color="normal" />
               </Transitionable>
             </AnimatePresence>

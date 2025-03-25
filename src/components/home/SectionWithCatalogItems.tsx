@@ -60,7 +60,7 @@ const SectionWithCatalogItems = ({
       />
       {/* Content */}
       <div className="_container">
-        <div className="shops__content py-5 md:py-5 text-white">
+        <div className="shops__content pt-5 text-white">
           <div className="md:flex flex-col lg:flex-row items-center justify-between">
             <Title text={t(`home.${category_type}.title`)} />
             <SeeAllButton link={`/catalog/${category_type}`} />
