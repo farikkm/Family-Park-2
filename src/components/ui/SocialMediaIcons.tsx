@@ -45,7 +45,7 @@ const SocialMediaIcons = ({ color }: { color: "white" | "normal" }) => {
   return (
     <>
       {socialMediaIcons.map((item) => (
-        <a key={item.id} href={item.link} className={item.style}>
+        <a target="_blank" key={item.id} href={item.link} className={item.style}>
           <img src={`/icons/social-media/${color}/${item.path}`} alt={item.altVar} />
         </a>
       ))}
@@ -57,7 +57,7 @@ const SocialMediaIconsRow = () => {
   return (
     <>
       {socialMediaIcons.map((item) => (
-        <a href={item.link} key={item.id} className="flex gap-3 items-center">
+        <a target="_blank" href={item.link} key={item.id} className="flex gap-3 items-center">
           <img
             src={`/icons/social-media/normal/${item.path}`}
             alt={item.altVar}
