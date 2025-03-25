@@ -1,5 +1,5 @@
 import getHref from "@/utils/getHref";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { AnimatePresence, motion } from "motion/react";
 import Locales from "./Locales";
@@ -7,23 +7,8 @@ import Transitionable from "@/components/ui/Transitionable";
 import { Link } from "react-router-dom";
 import { SocialMediaIcons } from "@/components/ui/SocialMediaIcons";
 import LINKS from "@/utils/links";
-import { useHttp } from "@/hooks/useHttp";
 import ModalRules from "./ModalRules";
-
-interface RulesType {
-  id: number;
-  title: string;
-  title_ru: string;
-  title_en: string;
-  title_uz: string;
-  description: string;
-  description_ru: string;
-  description_en: string;
-  description_uz: string;
-  slug: string;
-}
-
-const TIME_SHOW_MODAL = 3000;
+import { useRules } from "@/context/RulesProvider";
 
 const Modal = ({
   setIsShowModal,
@@ -31,13 +16,9 @@ const Modal = ({
   isShowModal: boolean;
   setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [rules, setRules] = useState<RulesType[]>([]);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const modal = useRef<HTMLDivElement | null>(null);
   const { t } = useTranslation();
-
-  const { request } = useHttp();
+  const { rules, error } = useRules();
+  const modal = useRef<HTMLDivElement | null>(null);
 
   const links = [
     { id: 1, text: t("header.links.concerts"), href: getHref("/events") },
@@ -69,19 +50,6 @@ const Modal = ({
     document.body.classList.remove("lock");
     setIsShowModal(false);
   };
-
-  useEffect(() => {
-    request("/additional/rules/", "GET", null)
-      .then((res: RulesType[]) => setRules(res))
-      .catch(() => {
-        setErrorMessage(
-          "Произошла непредвиденная ошибка. Перезагрузите страницу."
-        );
-        setTimeout(() => {
-          setErrorMessage("");
-        }, TIME_SHOW_MODAL);
-      });
-  }, []);
 
   // Close menu when press the 'Exit' key
   useEffect(() => {
@@ -188,7 +156,7 @@ const Modal = ({
         </AnimatePresence>
       ) : (
         <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
-          {errorMessage}
+          {error}
         </div>
       )}
     </>

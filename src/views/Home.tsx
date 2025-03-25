@@ -1,31 +1,29 @@
 import { SliderDesktop } from "@/components/Slider";
 import Button from "@/components/ui/Button";
 import { useTranslation } from "react-i18next";
-import { Suspense } from "react";
 import getHref from "@/utils/getHref";
 import Footer from "@/components/footer/Footer";
 
 // Swiper
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import ResponsiveHeader from "@/components/header/ResponsiveHeader";
 import Hero from "@/components/home/Hero";
 import Statistics from "@/components/home/Statistics";
 import SectionWithCatalogItems from "@/components/home/SectionWithCatalogItems";
 import Events from "@/components/home/Events";
 import Tenant from "@/components/home/Tenant";
+import { RulesProvider } from "@/context/RulesProvider";
 
 const HOME_PAGE_CATEGORIES = {
   SHOP: "shop",
   FOOD: "food",
   ENTERTAINMENT: "entertainment",
-  EVENTS: "events",
 };
 
 // =================================== HOME PAGE =================================== //
 
 const Home = () => {
+  const { t } = useTranslation();
+
   let sections = [
     Hero,
     Statistics,
@@ -37,13 +35,11 @@ const Home = () => {
     Footer,
   ];
 
-  const { t } = useTranslation();
-
   return (
-    <>
+    <RulesProvider>
       <ResponsiveHeader />
       <main id="home" className="home mt-20 md:mt-0">
-        {sections && <SliderDesktop sections={sections} />}
+        <SliderDesktop sections={sections} />
       </main>
       <div className="buttons hidden md:flex fixed bottom-7 right-27 z-6 gap-3">
         <Button path={getHref("lost-item")}>{t("home.button1")}</Button>
@@ -51,7 +47,7 @@ const Home = () => {
           {t("home.button2")}
         </Button>
       </div>
-    </>
+    </RulesProvider>
   );
 };
 
@@ -87,10 +83,4 @@ function Entartainments() {
   );
 }
 
-export default function HomeWrapper() {
-  return (
-    <Suspense fallback="loading...">
-      <Home />
-    </Suspense>
-  );
-}
+export default Home;
