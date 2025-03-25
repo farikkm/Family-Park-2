@@ -68,11 +68,13 @@ const Market = () => {
 
   return (
     <>
-      {loading ? (
+      {loading && (
         <div className="flex justify-center items-center h-40">
           <ClipLoader color="#ffffff" size={50} />
         </div>
-      ) : marketItem ? (
+      )}
+
+      {marketItem && otherItems?.length > 0 && (
         <>
           <StaticHeader />
           <div id="market" className="relative pt-25 md:pt-30">
@@ -123,11 +125,11 @@ const Market = () => {
                         : "Нет номера"}
                     </span>
                   </div>
-                  <div className="mt-20">
+                  <div className="mt-20 mb-10">
                     <h3 className="text-2xl font-bold md:text-3xl 3xl:text-4xl">
                       {t("market.description")}
                     </h3>
-                    <p className="text-xl 3xl:text-2xl font-thin md:max-w-[800px]">
+                    <p className="text-xl my-3 3xl:text-2xl font-thin md:max-w-[800px]">
                       {marketItem.content
                         ? marketItem.content
                         : "Полное описание"}
@@ -135,93 +137,75 @@ const Market = () => {
                   </div>
                 </div>
               </div>
-              <div className="mt-6 md:mt-20">
-                <h4 className="text-xl font-bold">
-                  {t("market.shops_you_may_like")}
-                </h4>
-                {loading ? (
-                  <div className="flex justify-center items-center h-40">
-                    <ClipLoader color="#ffffff" size={50} />
-                  </div>
-                ) : otherItems?.length > 0 ? (
-                  <div className="mt-4 mb-5 w-full relative">
-                    <Swiper
-                      slidesPerView={1}
-                      spaceBetween={20}
-                      breakpoints={{
-                        640: {
-                          slidesPerView: 2,
-                        },
-                        1025: {
-                          slidesPerView: 3,
-                        },
-                        1440: {
-                          slidesPerView: 4,
-                        },
-                      }}
-                      className="h-[300px]"
-                    >
-                      {otherItems
-                        .filter(
-                          (item) =>
-                            item.name.toLowerCase() !==
-                            marketItem.name.toLowerCase()
-                        )
-                        .map((item, index) => (
-                          <SwiperSlide
-                            key={index}
-                            className="h-full rounded-4xl flex items-center justify-center"
-                          >
-                            <Link to={`/${lng}/market/${item.id}`}>
-                              <img
-                                className="h-full border border-slate-400 max-w-[300px] w-full object-cover rounded-4xl"
-                                src={item.logo}
-                                alt="item-img"
-                              />
-                            </Link>
-                          </SwiperSlide>
-                        ))}
-                    </Swiper>
-                  </div>
-                ) : (
-                  <div className="my-8 flex flex-col space-y-2 justify-center items-center">
-                    <p className="text-lg font-bold">
-                      {t("market.no_shops_you_may_like")}
-                    </p>
-                    <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                      {t("market.see_other_catalogs")}
-                    </button>
-                  </div>
-                )}
+              <div className="mt-4 mb-5 w-full relative">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={20}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                    },
+                    1025: {
+                      slidesPerView: 3,
+                    },
+                    1440: {
+                      slidesPerView: 4,
+                    },
+                  }}
+                  className="h-[300px]"
+                >
+                  {otherItems
+                    .filter(
+                      (item) =>
+                        item.name.toLowerCase() !==
+                        marketItem.name.toLowerCase()
+                    )
+                    .map((item, index) => (
+                      <SwiperSlide
+                        key={index}
+                        className="h-full rounded-4xl flex items-center justify-center"
+                      >
+                        <Link to={`/${lng}/market/${item.id}`}>
+                          <img
+                            className="h-full border border-slate-400 max-w-[300px] w-full object-cover rounded-4xl"
+                            src={item.logo}
+                            alt="item-img"
+                          />
+                        </Link>
+                      </SwiperSlide>
+                    ))}
+                </Swiper>
               </div>
             </div>
           </div>
         </>
-      ) : (
-        <div className="flex flex-col items-center justify-center h-96 text-center">
-          <img
-            src="/icons/not-found/placeholder.svg"
-            alt="Not Found"
-            className="w-40 h-40 opacity-50 animate-pulse"
-          />
-          <h2 className="text-3xl font-bold mt-5">
-            {t("market.shop_not_found")}
-          </h2>
-          <p className="text-lg text-gray-500 mt-2">
-            {t("market.try_another_shop")}
-          </p>
-          <button
-            onClick={() => navigate(-1)}
-            className="mt-5 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-          >
-            {t("market.get_back")}
-          </button>
-        </div>
       )}
+
       {errorMessage && (
-        <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
-          {errorMessage}
-        </div>
+        <>
+          <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
+            {errorMessage}
+          </div>
+          <div className="flex flex-col items-center justify-center h-screen text-center">
+            <img
+              src="/icons/not-found/sun.svg"
+              alt="Not Found"
+              className="w-40 h-40 opacity-50 animate-pulse"
+            />
+            <h2 className="text-3xl font-bold mt-5">
+              {t("market.shop_not_found")}
+            </h2>
+            <p className="text-lg text-gray-500 mt-2">
+              {t("market.try_another_shop")}
+            </p>
+            <button
+              onClick={() => navigate(-1)}
+              className="mt-5 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
+              {t("market.get_back")}
+            </button>
+          </div>
+        </>
       )}
     </>
   );
