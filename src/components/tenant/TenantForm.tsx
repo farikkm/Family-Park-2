@@ -252,7 +252,7 @@ const TenantForm: React.FC = () => {
                 name="content"
                 rows={6}
                 onChange={handleChange}
-                maxLength={300}
+                maxLength={700}
                 value={tenantInfo.content}
               />
             </label>
