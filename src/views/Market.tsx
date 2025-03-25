@@ -13,8 +13,6 @@ import { useTranslation } from "react-i18next";
 import { ClipLoader } from "react-spinners";
 import { CatalogItemsProps } from "@/types";
 
-const TIME_SHOW_MODAL = 3000;
-
 const Market = () => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -43,9 +41,6 @@ const Market = () => {
         })
         .catch(() => {
           setErrorMessage("Информация о заведении отсутствует.");
-          setTimeout(() => {
-            setErrorMessage("");
-          }, TIME_SHOW_MODAL);
         });
     }
   }, [id, i18n.resolvedLanguage]);
@@ -183,9 +178,6 @@ const Market = () => {
 
       {errorMessage && (
         <>
-          <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
-            {errorMessage}
-          </div>
           <div className="flex flex-col items-center justify-center h-screen text-center">
             <img
               src="/icons/not-found/sun.svg"
