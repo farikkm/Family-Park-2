@@ -61,8 +61,6 @@ const Events = () => {
       "Accept-Language": `${i18n.resolvedLanguage}`,
     })
       .then((res: EventsType[]) => {
-        console.log(res);
-
         setEvents(res);
       })
       .catch(() => {

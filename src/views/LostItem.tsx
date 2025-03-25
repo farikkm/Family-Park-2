@@ -72,8 +72,6 @@ const LostItem = () => {
   const send = async (e: React.FormEvent, info: any) => {
     e.preventDefault();
 
-    console.log("Данные перед отправкой:", JSON.stringify(info, null, 2));
-
     try {
       const response = await fetch(`${apiBaseUrl}/settings/lost-found/`, {
         method: "POST", // Или "PUT"
@@ -86,7 +84,6 @@ const LostItem = () => {
         throw new Error(`Ошибка запроса: ${response.status}`);
       }
 
-      console.log("Заявка успешно отправлена!");
       setIsModalOpen(true); // Открываем модалку
 
       setTimeout(() => {

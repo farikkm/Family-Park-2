@@ -47,7 +47,6 @@ const TenantForm: React.FC = () => {
     >
   ) => {
     const { value, name } = e.target;
-    console.log(value);
 
     setTenantInfo((prev) => ({
       ...prev,
@@ -129,8 +128,6 @@ const TenantForm: React.FC = () => {
 
   const send = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    console.log("Отправляемые данные:", tenantInfo);
 
     request("/tenats/tenats/", "POST", tenantInfo)
       .then(() => {

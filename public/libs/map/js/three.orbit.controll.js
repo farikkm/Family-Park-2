@@ -148,8 +148,6 @@ class OrbitControls extends EventDispatcher {
         };
         this.zoomIn = function () {
 
-            console.log('test');
-
             dollyOut(getZoomScale());
 
             this.update();

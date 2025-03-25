@@ -53,7 +53,7 @@ const SectionWithCatalogItems = ({
   }, [i18n.resolvedLanguage, isVisible]);
 
   return (
-    <section id={section_id} ref={elementRef} className="relative md:pt-30">
+    <section id={section_id} ref={elementRef} className="relative md:pt-30 pt-5">
       {/* Decor */}
       <div
         className={`${background}-gradient absolute left-0 top-0 w-full h-90 -z-1`}

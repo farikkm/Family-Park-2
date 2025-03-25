@@ -27,11 +27,7 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         const response = await fetch(`${apiBaseUrl}/tenats/tenats?search=${searchQuery}`);
         const data = await response.json();
 
-        console.log(data);
-        
-
         if (response.ok) {
-          console.log("response: ok");
           
           navigate(`/${currentLang}/search`, { state: { results: data } });
         } else {

@@ -22,8 +22,6 @@ function showInput(elem: HTMLInputElement | null) {
 
 const handleEnter = (e: KeyboardEvent, input: HTMLInputElement) => {
   if (e.key === "Enter") {
-    const searchText = input.value.trim();
-    if (searchText) console.log("User input:", searchText);
     input.value = "";
     removeStyle(input);
     input.blur();
