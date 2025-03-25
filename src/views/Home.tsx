@@ -11,7 +11,6 @@ import Statistics from "@/components/home/Statistics";
 import SectionWithCatalogItems from "@/components/home/SectionWithCatalogItems";
 import Events from "@/components/home/Events";
 import Tenant from "@/components/home/Tenant";
-import { RulesProvider } from "@/context/RulesProvider";
 
 const HOME_PAGE_CATEGORIES = {
   SHOP: "shop",
@@ -36,7 +35,7 @@ const Home = () => {
   ];
 
   return (
-    <RulesProvider>
+    <>
       <ResponsiveHeader />
       <main id="home" className="home mt-20 md:mt-0">
         <SliderDesktop sections={sections} />
@@ -47,7 +46,7 @@ const Home = () => {
           {t("home.button2")}
         </Button>
       </div>
-    </RulesProvider>
+    </>
   );
 };
 

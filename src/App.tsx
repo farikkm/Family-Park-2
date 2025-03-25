@@ -5,6 +5,7 @@ import Wrapper from "./components/app/MainLayout";
 import LanguageGuard from "./components/app/LanguageGuard";
 import LoadingScreen from "./components/app/LoadingScreen";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { RulesProvider } from "./context/RulesProvider";
 
 const Home = lazy(() => import("@/views/Home"));
 const Map = lazy(() => import("@/views/Map"));
@@ -27,36 +28,38 @@ function App() {
   return (
     <BrowserRouter>
       <Wrapper onLangChange={langKey}>
-        <Suspense fallback={<LoadingScreen />}>
-          <Routes>
-            {/* Редирект по умолчанию */}
-            <Route
-              path="/"
-              element={<Navigate to={`/${shortLng}/`} replace />}
-            />
-            {/* Странциы с нужными языками */}
-            <Route
-              path="/:lng/"
-              element={<LanguageGuard setLangKey={setLangKey} />}
-            >
-              <Route path="" element={<Home />} />
-              <Route path={`search`} element={<Search />} />
-              <Route path={`map`} element={<Map />} />
-              <Route path={`catalog/:category`} element={<Catalog />} />
-              <Route path={`market/:id`} element={<Market />} />
-              <Route path={`events`} element={<Events />} />
-              <Route path={`event/:id`} element={<Event />} />
-              <Route path={`hr`} element={<HR />} />
-              <Route path={`tenant`} element={<Tenant />} />
-              <Route path={`lost-item`} element={<LostItem />} />
-              <Route path={`faq`} element={<FAQ />} />
-              <Route path={`rule/:ruleName`} element={<Rules />} />
-              <Route path={`coming_soon`} element={<ComingSoon />} />
-            </Route>
-            {/* Если неверный путь */}
-            <Route path="/:lng/*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        <RulesProvider>
+          <Suspense fallback={<LoadingScreen />}>
+            <Routes>
+              {/* Редирект по умолчанию */}
+              <Route
+                path="/"
+                element={<Navigate to={`/${shortLng}/`} replace />}
+              />
+              {/* Странциы с нужными языками */}
+              <Route
+                path="/:lng/"
+                element={<LanguageGuard setLangKey={setLangKey} />}
+              >
+                <Route path="" element={<Home />} />
+                <Route path={`search`} element={<Search />} />
+                <Route path={`map`} element={<Map />} />
+                <Route path={`catalog/:category`} element={<Catalog />} />
+                <Route path={`market/:id`} element={<Market />} />
+                <Route path={`events`} element={<Events />} />
+                <Route path={`event/:id`} element={<Event />} />
+                <Route path={`hr`} element={<HR />} />
+                <Route path={`tenant`} element={<Tenant />} />
+                <Route path={`lost-item`} element={<LostItem />} />
+                <Route path={`faq`} element={<FAQ />} />
+                <Route path={`rule/:ruleName`} element={<Rules />} />
+                <Route path={`coming_soon`} element={<ComingSoon />} />
+              </Route>
+              {/* Если неверный путь */}
+              <Route path="/:lng/*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </RulesProvider>
       </Wrapper>
     </BrowserRouter>
   );
