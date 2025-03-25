@@ -167,7 +167,7 @@ input:focus {
 
 /* ======================================================= MODAL =======================================================*/
 .modal {
-  background: url("./assets/images/background.png") no-repeat center
+  background: url("../images/background.png") no-repeat center
     center/cover;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   scroll-behavior: smooth;
@@ -246,6 +246,6 @@ input:focus {
 }
 /* ======================================================= HERO =======================================================*/
 #hero {
-  background: url("./assets/images/background.png") no-repeat center
+  background: url("../images/background.png") no-repeat center
     center/cover;
 }
