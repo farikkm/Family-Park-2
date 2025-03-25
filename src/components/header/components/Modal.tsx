@@ -17,7 +17,7 @@ const Modal = ({
   setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const { t } = useTranslation();
-  const { rules, error } = useRules();
+  const { rules } = useRules();
   const modal = useRef<HTMLDivElement | null>(null);
 
   const links = [
@@ -65,7 +65,7 @@ const Modal = ({
 
   return (
     <>
-      {rules ? (
+      {rules && (
         <AnimatePresence>
           <motion.div
             ref={modal}
@@ -154,10 +154,6 @@ const Modal = ({
             </div>
           </motion.div>
         </AnimatePresence>
-      ) : (
-        <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
-          {error}
-        </div>
       )}
     </>
   );

@@ -5,7 +5,7 @@ import ModalRules from "../header/components/ModalRules";
 import { useRules } from "@/context/RulesProvider";
 
 function FooterMobile() {
-  const { rules, error } = useRules();
+  const { rules } = useRules();
 
   return (
     <footer id="footer" className="py-10 px-5 bg-[#F2F2F2]">
@@ -29,11 +29,6 @@ function FooterMobile() {
               <ModalRules rules={rules} />
             </div>
           )}
-          {error && (
-            <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
-              {error}
-            </div>
-          )}
         </div>
       </div>
       <div className="flex flex-col items-center justify-center">
@@ -45,7 +40,7 @@ function FooterMobile() {
 
 function FooterDesktop() {
   const { t } = useTranslation();
-  const { rules, error } = useRules();
+  const { rules } = useRules();
 
   return (
     <footer
@@ -77,11 +72,6 @@ function FooterDesktop() {
           <div className="flex flex-col gap-3">
             <h3 className="font-bold text-lg">{t("footer.terms")}</h3>
             <ModalRules rules={rules} />
-          </div>
-        )}
-        {error && (
-          <div className="fixed top-30 right-5 bg-red-500 text-white px-4 py-2 rounded-lg shadow-lg">
-            {error}
           </div>
         )}
       </div>
