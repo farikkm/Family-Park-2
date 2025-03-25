@@ -52,7 +52,7 @@
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  filter: blur(130px);
+  filter: blur(170px);
   opacity: 0.7;
 }
 
@@ -83,7 +83,7 @@
 
 @media (min-width: 1330px) {
   .blob-4 {
-    width: 900px;
+    width: 800px;
     height: 500px;
     background: var(--color-sun-500);
     bottom: 120px;

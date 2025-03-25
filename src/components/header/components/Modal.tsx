@@ -112,8 +112,14 @@ const Modal = ({
                 {/* ========================= LINKS ============================ */}
                 <div className="header-menu-links inline-flex flex-col gap-5 text-[#25254C] *:text-3xl *:cursor-pointer mt-5 italic font-bold md:not-italic md:*:text-4xl">
                   {links.map((link) => (
-                    <Link key={link.id} to={link.href} onClick={closeMenu}>
+                    <Link
+                      key={link.id}
+                      to={link.href}
+                      onClick={closeMenu}
+                      className="relative transition-all duration-300 ease-in-out hover:text-[#6A6DBD] hover:scale-105"
+                    >
                       {link.text}
+                      <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#6A6DBD] transition-all duration-300 ease-in-out group-hover:w-full"></span>
                     </Link>
                   ))}
                 </div>
