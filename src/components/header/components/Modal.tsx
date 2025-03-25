@@ -9,6 +9,7 @@ import { SocialMediaIcons } from "@/components/ui/SocialMediaIcons";
 import LINKS from "@/utils/links";
 import ModalRules from "./ModalRules";
 import { useRules } from "@/context/RulesProvider";
+import Background from "@/components/ui/Background";
 
 const Modal = ({
   setIsShowModal,
@@ -75,6 +76,7 @@ const Modal = ({
             exit={{ opacity: 0, left: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
+            <Background />
             {/* //! ========================= HEADING ============================ //! */}
             <div className="modal__heading px-10 py-7 pb-0">
               <div className="flex justify-between items-center">

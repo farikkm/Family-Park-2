@@ -12,11 +12,11 @@
 }
 
 .see-all {
-  @apply inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl 3xl:py-4 3xl:px-5 3xl:text-lg
+  @apply inline-block mt-5 py-2 px-5 text-[#25254C] bg-white rounded-4xl 3xl:py-4 3xl:px-5 3xl:text-lg;
 }
 
 .light-shadow {
-  @apply shadow-[0_3px_10px_rgba(0,0,0,0.5)]
+  @apply shadow-[0_3px_10px_rgba(0,0,0,0.5)];
 }
 
 .slider-arrow-up {
@@ -31,48 +31,113 @@
   --breakpoint-xs: 30rem;
   --breakpoint-2xl: 100rem;
   --breakpoint-3xl: 120rem;
+
+  --color-purple-400: rgba(104, 5, 242, 0.4);
+  --color-purple-900: #6805f2;
+
+  --color-sun-300: rgba(242, 100, 68, 0.3);
+  --color-sun-500: rgba(242, 100, 68, 0.5);
+}
+
+.background-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.blob {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.7;
+}
+
+/* Разные цвета и позиции */
+@media (min-width: 768px) {
+  .blob-1 {
+    width: 600px;
+    height: 500px;
+    background: var(--color-purple-400);
+    top: 200px;
+    left: -400px;
+  }
+}
+
+.blob-2 {
+  background: var(--color-purple-400);
+  bottom: -100px;
+  right: -50px;
+}
+
+.blob-3 {
+  width: 600px;
+  height: 800px;
+  background: var(--color-sun-300);
+  bottom: -600px;
+  left: -100px;
+}
+
+@media (min-width: 1330px) {
+  .blob-4 {
+    width: 900px;
+    height: 500px;
+    background: var(--color-sun-500);
+    bottom: 120px;
+    right: 0px;
+  }
+}
+
+.blob-5 {
+  width: 600px;
+  background: var(--color-purple-400);
+  top: 0px;
+  left: 50px;
 }
 
 /* ======================================================= FONTS =======================================================*/
 
 @font-face {
-  font-family: 'Steppe';
-  src: url('../fonts/Steppe/Steppe-Regular.woff') format('woff');
+  font-family: "Steppe";
+  src: url("../fonts/Steppe/Steppe-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Steppe';
-  src: url('../fonts/Steppe/Steppe-Medium.woff') format('woff');
+  font-family: "Steppe";
+  src: url("../fonts/Steppe/Steppe-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Steppe';
-  src: url('../fonts/Steppe/Steppe-SemiBold.woff') format('woff');
+  font-family: "Steppe";
+  src: url("../fonts/Steppe/Steppe-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Steppe';
-  src: url('../fonts/Steppe/Steppe-Bold.woff') format('woff');
+  font-family: "Steppe";
+  src: url("../fonts/Steppe/Steppe-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Steppe';
-  src: url('../fonts/Steppe/Steppe-ExtraBold.woff') format('woff');
+  font-family: "Steppe";
+  src: url("../fonts/Steppe/Steppe-ExtraBold.woff") format("woff");
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Steppe';
-  src: url('../fonts/Steppe/Steppe-Black.woff') format('woff');
+  font-family: "Steppe";
+  src: url("../fonts/Steppe/Steppe-Black.woff") format("woff");
   font-weight: 900;
   font-style: normal;
 }
@@ -82,7 +147,7 @@ body {
   width: 100%;
   height: 100%;
 
-  font-family: 'Steppe';
+  font-family: "Steppe";
 }
 
 body.lock {
@@ -97,7 +162,8 @@ input:focus {
 
 ::-webkit-scrollbar {
   position: absolute;
-  right: 0; top: 0;
+  right: 0;
+  top: 0;
   height: 100%;
   width: 10px;
 }
@@ -167,8 +233,6 @@ input:focus {
 
 /* ======================================================= MODAL =======================================================*/
 .modal {
-  background: url("../images/background.png") no-repeat center
-    center/cover;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   scroll-behavior: smooth;
 }
@@ -245,7 +309,4 @@ input:focus {
   }
 }
 /* ======================================================= HERO =======================================================*/
-#hero {
-  background: url("../images/background.png") no-repeat center
-    center/cover;
-}
+

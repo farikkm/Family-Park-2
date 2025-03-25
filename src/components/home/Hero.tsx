@@ -1,10 +1,12 @@
 import { useTranslation } from "react-i18next";
+import Background from "../ui/Background";
 
 function Hero() {
   const { t } = useTranslation();
 
   return (
     <>
+      <Background />
       <section
         id="hero"
         className="block md:flex md:gap-30 flex-row-reverse justify-between items-center md:px-20 md:pt-10"

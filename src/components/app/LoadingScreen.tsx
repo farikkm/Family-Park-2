@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import Background from "../ui/Background";
 
 function LoadingScreen() {
   return (
-    <div className="flex justify-center items-center h-screen bg-white">
+    <div className="flex justify-center items-center h-screen">
+      <Background />
       <motion.img
         src="/logo/logo.svg"
         alt="Loading..."
