@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useHttp } from "@/hooks/useHttp";
 import { useTranslation } from "react-i18next";
 import { EventsType } from "@/types";
+import useIntersection from "@/hooks/useIntersection";
 
 const TIME_SHOW_MODAL = 3000;
 
@@ -22,14 +23,17 @@ function EventsSection() {
   const navigate = useNavigate()
   const [errorMessage, setErrorMessage] = useState("");
   const [catalogItems, setCatalogItems] = useState<EventsType[]>([]);
+  
+  const { request, loading } = useHttp();
+  const { isVisible, elementRef } = useIntersection();
 
   const goToEventPage = (id: number) => {
     navigate(getHref(`event/${id}`, location), { state: {id} });
   }
 
-  const { request, loading } = useHttp();
-
   useEffect(() => {
+    if (!isVisible) return;
+
     request("/settings/events-list/", "GET", null, { "Accept-Language": `${i18n.resolvedLanguage}` })
       .then((res: EventsType[]) => {
         setCatalogItems(res);
@@ -42,10 +46,10 @@ function EventsSection() {
           setErrorMessage("");
         }, TIME_SHOW_MODAL);
       });
-  }, [i18n.resolvedLanguage]);
+  }, [i18n.resolvedLanguage, isVisible]);
 
   return (
-    <section id="entartainments" className="relative md:pt-30">
+    <section id="entartainments" ref={elementRef} className="relative md:pt-30">
       {/* Decor */}
       <div className="blue-gradient absolute left-0 top-0 w-full h-90 -z-1" />
       {/* Content */}

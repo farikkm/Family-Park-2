@@ -1,14 +1,15 @@
-import { useHttp } from '@/hooks/useHttp';
-import { CatalogItemsProps } from '@/types';
-import filterByStatus from '@/utils/filterByStatus';
-import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next';
-import Title from '../ui/Title';
-import SeeAllButton from '../ui/SeeAllButton';
-import { ClipLoader } from 'react-spinners';
-import isMobileUtil from '@/utils/isMobile';
-import { SliderMobile } from '../Slider';
-import CatalogItems from '../catalog/CatalogItems';
+import { useHttp } from "@/hooks/useHttp";
+import { CatalogItemsProps } from "@/types";
+import filterByStatus from "@/utils/filterByStatus";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import Title from "../ui/Title";
+import SeeAllButton from "../ui/SeeAllButton";
+import { ClipLoader } from "react-spinners";
+import isMobileUtil from "@/utils/isMobile";
+import { SliderMobile } from "../Slider";
+import CatalogItems from "../catalog/CatalogItems";
+import useIntersection from "@/hooks/useIntersection";
 
 interface SectionWithCatalogItemsType {
   section_id: string;
@@ -18,14 +19,21 @@ interface SectionWithCatalogItemsType {
 
 const TIME_SHOW_MODAL = 3000;
 
-const SectionWithCatalogItems = ({section_id, category_type, background}: SectionWithCatalogItemsType) => {
+const SectionWithCatalogItems = ({
+  section_id,
+  category_type,
+  background,
+}: SectionWithCatalogItemsType) => {
   const { i18n, t } = useTranslation();
   const [errorMessage, setErrorMessage] = useState("");
   const [catalogItems, setCatalogItems] = useState<CatalogItemsProps[]>([]);
 
   const { request, loading } = useHttp();
+  const { isVisible, elementRef } = useIntersection();
 
   useEffect(() => {
+    if (!isVisible) return;
+
     request("/tenats/tenats/", "GET", null)
       .then((res: CatalogItemsProps[]) => {
         const filteredItems = res.filter(
@@ -42,12 +50,14 @@ const SectionWithCatalogItems = ({section_id, category_type, background}: Sectio
           setErrorMessage("");
         }, TIME_SHOW_MODAL);
       });
-  }, [i18n.resolvedLanguage]);
+  }, [i18n.resolvedLanguage, isVisible]);
 
   return (
-    <section id={section_id} className="relative md:pt-30">
+    <section id={section_id} ref={elementRef} className="relative md:pt-30">
       {/* Decor */}
-      <div className={`${background}-gradient absolute left-0 top-0 w-full h-90 -z-1`} />
+      <div
+        className={`${background}-gradient absolute left-0 top-0 w-full h-90 -z-1`}
+      />
       {/* Content */}
       <div className="_container">
         <div className="shops__content py-5 md:py-5 text-white">
@@ -81,6 +91,6 @@ const SectionWithCatalogItems = ({section_id, category_type, background}: Sectio
       </div>
     </section>
   );
-}
+};
 
 export default SectionWithCatalogItems;
