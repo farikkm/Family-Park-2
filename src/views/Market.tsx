@@ -39,8 +39,6 @@ const Market = () => {
         "Accept-Language": `${i18n.resolvedLanguage}`,
       })
         .then((res: CatalogItemsProps) => {
-          console.log(res);
-
           setMarketItem(res);
         })
         .catch(() => {

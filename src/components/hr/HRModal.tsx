@@ -92,7 +92,7 @@ function HRModal() {
 
   const send = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Данные перед отправкой:", JSON.stringify(workerInfo, null, 2));
+
 
     request("/vacancy-send/", "POST", workerInfo)
       .then(() => {
